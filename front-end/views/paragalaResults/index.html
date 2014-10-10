@@ -1,0 +1,1407 @@
+
+{% include 'commons/header.html' %}
+
+<div ng-show="!vm.trimWinner">
+  <accordion close-others="oneAtATime" class="col-sm-8 col-sm-offset-2 main-table">
+    <accordion-group is-open="status.actor">
+      <accordion-heading>
+        Best Television Actor
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.actor, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestActor">
+                <div class="col-sm-12">
+                  <div class="default" ng-cloak>{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.actress">
+      <accordion-heading>
+        Best Television Actress
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.actress, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover table-responsive">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestActress">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.maleChildPerformer">
+      <accordion-heading>
+        Best Male Child Performer
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.maleChildPerformer, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestMaleChildPerformer">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.femaleChildPerformer">
+      <accordion-heading>
+        Best Female Child Performer
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.femaleChildPerformer, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestFemaleChildPerformer">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.teleserye">
+      <accordion-heading>
+        Best Teleserye
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.teleserye, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestTeleserye">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.sitcom">
+      <accordion-heading>
+        Best Sitcom
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.sitcom, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestSitcom">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.gagShow">
+      <accordion-heading>
+        Best Gag Show
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.gagShow, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestGagShow">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.musicalVarietyShow">
+      <accordion-heading>
+        Best Musical Variety Show
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.musicalVarietyShow, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestMusicalVarietyShow">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.talkShow">
+      <accordion-heading>
+        Best Talk Show
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.talkShow, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestTalkShow">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.talkShowHost">
+      <accordion-heading>
+        Best Talk Show Host
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.talkShowHost, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestTalkShowHost">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.entertainmentNewsProgram">
+      <accordion-heading>
+        Best Entertainment News Program
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.entertainmentNewsProgram, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestEntertainmentNewsProgram">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.entertainmentNewsProgramHost">
+      <accordion-heading>
+        Best Entertainment News Program Host
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.entertainmentNewsProgramHost, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestEntertainmentNewsProgramHost">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.varietyShow">
+      <accordion-heading>
+        Best Variety Show
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.varietyShow, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestVarietyShow">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.varietyShowHost">
+      <accordion-heading>
+        Best Variety Show Host
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.varietyShowHost, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestVarietyShowHost">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.gameShow">
+      <accordion-heading>
+        Best Game Show
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.gameShow, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestGameShow">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.gameShowHost">
+      <accordion-heading>
+        Best Game Show Host
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.gameShowHost, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestGameShowHost">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.dramaAnthology">
+      <accordion-heading>
+        Best Drama Anthology
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.dramaAnthology, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th></th>
+              <th ng-repeat="item in vm.data.bestDramaAnthology">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.morningShow">
+      <accordion-heading>
+        Best Morning Show
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.morningShow, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestMorningShow">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.morningShowHost">
+      <accordion-heading>
+        Best Morning Show
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.morningShowHost, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th></th>
+              <th ng-repeat="item in vm.data.bestMorningShowHost">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.newsProgram">
+      <accordion-heading>
+        Best News Program
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.newsProgram, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestNewsProgram">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.newsProgramMaleAnchor">
+      <accordion-heading>
+        Best News Program Male Anchor
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.newsProgramMaleAnchor, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestNewsProgramMaleAnchor">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.newsProgramFemaleAnchor">
+      <accordion-heading>
+        Best News Program Female Anchor
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.newsProgramFemaleAnchor, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestNewsProgramFemaleAnchor">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.publicAffairsTalkShow">
+      <accordion-heading>
+        Best Public Affairs Talk Show
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.publicAffairsTalkShow, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th></th>
+              <th ng-repeat="item in vm.data.bestNewsPublicAffairsTalkShow">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.magazineShow">
+      <accordion-heading>
+        Best Magazine Show
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.magazineShow, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestMagazineShow">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.magazineShowHost">
+      <accordion-heading>
+        Best Magazine Show Host
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.magazineShowHost, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestMagazineShowHost">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.investigativeShow">
+      <accordion-heading>
+        Best Investigative Show
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.investigativeShow, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestInvestigativeShow">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.educationShow">
+      <accordion-heading>
+        Best Educational Show
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.educationShow, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestEducationShow">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.documentaryShow">
+      <accordion-heading>
+        Best Documentary Show
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.documentaryShow, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestDocumentaryShow">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.localTVStation">
+      <accordion-heading>
+        Best Local TV Station
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.localTVStation, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestLocalTVStation">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.TVStation">
+      <accordion-heading>
+        Best TV Station
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.TVStation, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="item in vm.data.bestTVStation">
+                <div class="col-sm-12">
+                  <div class="default">{{item.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{item.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+  </accordion>
+</div>
+
+
+{# Who Wins #}
+<div class="main-table" ng-cloak ng-show="vm.trimWinner">
+  <accordion close-others="oneAtATime" class="col-sm-6">
+    <accordion-group is-open="status.actor">
+      <accordion-heading>
+        Best Television Actor
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.actor, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th ng-repeat="actor in vm.actors" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default" ng-cloak>{{actor.actor.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{actor.actor.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.actress">
+      <accordion-heading>
+        Best Television Actress
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.actress, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover table-responsive">
+          <thead>
+            <tr>
+              <th ng-repeat="actress in vm.actresses" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{actress.actress.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{actress.actress.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.maleChildPerformer">
+      <accordion-heading>
+        Best Male Child Performer
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.maleChildPerformer, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <th ng-repeat="maleChildPerformer in vm.maleChildPerformers" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{maleChildPerformer.maleChildPerformer.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{maleChildPerformer.maleChildPerformer.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.femaleChildPerformer">
+      <accordion-heading>
+        Best Female Child Performer
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.femaleChildPerformer, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="femaleChildPerformer in vm.femaleChildPerformers" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{femaleChildPerformer.femaleChildPerformer.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{femaleChildPerformer.femaleChildPerformer.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.teleserye">
+      <accordion-heading>
+        Best Teleserye
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.teleserye, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="teleserye in vm.teleseryes" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{teleserye.teleserye.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{teleserye.teleserye.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.sitcom">
+      <accordion-heading>
+        Best Sitcom
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.sitcom, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="sitCom in vm.sitComs" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{sitCom.sitCom.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{sitCom.sitCom.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.gagShow">
+      <accordion-heading>
+        Best Gag Show
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.gagShow, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="gagShow in vm.gagShows" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{gagShow.gagShow.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{gagShow.gagShow.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.musicalVarietyShow">
+      <accordion-heading>
+        Best Musical Variety Show
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.musicalVarietyShow, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="musicalVarietyShow in vm.musicalVarietyShows" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{musicalVarietyShow.musicalVarietyShow.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{musicalVarietyShow.musicalVarietyShow.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.talkShow">
+      <accordion-heading>
+        Best Talk Show
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.talkShow, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="talkShow in vm.talkShows" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{talkShow.talkShow.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{talkShow.talkShow.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.talkShowHost">
+      <accordion-heading>
+        Best Talk Show Host
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.talkShowHost, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="talkShowHost in vm.talkShowHosts" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{talkShowHost.talkShowHost.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{talkShowHost.talkShowHost.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.entertainmentNewsProgram">
+      <accordion-heading>
+        Best Entertainment News Program
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.entertainmentNewsProgram, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="entertainmentNewsProgram in vm.entertainmentNewsPrograms" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{entertainmentNewsProgram.entertainmentNewsProgram.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{entertainmentNewsProgram.entertainmentNewsProgram.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.entertainmentNewsProgramHost">
+      <accordion-heading>
+        Best Entertainment News Program Host
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.entertainmentNewsProgramHost, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="entertainmentNewsProgramHost in vm.entertainmentNewsProgramHosts" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{entertainmentNewsProgramHost.entertainmentNewsProgramHost.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{entertainmentNewsProgramHost.entertainmentNewsProgramHost.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.varietyShow">
+      <accordion-heading>
+        Best Variety Show
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.varietyShow, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="varietyShow in vm.varietyShows" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{varietyShow.varietyShow.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{varietyShow.varietyShow.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.varietyShowHost">
+      <accordion-heading>
+        Best Variety Show Host
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.varietyShowHost, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="varietyShowHost in vm.varietyShowHosts" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{varietyShowHost.varietyShowHost.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{varietyShowHost.varietyShowHost.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.gameShow">
+      <accordion-heading>
+        Best Game Show
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.gameShow, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th  ng-repeat="gameShow in vm.gameShows" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{gameShow.gameShow.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{gameShow.gameShow.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+  </accordion>
+</div>
+
+
+{# Who Wins #}
+<div  class="main-table" ng-show="vm.trimWinner">
+  <accordion close-others="oneAtATime" class="col-sm-6">
+
+   <accordion-group is-open="status.gameShowHost">
+      <accordion-heading>
+        Best Game Show Host
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.gameShowHost, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="gameShowHost in vm.gameShowHosts" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{gameShowHost.gameShowHost.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{gameShowHost.gameShowHost.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.dramaAnthology">
+      <accordion-heading>
+        Best Drama Anthology
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.dramaAnthology, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th></th>
+              <th ng-repeat="dramaAnthology in vm.dramaAnthologies" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{dramaAnthology.dramaAnthology.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{dramaAnthology.dramaAnthology.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.morningShow">
+      <accordion-heading>
+        Best Morning Show
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.morningShow, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="morningShow in vm.morningShows" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{morningShow.morningShow.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{morningShow.morningShow.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.morningShowHost">
+      <accordion-heading>
+        Best Morning Show
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.morningShowHost, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th></th>
+              <th ng-repeat="morningShowHost in vm.morningShowHosts" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{morningShowHost.morningShowHost.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{morningShowHost.morningShowHost.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.newsProgram">
+      <accordion-heading>
+        Best News Program
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.newsProgram, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="newsProgram in vm.newsPrograms" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{newsProgram.newsProgram.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{newsProgram.newsProgram.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.newsProgramMaleAnchor">
+      <accordion-heading>
+        Best News Program Male Anchor
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.newsProgramMaleAnchor, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="newsProgramMaleAnchor in vm.newsProgramMaleAnchors" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{newsProgramMaleAnchor.newsProgramMaleAnchor.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{newsProgramMaleAnchor.newsProgramMaleAnchor.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.newsProgramFemaleAnchor">
+      <accordion-heading>
+        Best News Program Female Anchor
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.newsProgramFemaleAnchor, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="newsProgramFemaleAnchor in vm.newsProgramFemaleAnchors" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{newsProgramFemaleAnchor.newsProgramFemaleAnchor.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{newsProgramFemaleAnchor.newsProgramFemaleAnchor.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.publicAffairsTalkShow">
+      <accordion-heading>
+        Best Public Affairs Talk Show
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.publicAffairsTalkShow, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th></th>
+              <th ng-repeat="publicAffairsTalkShow in vm.publicAffairsTalkShows" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{publicAffairsTalkShow.publicAffairsTalkShow.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{publicAffairsTalkShow.publicAffairsTalkShow.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.magazineShow">
+      <accordion-heading>
+        Best Magazine Show
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.magazineShow, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="magazineShow in vm.magazineShows" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{magazineShow.magazineShow.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{magazineShow.magazineShow.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.magazineShowHost">
+      <accordion-heading>
+        Best Magazine Show Host
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.magazineShowHost, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="magazineShowHost in vm.magazineShowHosts" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{magazineShowHost.magazineShowHost.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{magazineShowHost.magazineShowHost.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.investigativeShow">
+      <accordion-heading>
+        Best Investigative Show
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.investigativeShow, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="investigativeShow in vm.investigativeShows" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{investigativeShow.investigativeShow.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{investigativeShow.investigativeShow.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.educationShow">
+      <accordion-heading>
+        Best Educational Show
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.educationShow, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="educationalShow in vm.educationalShows" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{educationalShow.educationalShow.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{educationalShow.educationalShow.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.documentaryShow">
+      <accordion-heading>
+        Best Documentary Show
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.documentaryShow, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="documentaryShow in vm.documentaryShows" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{documentaryShow.documentaryShow.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{documentaryShow.documentaryShow.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.localTVStation">
+      <accordion-heading>
+        Best Local TV Station
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.localTVStation, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="localTVStation in vm.localTVStations" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{localTVStation.localTVStation.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{localTVStation.localTVStation.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+    <accordion-group is-open="status.TVStation">
+      <accordion-heading>
+        Best TV Station
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.TVStation, 'glyphicon-chevron-right': !status.open}"/>
+      </accordion-heading>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="TVStation in vm.TVStations" class='text-center'>
+                <div class="col-sm-12">
+                  <div class="default">{{TVStation.TVStation.name}}</div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="main">{{TVStation.TVStation.count}}</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </accordion-group>
+
+  </accordion>
+</div>

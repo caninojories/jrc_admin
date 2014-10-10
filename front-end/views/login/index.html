@@ -1,0 +1,64 @@
+{% if user %}
+  <div class="modal-content col-sm-6 col-sm-offset-3" style='margin-top: 10%'>
+    <div class="modal-header list-group-item-default">
+      <h4 class="modal-title">
+        <label class="control-label">Warning...</label>
+      </h4>
+    </div>
+    <div class="modal-body info list-group-item-warning">
+      <ul>
+        <li>
+          <label class="control-label">You are currently Sign-in OR</label>
+        </li>
+        <li>
+          <label class="control-label">You don't have an Access Rights for this Content <$ user $></label>
+        </li>
+      </ul>
+    </div>
+    <div class="modal-footer"><a href="#/dashboard" data-dismiss="modal" class="btn btn-success">Redirect to Dashboard</a></div>
+  </div>
+{% else %}
+  <div class='container' ng-cloak class="ng-cloak">
+    <div class='col-sm-6 col-sm-offset-3 modal-body'>
+      <h1>
+        <span class='fa fa-sign-in'>
+          Login
+        </span>
+        <div class='alert alert-danger' ng-show='error' ng-model='valid'>
+          {{valid}}
+        </div>
+      </h1>
+      <form name="loginForm" novalidate="novalidate">
+        <div ng-class="{ 'has-error' : loginForm.email.$invalid &amp;&amp; !loginForm.email.$pristine &amp;&amp; submitted}" class="form-group">
+          <label>Email</label>
+          <input type="email" ng-model="email" name="email" ng-minlength="0" required="required" class="form-control"/>
+          <h5>
+            <div ng-show="loginForm.email.$error.required &amp;&amp; submitted" class="label label-danger">Email is required</div>
+            <div ng-show="loginForm.email.$invalid &amp;&amp; !loginForm.email.$pristine &amp;&amp; submitted &amp;&amp; !loginForm.email.$error.required" class="label label-danger">Please Enter a Valid Email Address</div>
+          </h5>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" ng-model="password" name="password" required="required" ng-minlength="8" ng-maxlength="15" class="form-control"/>
+          <h5>
+            <div ng-show="loginForm.password.$error.required &amp;&amp; submitted" class="label label-danger">Password is Required</div>
+            <div ng-show="loginForm.password.$error.minlength &amp;&amp; submitted" class="label label-danger">Password too Short</div>
+            <div ng-show="loginForm.password.$error.maxlength &amp;&amp; submitted" class="label label-danger">Password too Long</div>
+          </h5>
+        </div>
+        <main-login></main-login>
+      </form>
+    </div>
+    <div class="col-sm-6 col-sm-offset-3 modal-footer">
+      <div class="form-group">
+        <a href="#/dashboard">
+          <button class="btn btn-info btn-xs">
+            Go back to Dashboard
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+

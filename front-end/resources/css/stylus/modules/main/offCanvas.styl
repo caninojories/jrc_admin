@@ -1,0 +1,42 @@
+
+.offCanvas-container {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 40%;
+	height: 100%;
+	z-index: 1;
+	background-color:rgba(77,92,135,0.8);
+	.offCanvas-content {
+		position: relative;
+		top: 200px;
+		z-index: 2;
+	}
+	.fa-bars {
+		position: relative;
+		left: 0px;
+		padding: 10px;
+		color: #fff;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
+
+
+.is-hide {
+	margin-left: -40%;
+	opacity: 0;
+	z-index: -1;
+	transition: all 1s ease-in;
+}
+
+.is-show {
+	width: 300px;
+	margin-right: 0px;
+	transition: all 1s ease-in;
+}
+
+.offCanvasLogin {
+	margin-top: 10px;
+}

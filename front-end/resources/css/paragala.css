@@ -1,0 +1,140 @@
+/*Universal*/
+/*
+ *@Author - Mike Biscante
+ *@Organization - Code Geeks
+ */
+a, a:active, a:focus {
+  text-decoration: none;
+  outline-style: none;
+}
+
+a:hover {
+  opacity: 0.9;
+}
+
+#carousel-bis-generic {
+  height: 100vh;
+}
+
+#carousel-bis-generic .item img.img-responsive {
+  width: 100%;
+  height: 100vh;
+}
+
+form.form-bis-generic {
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  margin-right: -100px;
+  margin-left: -100px;
+  margin-bottom: 100px;
+  text-align: center;
+  color: #fff;
+  z-index: 1012;
+}
+
+form.form-bis-generic .form-group {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+}
+
+form.form-bis-generic .form-control:focus {
+  border-color: #66E980;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(112, 233, 102, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(112, 233, 102, 0.6);
+}
+
+form.form-bis-generic .submit-btn {
+  background-color: rgb(18, 168, 42);
+  color: #fff;
+  font-weight: 700;
+  border-color: #4CC447;
+  width: 200px;
+  transition: all .3s ease;
+ }
+
+form.form-bis-generic .submit-btn:focus,
+form.form-bis-generic .submit-btn:hover  {
+  border-color: #29A524;
+  outline-style: none;
+  background-color: #1F811B;
+ }
+
+.logo {
+  position: absolute;
+  max-height: 150px;
+  background-image: none;
+  z-index: 1012;
+ }
+
+#slideshow-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(58, 60, 58, 0.38));
+  z-index: 1011;
+ }
+
+#myModal .modal-header h3 {
+  text-transform: uppercase;
+  color: rgb(236, 57, 57);
+  font-weight: 700;
+}
+
+#myModal .modal-header .close {
+  color: rgb(236, 57, 57);
+  font-size: 45px;
+  outline-style: none;
+  opacity: .7;
+  transition: all .3s ease;
+}
+
+#myModal .modal-header .close:hover {
+  opacity: 8;
+}
+
+#myModal .modal-body h3 {
+  text-transform: uppercase;
+  color: rgb(236, 57, 57);
+  font-weight: 700;
+}
+
+#myModal .modal-body ul li{
+  list-style:circle;
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-left: 20px;
+  color: rgb(252, 64, 64);
+}
+
+#myModal .btn-default {
+  background-color: rgb(18, 168, 42);
+  color: #fff;
+  font-weight: 700;
+  border-color: #4CC447;
+  width: 150px;
+  transition: all .3s ease;
+ }
+
+#myModal .btn-default:focus,
+#myModal .btn-default:hover  {
+  border-color: #29A524;
+  text-decoration: none;
+  outline-style: none;
+  background-color: #1F811B;
+ }
+
+#myModal .modal-body img {
+  margin-top: 50%;
+}
+
+#myModal .modal-body h4 {
+  margin-top: 50px;
+  margin-bottom: -20px;
+  color: rgb(26, 159, 25);
+}

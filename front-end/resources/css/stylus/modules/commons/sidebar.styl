@@ -1,0 +1,117 @@
+/*
+ * Sidebar css
+ **/
+#wrapper.sidebarOn
+  width: 100%
+  padding-left: 150px
+  padding-top: 50px
+  margin: 0px
+  transition: padding-left 0.5s ease-in-out
+  #sidebar-wrapper
+    position: fixed
+    left: 0
+    width: 150px
+    height: 100%
+    background: #2a3542
+    z-index: 1
+    transition: all 0.5s ease-in-out
+    #sidebarOnandOff
+      position: relative
+      top: -5px
+      float: right
+      font-size: 30px
+      padding-top: 10px
+      padding-right: 10px
+      a
+        color: #fff
+    .sidebar-nav
+      position: absolute
+      top:  50px
+      width:  150px
+      padding: 0px
+      list-style: none
+      transition: all 0.5s ease-in-out
+      li
+        font-size: 12px
+        padding: 10px
+        border-top-left-radius: 10px
+        box-shadow: 10px 0 5px #111111
+        transition: all 0.5s ease-in-out
+        a
+          display: flex
+          color: #aeb2b7
+          text-decoration: none
+          .icon-hide
+            padding-left: 10px
+        &:hover
+          background: #31708f
+          cursor: pointer
+          a
+            color:  #fff
+
+
+#wrapper.sidebarOff
+  width: 100%
+  padding-left: 40px
+  padding-top: 50px
+  padding-right: 400px
+  margin: 0px
+  transition: padding-left 0.5s ease-in-out
+  #sidebar-wrapper
+    position: fixed
+    left: 0
+    width: 40px
+    height: 100%
+    background: #2a3542
+    transition: all 0.5s ease-in-out
+    #sidebarOnandOff
+      position: relative
+      top: -5px
+      float: right
+      font-size: 30px
+      padding-top: 10px
+      padding-right: 10px
+      a
+        color: #fff
+    .sidebar-nav
+      position: absolute
+      top:  40px
+      width:  40px
+      padding: 0px
+      list-style: none
+      overflow: hidden
+      transition: all 0.5s ease-in-out
+      li
+        font-size: 15px
+        padding: 10px
+        // [horizontal offset] [vertical offset] [blur radius] [color]
+        //box-shadow: 10px 0 5px #111111
+        a
+          color: #aeb2b7
+          text-decoration: none
+          text-transform: uppercase
+          i
+            font-size: 12px
+            font-weight: bolder
+            font-smooth: antialiased
+          .icon-hide
+            display: none
+            word-wrap: no-wrap
+            transition: all 0.5s ease-in-out
+        &:hover
+          background: #31708f
+          cursor: pointer
+          a
+            color:  #fff
+
+
+.mainContent
+  .container-fluid
+    .row
+      h4 i
+        font-weight: 700
+        padding-left: 10px
+        text-decoration: underline
+      .jumbotron
+        ul, li
+          list-style-type: none

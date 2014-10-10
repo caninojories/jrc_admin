@@ -1,0 +1,44 @@
+{% include 'commons/header.html' %}
+<div class="container-fluid studentAccount">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-6 col-sm-offset-1 col-md-offset-1 col-lg-offset-3 add-student-alert">
+      <div ng-show="vm.isAlreadyRegistered" ng-model="vm.alreadyRegistered" class="alert alert-danger">
+        <h3># {{vm.studentNumber}} is already Registered</h3>
+      </div>
+      <div ng-show="vm.notYetVoted" ng-model="vm.successRegistered" class="alert alert-success">
+        <h3>Successfully Registered the # {{vm.studentNumber}}</h3>
+      </div>
+      <div id="page-login" class="panel panel-default">
+        <div class="panel-heading">
+          <h4>Register Student Account
+          </h4>
+        </div>
+        <div class="panel-body"><br/>
+          <form name="studentForm" class="form-horizontal" novalidate>
+            <div class="form-group">
+              <label class="col-xs-12 col-sm-3 col-md-3 col-lg-4 control-label">Enter the Designated No.:</label>
+              <div class="col-xs-12 col-sm-9 col-md-9 col-lg-8 pull-right">
+                <input id='SN' ng-model="vm.SN" name='SN' type="number" placeholder="1048854" required="required" ng-minlength="3" class="form-control" style='font-weight:900'/>
+              </div>
+              <h5>
+                <div ng-if="studentForm.SN.$error.number &amp;&amp; vm.submitted" class="label label-danger">
+                  Opps!! you've Entered a non-number.
+                </div>
+                <div ng-if="studentForm.SN.$error.minlength &amp;&amp; vm.submitted" class="label label-danger">
+                  Student Number is too short
+                </div>
+              </h5>
+            </div><br/>
+            <div class="form-group">
+              <label class="col-xs-12 col-sm-3 col-md-3 col-lg-2 control-label"></label>
+              <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 pull-right text-right">
+                <button clear-input ng-click="vm.addStudent( studentForm.$valid, vm.SN)" class="btn btn-success btn-sm">Add Student</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% include 'commons/footer.html' %}
+</div>

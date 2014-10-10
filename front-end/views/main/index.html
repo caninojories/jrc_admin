@@ -1,0 +1,88 @@
+<div class="site-wrapper" style="background-image: url(/img/coverphoto.png); color: #fff;">
+    <div class="site-wrapper-inner">
+      <div class="cover-container">
+
+        <div class="masthead clearfix">
+          <div class="inner">
+            <h3 class="masthead-brand">Cover</h3>
+            <ul class="nav masthead-nav">
+              <li class="active">
+                <a href="#" id='offCanvasInitiate'>
+                  Sign-in
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class='offCanvas-container is-hide'>
+          <i class="fa fa-bars fa-2x pull-left offCanvas-close"></i>
+          <div class='offCanvas-inner'>
+
+            <div class='offCanvas-content'>
+              <div class='offCanvas-login'>
+                <div class='alert alert-danger' ng-show='error' ng-model='valid'>
+                  {{valid}}
+                </div>
+              </div>
+              <form name="loginForm" novalidate="novalidate" class='offCanvasForm'>
+                <div ng-class="{ 'has-error' : loginForm.email.$invalid &amp;&amp; !loginForm.email.$pristine &amp;&amp; submitted}" class="form-group">
+                  <div class='col-sm-12'>
+                    <label>Email</label>
+                    <input type="email" ng-model="email" name="email" ng-minlength="0" required="required" class="form-control"/>
+                    <h5>
+                      <div ng-show="loginForm.email.$error.required &amp;&amp; submitted" class="label label-danger">
+                        Email is required
+                      </div>
+                      <div ng-show="loginForm.email.$invalid &amp;&amp; !loginForm.email.$pristine &amp;&amp; submitted &amp;&amp; !loginForm.email.$error.required" class="label label-danger">
+                        Please Enter a Valid Email Address
+                      </div>
+                    </h5>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class='col-sm-12'>
+                    <label>Password</label>
+                    <input type="password" ng-model="password" name="password" required="required" ng-minlength="6" ng-maxlength="15" class="form-control"/>
+                    <h5>
+                      <div ng-show="loginForm.password.$error.required &amp;&amp; submitted" class="label label-danger">
+                        Password is Required
+                      </div>
+                      <div ng-show="loginForm.password.$error.minlength &amp;&amp; submitted" class="label label-danger">
+                        Password too Short
+                      </div>
+                      <div ng-show="loginForm.password.$error.maxlength &amp;&amp; submitted" class="label label-danger">
+                        Password too Long
+                      </div>
+                    </h5>
+                  </div>
+                </div>
+              </form>
+
+              <div class="col-sm-12 offCanvasLogin">
+                <div class="form-group">
+                  <main-login class='pull-right'></main-login>
+                </div>
+              </div>
+
+            </div><!--end offCanvas-content -->
+          </div><!--end offCanvas-inner -->
+        </div><!--end offCanvas-container -->
+
+        <div class="inner cover">
+          <h1 class="cover-heading">Cover your page.</h1>
+          <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+          <p class="lead">
+            <a href="#" class="btn btn-lg btn-default">Learn more</a>
+          </p>
+        </div>
+
+        <div class="mastfoot">
+          <div class="inner">
+            <p>Copyright 2014 © TORO Commerce - UI-Kit. All rights reserved.</p>
+          </div>
+        </div>
+
+      </div><!-- end of .cover-container -->
+    </div><!-- end of .site-wrapper-inner -->
+  </div>

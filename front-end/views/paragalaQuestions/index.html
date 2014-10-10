@@ -1,0 +1,116 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-8 col-xs-offset-2"><a href="https://www.facebook.com/paragalamediaawards" target="_blank"><img src="img/paragala/paragala.png" alt="Paragala Logo" class="img-responsive"/></a></div>
+        </div>
+      </div>
+    </header>
+    <div class="heading-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <p>The<strong> COMMUNICATIONS' LEAGUE</strong> is the official organization of the Bachelor of Arts in Communication of Holy Angel University. The biggest event that organization holds is the<strong> PARAGALA: THE CENTRAL LUZON MEDIA AWARDS.</strong> This Year, PARAGALA will be on its second year and it aims to give recognation to the best media personalities, shows and TV station which are being aired throughout Central Luzon and in National Television.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h3 class="text-center">{{vm.header}}</h3>
+    {% include 'paragalaQuestions/pagination.html' %}
+    <div class="pull-right">
+      <div class="col-sm-12">
+        <Not>Yet Want to Vote? Please Logout</Not>
+      </div>
+      <div class="col-sm-12">
+        <button class="btn btn-success btn-xs" ng-click="vm.studentLogout()">
+          <i class="fa fa-signin"></i>
+          {# ng-click="vm.studentLogout()" #}
+          &nbsp;Student Logout
+        </button>
+      </div>
+    </div>
+    <div class="container pager">
+      <div class="row">
+        <ul class="pagination">
+          <button id="one" type="button" class="btn btn-default active"><a>1</a></button>
+          <button id="two" type="button" ng-disabled="vm.one" ng-click="vm.counter( 'ENTERTAINMENT PROGRAMS' )" class="btn btn-default"><a>2</a></button>
+          <button id="three" type="button" ng-disabled="vm.two" ng-click="vm.counter( 'ENTERTAINMENT PROGRAMS' )" class="btn btn-default"><a>3</a></button>
+          <button id="four" type="button" ng-disabled="vm.three" ng-click="vm.counter( 'ENTERTAINMENT PROGRAMS' )" class="btn btn-default"><a>4</a></button>
+          <button id="five" type="button" ng-disabled="vm.four" ng-click="vm.counter( 'NEWS PROGRAMS' )" class="btn btn-default"><a>5</a></button>
+          <button id="six" type="button" ng-disabled="vm.five" ng-click="vm.counter( 'NEWS PROGRAMS' )" class="btn btn-default"><a>6</a></button>
+          <button id="seven" type="button" ng-disabled="vm.six" ng-click="vm.counter( 'NEWS PROGRAMS' )" class="btn btn-default"><a>7</a></button>
+          <button id="eight" type="button" ng-disabled="vm.seven" ng-click="vm.counter( 'TELEVISION STATIONS' )" class="btn btn-default"><a>8</a></button>
+          <question-submit></question-submit>
+
+        </ul>
+      </div>
+    </div>
+    <footer class='paragala-questions'>
+      <div class="container-fluid">
+        <div class='row'>
+          <div class='col-sm-3 poweredBy' >
+            <span><i class="fa fa-coffee fa-2x"></i> Powered BY </span>
+            <ul>
+              <li>
+                <img src="/img/paragala/codegeeks.png" alt="Paragala Logo" class="img-responsive hau"/>
+              </li>
+              <li style="margin-top:30px">
+                <img src="/img/paragala/coml.png" alt="Paragala Logo" class="img-responsive hau"/>
+              </li>
+              <li>
+                <img src="/img/paragala/loop_2.png" alt="Paragala Logo" class="img-responsive hau"/>
+              </li>
+            </ul>
+          </div>
+          <div class='col-sm-6 main'>
+            <ul>
+              <li>
+                <img src="/img/paragala/paragala-logo.png" alt="Paragala Logo" class="img-responsive paragalaHau"/>
+              </li>
+              <li>
+                <img src="/img/paragala/HAU_logo.png" alt="Paragala Logo" class="img-responsive hau"/>
+              </li>
+              <li>
+                <img src="/img/paragala/cict-logo.png" alt="Paragala Logo" class="img-responsive hau"/>
+              </li>
+            </ul>
+          </div>
+          <div class='col-sm-3 developers'>
+            <span><i class="fa fa-laptop fa-2x"></i> Developers </span>
+            <ul>
+              <li>
+                <a href="https://www.facebook.com/canino.jories">
+                  <i class="fa fa-fire"/> Jo-Ries Canino
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/mikhael12bis" target="_blank">
+                  <i class="fa fa-fire"/> Michael Biscante
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/gensler.manalastas" target="_blank">
+                  <i class="fa fa-fire"/> Gensler Manalastas
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/renamil02" target="_blank">
+                  <i class="fa fa-fire"/> Lorena Dayrit
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="footer">
+      <div class="container">
+        <div class="row text-center">
+          <Copyright> 2014 © PARAGALA - COMMUNICATIONS' LEAGUE. All rights reserved.</Copyright>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="databaseMainContent">
+  <div class="container-fluid">
+    <div class="row">
+      <div class='row'>
+        <div class="col-sm-4 col-xs-6 pull-right" style="padding-top: 10px;margin-right: 10px;">
+          <div class="input-group">
+            <input type="text" class="form-control" ng-model="newDbName">
+            <span class="input-group-btn">
+              <add-button></add-button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <bread-crumbs></bread-crumbs>
+
+    <div class="row" ng-if='!vm.showAce'>
+      <div class="col-sm-12">
+        <table class="table table-hover default">
+          <tbody>
+            <tr ng-repeat="item in vm.database | filter:newDbName">
+              <td>
+                <h4><a href="#/{{item.details}}">{{item.name}}</a></h4>
+              </td>
+              <td>
+                <button class='btn btn-danger btn-xs pull-right' ng-click='vm.removeDb(item)'>
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row" ng-if='vm.showAce'>
+      <div class="col-sm-9">
+        <div ui-ace="{onLoad: vm.aceLoaded, onChange: aceChanged, theme:'twilight'}" ng-model="vm.database"></div>
+      </div>
+      <div ng-if="!bool" class="col-sm-3">
+        <button class = 'btn btn-success' ng-click = 'vm.saveDocument(vm.database)'>
+          Save
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
