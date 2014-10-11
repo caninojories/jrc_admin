@@ -49,7 +49,9 @@
         function getDatabaseData() {
             return dataserviceDatabase.getAdminDatabase( vm.route ).then(function( data ) {
               if ($stateParams['id'] ) {
+
                 vm.database = JSON.stringify( Restangular.stripRestangular( data ), null, 2 )
+                console.log( vm.database )
                 vm.showAce = true;
               } else {
                 console.log( data );

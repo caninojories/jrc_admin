@@ -21,7 +21,7 @@
           <tbody>
             <tr ng-repeat="item in vm.database | filter:newDbName">
               <td>
-                <h4><a href="#/{{item.details}}">{{item.name}}</a></h4>
+                <h4><a href="/{{item.url}}">{{item.name}}</a></h4>
               </td>
               <td>
                 <button class='btn btn-danger btn-xs pull-right' ng-click='vm.removeDb(item)'>

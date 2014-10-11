@@ -3,9 +3,9 @@
   var express   = require('express')
   var router    = express.Router();
   var app       = express();
-  var getDb 		= require('../../restApi/GET');
-  var deleteDb 	= require('../../restApi/DELETE');
-  var postDb 	  = require('../../restApi/POST');
+  var getDb 		= require('../mongoDb/getIndex.js');
+  // var deleteDb 	= require('../../restApi/DELETE');
+  // var postDb 	  = require('../../restApi/POST');
 
   router.use(function timeLog( req, res, next) {
     console.log( 'Time: ', Date.now() );
@@ -14,21 +14,21 @@
 
   app.route( "/dbs" )
       .get( getDb.dbs )
-      .post( postDb.db )
-      .delete( deleteDb.db )
+      //.post( postDb.db )
+      //.delete( deleteDb.db )
 
-  app.route( "/db/:collection" )
+  app.route( "/db/:db" )
       .get( getDb.collections )
-      .post( postDb.collections )
-      .delete( deleteDb.collections )
+      //.post( postDb.collections )
+      //.delete( deleteDb.collections )
 
   app.route( "/db/:db/:collection" )
       .get( getDb.listDocuments )
-      .post( postDb.documents )
-      .delete( deleteDb.documents )
+      //.post( postDb.documents )
+      //.delete( deleteDb.documents )
 
   app.route( "/db/:db/:collection/:id" )
       .get( getDb.document )
-      .post( postDb.doc )
+      //.post( postDb.doc )
 
   module.exports = app;

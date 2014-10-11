@@ -6,13 +6,7 @@ var Promise = require('bluebird');
 var bodyParser = Promise.promisify(require('body-parser').json());
 
 
-exports.db = function ( dbName, next ) {
-  var db  = require( 'promised-mongo' )( process.env.MONGODB || 'mongodb://localhost:27017/admin');
+exports.db = function ( dbName ) {
+  var db  = require( 'promised-mongo' )( process.env.MONGODB || 'mongodb://localhost:27017/' + dbName );
   return db;
 }
-
-// function params( req, res ) {
-//   return bodyParser( req, res ) {
-//     return _.merge({}, req.query, req.params, req.body);
-//   }
-// }

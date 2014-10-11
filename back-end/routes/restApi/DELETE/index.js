@@ -4,7 +4,7 @@
   var _     = require('underscore')._
 
   //list of all databases
-  exports.db = function(req,res){
+  exports.dbs = function(req,res){
     var dbName = req.query.name
     console.log('DBNAME: ' + dbName)
     if(!dbName) throw {error : "Need a db to delete"}

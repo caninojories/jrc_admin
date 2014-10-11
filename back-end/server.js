@@ -7,8 +7,8 @@ var express     = require('express'),
     cluster     = require('cluster'),
     numCPUs     = require('os').cpus().length,
 
+    api         = require('./routes/restApi/api'),
     login       = require('./routes/clientRoutes/main'),
-    api         = require('./routes/clientRoutes/api'),
     database    = require('./routes/clientRoutes/database'),
     paragala    = require('./routes/clientRoutes/paragala'),
     catchAll    = require('./routes/clientRoutes/all');
