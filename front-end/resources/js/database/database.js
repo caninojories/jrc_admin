@@ -78,8 +78,8 @@
             if( dbName && dbexisted ) {
                 var newDb = ({name : dbName});
                 DatabaseService.all( vm.route ).post( newDb )
-                _.extend($rootScope, $routeParams);
-                vm.database.push({name : dbName, details : $location.path().slice(1) + '/' + dbName })
+                _.extend($rootScope, $stateParams);
+                vm.database.push({name : dbName, url : $location.path().slice(1) + '/' + dbName })
             }
         }
 

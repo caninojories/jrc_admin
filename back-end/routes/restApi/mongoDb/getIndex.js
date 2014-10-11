@@ -1,12 +1,9 @@
   "use strict";
 
-  var mongo = require('../../../configuration/mongodb')
-  var mongodb = require('mongodb')
-  var ObjectId = require('mongodb').ObjectID
-  var _     = require('underscore')._
-  var util  = require('util')
-  var url = require('url');
-  var fs = require('fs');
+  var mongo     = require('../../../configuration/mongodb'),
+      ObjectId  = require('mongodb').ObjectID,
+      _         = require('underscore')._,
+      url       = require('url');
 
   exports.dbs = function ( req, res ) {
     mongo.db('admin')

@@ -5,7 +5,7 @@
   var app       = express();
   var getDb 		= require('../mongoDb/getIndex.js');
   // var deleteDb 	= require('../../restApi/DELETE');
-  // var postDb 	  = require('../../restApi/POST');
+  var postDb 	  = require('../mongoDb/postIndex.js');
 
   router.use(function timeLog( req, res, next) {
     console.log( 'Time: ', Date.now() );
@@ -14,7 +14,7 @@
 
   app.route( "/dbs" )
       .get( getDb.dbs )
-      //.post( postDb.db )
+      .post( postDb.dbs )
       //.delete( deleteDb.db )
 
   app.route( "/db/:db" )

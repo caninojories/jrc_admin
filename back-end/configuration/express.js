@@ -7,6 +7,7 @@ var express         = require('express'),
     cookieParser    = require('cookie-parser'),
     bodyParser      = require('body-parser'),
     methodOverride  = require('method-override'),
+    multer          = require('multer'),
     session         = require('express-session'),
     passport        = require('passport'),
     LocalStrategy   = require('passport-local').Strategy,
@@ -49,8 +50,8 @@ var express         = require('express'),
                     resave: true}))
     app.use(passport.initialize());
     app.use(passport.session());
-    app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
-    app.use(bodyParser.urlencoded({extended: 'true'}));
+    app.use(bodyParser.json());
+    app.use(multer());
     app.use('/css', express.static(path.join(rootPath, 'front-end/resources/css')))
     app.use('/fonts', express.static(path.join(rootPath, 'front-end/resources/fonts')))
     app.use('/img', express.static(path.join(rootPath,  'front-end/resources/img')))
