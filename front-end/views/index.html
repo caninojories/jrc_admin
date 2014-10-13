@@ -26,21 +26,19 @@
 
     {# LINKS #}
     <link rel="stylesheet" href="/compileCss/stylus/ace-editor.css"/>
-    <link rel="stylesheet" href="/compileCss/stylus/app.css"/>
+    <!-- <link rel="stylesheet" href="/compileCss/stylus/app.css"/> -->
     <link rel="stylesheet" href="/compileCss/stylus/questions.css"/>
     {# LINKS END #}
 
     <link rel="stylesheet" href="/css/paragala.css"/>
     <link rel="stylesheet" href="/css/cover-page.css"/>
-    <!-- <link rel="stylesheet" href="/css/flat-ui.css"/>
-    <link rel="stylesheet" href="/css/icon-font.css"/>
-    <link rel="stylesheet" href="/css/style.css"/> -->
   </head>
   <body>
 
-    <div data-ng-controller="Shell as vm" ng-cloak style='height:100%'>
-      <section id="content" class="content" style='height:100%'>
-        <div ui-view='' style='height:100%' class='shuffle-animation'></div>
+    <div ui-view=''></div>
+    <!-- <div data-ng-controller="Shell as vm" ng-cloak>
+      <section id="content" class="content" >
+        <div ui-view='' class='shuffle-animation'></div>
         <div ngplus-overlay
           ngplus-overlay-delay-in="100"
           ngplus-overlay-delay-out="700"
@@ -49,12 +47,13 @@
           <div class="page-spinner-message overlay-message" ng-cloak>{{vm.busyMessage}}</div>
         </div>
       </section>
-    </div>
+    </div> -->
 
     <script type="text/javascript" src="/bower_components/ace-builds/src-min-noconflict/ace.js"></script>
     <script type="text/javascript" src="/bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="/bower_components/angular-animate/angular-animate.min.js"></script>
     <script type="text/javascript" src="/bower_components/angular-ui-ace/ui-ace.js"></script>
+
     <script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
 
@@ -67,6 +66,9 @@
     <script type="text/javascript" src="/bower_components/extras.angular.plus/ngplus-overlay.js"></script>
     <script type="text/javascript" src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script type="text/javascript" src="/bower_components/angular-load/angular-load.min.js"></script>
+
+    <script type="text/javascript" src="/bower_components/angular-strap/dist/angular-strap.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-strap/dist/angular-strap.tpl.js"></script>
 
     <script type="text/javascript" src="/js/custom/layout.js"></script>
 

@@ -9,9 +9,8 @@
     next();
   })
 
-  router.get( '/database/index.html',  function( req, res) {
-    console.log( req.user )
-    res.render( 'database/index.html' )
+  router.get( '/dashboard/index.html',  function( req, res) {
+    res.render( 'dashboard/index.html' )
   })
 
   module.exports = router;

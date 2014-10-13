@@ -25,6 +25,7 @@
         'ngplus',
         'angularLoad',
         'ui.ace',
-        'ui.bootstrap'
+        'ui.bootstrap',
+        'mgcrea.ngStrap'
     ]);
 })();
