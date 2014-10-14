@@ -12,16 +12,13 @@ module.exports = function(passport) {
 
     // used to deserialize the user
   passport.deserializeUser(function(id, done) {
-  	mongo('paragala', function(db) {
-  		db.open(function(err, db) {
-  			if(err) throw err;
-  			db.collection('users').findOne({_id:id}, function(err, user) {
-          console.log("deserializeUser: " + user)
-  				done(err, user)
-  			})
-  		})
 
-  	})
+		mongo.db( 'paragala' )
+			.collection( 'users' )
+			.findOne({_id:id})
+			.then(function( user ) {
+				done( null, user )
+			})
   })
 
   passport.use('local-login',new LocalStrategy({
@@ -30,26 +27,23 @@ module.exports = function(passport) {
 		passReqToCallback: true //allows us to pass back the entire request to the callback
 		},
 			function (req, email, password, done) {
-				mongo('paragala' , function (db) {
-					db.open(function(err, db) {
-						if(err) { return done(err) }
-						db.collection('users').findOne({'email': email}, function (err, user) {
-              console.log("++++++++ Data found with the email " + email)
-							//if (err) { return done(err) }
-							if (user == null) {
-                console.log('email not found')
-								return done(null , false, req.flash('loginMessage', 'No user found.'))
-              }
-              if(user.password !== password) {
-                console.log('password not match')
-                return done(null, false , req.flash('loginMessage', 'Opps! Wrong password'))
-              }
+				mongo.db( 'paragala' )
+					.collection( 'users' )
+					.findOne({'email': email})
+					.then(function( user ) {
+						console.log("++++++++ Data found with the email " + email)
+						if (user == null) {
+							console.log('email not found')
+							return done(null , false, req.flash('loginMessage', 'No user found.'))
+						}
+						if(user.password !== password) {
+							console.log('password not match')
+							return done(null, false , req.flash('loginMessage', 'Opps! Wrong password'))
+						}
 
-              console.log("user is been authenticated")
-							return done(null, user)
-						})
-				})
-			})
+						console.log("user is been authenticated")
+						return done(null, user)
+					})
 		}
 	))
 }

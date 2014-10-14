@@ -58,5 +58,6 @@ var express         = require('express'),
     app.use('/js', express.static(path.join(rootPath, 'front-end/resources/js')))
     app.use('/compileCss', express.static(path.join(rootPath, 'front-end/.tmp')))
     app.use('/bower_components', express.static(path.join(rootPath, 'front-end/bower')))
+    app.use('/commonsHtml', express.static(path.join(rootPath, 'front-end/views/commons')))
     app.use(flash()); /*make this module work!!!OK*/
   }

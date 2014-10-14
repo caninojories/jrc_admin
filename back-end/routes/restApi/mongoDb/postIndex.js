@@ -12,45 +12,35 @@
       })
   }
 
-  exports.collections = function (req, res) {
-  //adds a collection
-  var collectionName = req.body.name;
-  var dbName = req.params.collection;
-  var out = {};
-  mongo(dbName, function(db){
-    db.open(function (err, db) {
-      db.createCollection(collectionName, function(err,result){
-        res.send('success')
-      });
-    })
-  });
+  exports.collections = function ( req, res ) {
+    var uri = 'database/' + req.params.db + '/'
+    mongo.db( req.params.db )
+      .createCollection( req.body.name )
+      .then(function( collection ) {
+        res.json( {name: collection, url: uri + collection} )
+      })
   }
 
 
-  exports.documents = function(req, res) {
-  //add a document
-  var documentName = req.body.name;
-  var dbName = req.params.db;
-  var collName = req.params.collection
-
-  mongo(dbName, function (db) {
-    db.open(function (err, db) {
-      db.collection(collName).insert({_id: documentName})
-      res.json({sucess: 'success'})
-    })
-  })
+  exports.documents = function( req, res ) {
+    mongo.db( req.params.db )
+      .collection( req.params.collection )
+      .insert({_id: req.body.name})
+      .then(function( document ) {
+        res.json({sucess: 'success'})
+      })
   }
 
-  exports.doc = function (req, res) {
-  var dbName 		= req.params.db;
-  var collName 	= req.params.collection;
-  var id 				= req.params.id;
-  var doc 			= req.body.documentId;
-  mongo(dbName, function (db) {
-    db.open(function (err, db) {
-      console.log("doc: " + doc)
-      db.collection(collName).save(doc)
-      res.json({sucess: 'success'})
-    })
-  })
+  exports.doc = function ( req, res ) {
+    var dbName 		= req.params.db;
+    var collName 	= req.params.collection;
+    var id 				= req.params.id;
+    var doc 			= req.body.documentId;
+
+    mongo.db( req.params.db )
+      .collection( req.params.collection )
+      .save( req.body.documentId )
+      .then(function( document ) {
+        res.json({sucess: 'success'})
+      })
   }

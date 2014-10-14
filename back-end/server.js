@@ -7,7 +7,8 @@
       cluster     = require('cluster'),
       numCPUs     = require('os').cpus().length,
 
-      api         = require('./routes/restApi/api'),
+      databaseApi = require('./routes/restApi/api/databaseApi'),
+      paragalaApi = require('./routes/restApi/api/paragalaApi'),
       login       = require('./routes/clientRoutes/main'),
       dashboard   = require('./routes/clientRoutes/dashboard'),
       database    = require('./routes/clientRoutes/database'),
@@ -35,7 +36,8 @@
     ***/
     //require('./config/routes')(app,  passport);
 
-    app.use( '/api', api );
+    app.use( '/database-api', databaseApi );
+    app.use( '/paragala-api', paragalaApi );
     app.use( '/', login );
     app.use( '/', database );
     app.use( '/', dashboard );

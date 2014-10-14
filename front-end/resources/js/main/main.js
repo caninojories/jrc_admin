@@ -5,11 +5,12 @@
 		.module( 'app.main' )
 		.controller( 'Main', Main )
 
-		Main.$inject = [ 'viewContentLoaded', 'dataserviceCommons' ];
+		Main.$inject = [ 'viewContentLoaded', 'dataserviceCommons', '$loginModal' ];
 
-		function Main( viewContentLoaded, dataserviceCommons ) {
-			var vm = this;
+		function Main( viewContentLoaded, dataserviceCommons, $loginModal ) {
+			var vm 		= this;
 
+			vm.strapLoginHtml = strapLoginHtml;
 			init();
 
 			function init() {
@@ -18,7 +19,6 @@
 			}
 
 			function viewContentLoadedJS() {
-				console.log( 'jories' )
 				viewContentLoaded.loadScript('/js/custom/main.js')
 			}
 
@@ -26,6 +26,10 @@
 				dataserviceCommons.getAdminLoginStatus( 'admin', {} ).then( function ( data ) {
 					vm.adminLogin = data.isAdminLogin
 				})
+			}
+
+			function strapLoginHtml() {
+				$loginModal.show();
 			}
 		}
 })()

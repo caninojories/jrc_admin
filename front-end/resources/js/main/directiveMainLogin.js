@@ -5,9 +5,9 @@
     .module('app.main')
     .directive('mainLogin', mainLogin)
 
-    mainLogin.$inject = [ '$rootScope', 'dataserviceLogin', '$state', '$location', '$window' ]
+    mainLogin.$inject = [ '$rootScope', 'dataserviceLogin', '$state', '$location', '$window','$loginModal' ]
 
-    function mainLogin( $rootScope, dataserviceLogin, $state, $location, $window ) {
+    function mainLogin( $rootScope, dataserviceLogin, $state, $location, $window, $loginModal ) {
       var directive = {
         restrict : "E",
         replace : true,
@@ -18,13 +18,13 @@
 
       return directive;
 
-      function controller( $rootScope ) {
+      function controller( $rootScope, $modal ) {
         $rootScope.login = function ( isValid, email, password ) {
           if( isValid !== false ) {
             dataserviceLogin.getUser( 'users', {email:email, password: password} ).then(function( valid ) {
               if( valid === 'success' ) {
                 $rootScope.error  = false;
-                init();
+                 $loginModal.hide();
               } else {
                 $rootScope.error  = true;
                 $rootScope.valid  = valid;

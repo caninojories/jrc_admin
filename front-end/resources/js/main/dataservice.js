@@ -17,6 +17,7 @@
       return service;
 
       function getUser(api, param) {
+        console.log( api )
         return ParagalaAdmin.all( api ).post( param )
           .then( getUserData )
           .catch( function ( message ) {

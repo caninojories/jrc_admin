@@ -125,9 +125,12 @@
         </li>
       </ul>
 
-      <ul ng-hide='user' class='nav navbar-nav navbar-right'>
+      <ul ng-hide='user' class='nav navbar-nav navbar-right' ng-controller='Main as vm'>
         <li>
-          <a href='' bs-modal='signupModal' data-template='/js/signup.html' data-animation='am-fade-and-slide-top' class='login-link'>Sign Up</a>
+          <a href='' bs-modal='signupModal' data-template='/commonsHtml/signup.html' data-animation='am-fade-and-slide-top' class='login-link'>Sign-up</a>
+        </li>
+        <li>
+          <a href='' ng-click='vm.strapLoginHtml()'> {{<$ isAuthenticated $>?"Logout": "Login"}} </a>
         </li>
       </ul>
       <div class="btn-group">

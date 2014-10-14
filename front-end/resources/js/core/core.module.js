@@ -19,6 +19,7 @@
         //'blocks.exception',
         'blocks.logger',
         'blocks.router',
+        'strapService',
         /*
          * 3rd Party modules
          */

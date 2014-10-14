@@ -8,7 +8,7 @@
     Main.$inject = ['viewContentLoaded'];
 
     function Main( viewContentLoaded ) {
-      vm = this;
+      var vm = this;
 
       viewContentLoaded();
 

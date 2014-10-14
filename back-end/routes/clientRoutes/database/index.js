@@ -9,9 +9,8 @@
     next();
   })
 
-  router.get( '/database/index.html',  function( req, res) {
-    console.log( req.user )
-    res.render( 'database/index.html' )
+  router.get( '/database/index.html', function( req, res) {
+    res.render( 'database/index.html', { isAuthenticated: req.isAuthenticated()} )
   })
 
   module.exports = router;
