@@ -10,7 +10,8 @@
   })
 
   router.get( '*',  function(req, res) {
-   res.render( 'index.html' )
+    var email = req.user == undefined? '': req.user.email;
+    res.render( 'index.html', {isAuthenticated: req.isAuthenticated(), email: email} )
   })
 
   module.exports = router;

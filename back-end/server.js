@@ -8,8 +8,8 @@
       numCPUs     = require('os').cpus().length,
 
       databaseApi = require('./routes/restApi/api/databaseApi'),
-      paragalaApi = require('./routes/restApi/api/paragalaApi'),
-      login       = require('./routes/clientRoutes/main'),
+      adminApi    = require('./routes/restApi/api/adminApi'),
+      login       = require('./routes/clientRoutes/login'),
       dashboard   = require('./routes/clientRoutes/dashboard'),
       database    = require('./routes/clientRoutes/database'),
       paragala    = require('./routes/clientRoutes/paragala'),
@@ -37,7 +37,7 @@
     //require('./config/routes')(app,  passport);
 
     app.use( '/database-api', databaseApi );
-    app.use( '/paragala-api', paragalaApi );
+    app.use( '/paragala-api', adminApi );
     app.use( '/', login );
     app.use( '/', database );
     app.use( '/', dashboard );

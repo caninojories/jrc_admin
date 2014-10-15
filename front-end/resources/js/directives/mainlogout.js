@@ -5,9 +5,9 @@
     .module('ngAPI')
     .directive( 'mainLogout', mainLogout )
 
-    mainLogout.$inject = [ 'dataserviceCommons', '$state', '$q' ]
+    mainLogout.$inject = [ 'commonsDataservice', '$state', '$q' ]
 
-    function mainLogout( dataserviceCommons, $state, $q ) {
+    function mainLogout( commonsDataservice, $state, $q ) {
       var directive = {
         restrict: 'E',
         replace: true,
@@ -28,7 +28,7 @@
       }
 
       function logoutPromise() {
-        return dataserviceCommons.getAdminLogoutData( 'logout' )
+        return commonsDataservice.getAdminLogoutData( 'logout' )
           .then(function(data) {
             return data;
           })

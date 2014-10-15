@@ -1,5 +1,5 @@
 (function() {
   'use strict';
 
-  angular.module('commons.main', []);
+  angular.module('commons.control', []);
 })()

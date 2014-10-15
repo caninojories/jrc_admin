@@ -5,9 +5,9 @@
 		.module( 'app.paragala' )
 		.controller( 'ParagalaStudents', ParagalaStudents )
 
-		ParagalaStudents.$inject = ['$q', 'ParagalaDataService', 'logger', 'dataserviceCommons' ]
+		ParagalaStudents.$inject = ['$q', 'ParagalaDataService', 'logger', 'commonsDataservice' ]
 
-		function ParagalaStudents( $q, ParagalaDataService, logger, dataserviceCommons ) {
+		function ParagalaStudents( $q, ParagalaDataService, logger, commonsDataservice ) {
 			var vm = this;
 
 			vm.SN         				= false;
@@ -56,7 +56,7 @@
 			}
 
 			function getAdminLoginData() {
-				dataserviceCommons.getAdminLoginStatus( 'admin', {} ).then( function ( data ) {
+				commonsDataservice.getAdminLoginStatus( 'admin', {} ).then( function ( data ) {
 					vm.adminLogin = data.isAdminLogin
 					return vm.adminLogin;
 				})

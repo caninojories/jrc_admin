@@ -2,12 +2,12 @@
   'use strict';
 
   angular
-    .module('commons.main')
-    .controller('Main', Main);
+    .module('commons.control')
+    .controller('Control', Control);
 
-    Main.$inject = ['viewContentLoaded'];
+    Control.$inject = ['viewContentLoaded'];
 
-    function Main( viewContentLoaded ) {
+    function Control( viewContentLoaded ) {
       var vm = this;
 
       viewContentLoaded();

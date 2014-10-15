@@ -10,7 +10,7 @@
   })
 
   router.get( '/dashboard/index.html',  function( req, res) {
-    res.render( 'dashboard/index.html' )
+    res.render( 'dashboard/index.html', res.adminCredentials )
   })
 
   module.exports = router;

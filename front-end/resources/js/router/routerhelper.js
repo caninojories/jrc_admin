@@ -6,7 +6,7 @@
         .provider('routehelperConfig', routehelperConfig)
         .factory('routehelper', routehelper);
 
-    routehelper.$inject = ['$location', '$rootScope', '$q', '$state', '$timeout', 'logger', 'routehelperConfig', 'dataserviceCommons'];
+    routehelper.$inject = ['$location', '$rootScope', '$q', '$state', '$timeout', 'logger', 'routehelperConfig', 'commonsDataservice'];
 
     // Must configure via the routehelperConfigProvider
     function routehelperConfig() {
@@ -25,7 +25,7 @@
         };
     }
 
-    function routehelper( $location, $rootScope, $q, $state, $timeout, logger, routehelperConfig, dataserviceCommons ) {
+    function routehelper( $location, $rootScope, $q, $state, $timeout, logger, routehelperConfig, commonsDataservice ) {
         var handlingRouteChangeError = false;
         var routeCounts = {
             errors: 0,
@@ -139,13 +139,13 @@
         }
 
         function getStudentLoginData() {
-          return dataserviceCommons.getStudentLoginStatus( 'student', {} ).then( function ( data ) {
+          return commonsDataservice.getStudentLoginStatus( 'student', {} ).then( function ( data ) {
             return data;
           })
         }
 
         function getAdminLoginData() {
-          return dataserviceCommons.getAdminLoginStatus( 'admin', {} ).then( function ( data ) {
+          return commonsDataservice.getAdminLoginStatus( 'admin', {} ).then( function ( data ) {
             return data;
           })
         }

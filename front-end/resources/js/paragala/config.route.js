@@ -26,9 +26,9 @@
                     content: '<i class="fa fa-lock"></i> Paragala'
                 }
                 // resolve: {
-                //   dataserviceCommons: 'dataserviceCommons',
-                //   urlRedirect: function ( dataserviceCommons, $state ) {
-                //     dataserviceCommons.getStudentLoginStatus( 'student', {} ).then( function ( data ) {
+                //   commonsDataservice: 'commonsDataservice',
+                //   urlRedirect: function ( commonsDataservice, $state ) {
+                //     commonsDataservice.getStudentLoginStatus( 'student', {} ).then( function ( data ) {
                 //       if( data.isStudentLogin == true ) {
                 //         $state.go( 'paragala_questions' )
                 //       }

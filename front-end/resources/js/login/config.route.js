@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app.main')
+    .module('app.login')
     .run(appRun)
 
     function appRun( routehelper ) {
@@ -14,15 +14,15 @@
           state: 'main',
           config: {
             url: '/',
-            templateUrl: '/main/index.html',
-            controller: 'Main as vm',
+            templateUrl: '/login/index.html',
+            controller: 'Login as vm',
             title: 'main'
           }
         }, {
           state: 'main_about',
           config: {
             url: '/about',
-            templateUrl: '/main/about/index.html'
+            templateUrl: '/login/about/index.html'
             // controller: 'Main as vm',
             // title: 'main'
           }

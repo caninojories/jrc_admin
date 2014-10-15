@@ -2,12 +2,12 @@
   'use strict';
 
   angular
-    .module('app.main')
+    .module('app.login')
     .factory( 'dataserviceLogin', dataserviceLogin )
 
-    dataserviceLogin.$inject = ['$http', '$location', '$q', 'logger', 'ParagalaAdmin', 'isAdminLogin']
+    dataserviceLogin.$inject = ['$http', '$location', '$q', 'logger', 'Admin', 'isAdminLogin']
 
-    function dataserviceLogin($http, $location, $q, logger, ParagalaAdmin, isAdminLogin) {
+    function dataserviceLogin($http, $location, $q, logger, Admin, isAdminLogin) {
 
       var service = {
         getUser               : getUser
@@ -18,7 +18,7 @@
 
       function getUser(api, param) {
         console.log( api )
-        return ParagalaAdmin.all( api ).post( param )
+        return Admin.all( api ).post( param )
           .then( getUserData )
           .catch( function ( message ) {
             $location.url( '/' );

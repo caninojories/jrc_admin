@@ -6,7 +6,7 @@
       //return Restangular.all( 'mongo-api' )
       return Restangular.all( 'database-api' )
     })
-    .factory('ParagalaAdmin', function (Restangular) {
+    .factory('Admin', function (Restangular) {
     	return Restangular.all("paragala-api")
     })
     .factory('ParagalaStudent', function (Restangular) {

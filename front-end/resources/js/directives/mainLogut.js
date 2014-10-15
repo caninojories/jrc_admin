@@ -1,13 +1,13 @@
 "use strict";
 
 angular.module('ngAPI')
-  .directive('mainLogout', function ($routeParams, ParagalaAdmin, Restangular, loginService) {
+  .directive('mainLogout', function ($routeParams, Admin, Restangular, loginService) {
     return {
       restrict : "E",
       replace : true,
       controller : function ($scope, $location) {
       	$scope.logout = function () {
-          ParagalaAdmin.all('logout').post();
+          Admin.all('logout').post();
           //$location.path('/')
           setTimeout(function () {
             window.location.reload();

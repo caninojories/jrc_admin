@@ -7,8 +7,8 @@
 
 
     Database.$inject = ['$q', '$rootScope', '$stateParams', '$location', 'dataserviceDatabase', 'DatabaseService',
-                        'logger', 'viewContentLoaded', 'angularLoad', 'dataserviceCommons', 'Restangular'];
-    function Database($q, $rootScope, $stateParams, $location, dataserviceDatabase, DatabaseService, logger, viewContentLoaded, angularLoad, dataserviceCommons, Restangular ) {
+                        'logger', 'viewContentLoaded', 'angularLoad', 'commonsDataservice', 'Restangular'];
+    function Database($q, $rootScope, $stateParams, $location, dataserviceDatabase, DatabaseService, logger, viewContentLoaded, angularLoad, commonsDataservice, Restangular ) {
 
         /*jshint validthis: true */
         var vm = this;
@@ -63,7 +63,7 @@
         }
 
         function getAdminLoginData() {
-          return dataserviceCommons.getAdminLoginStatus( 'admin', {} ).then( function ( data ) {
+          return commonsDataservice.getAdminLoginStatus( 'admin', {} ).then( function ( data ) {
             vm.adminLogin = data.isAdminLogin
             return vm.adminLogin;
           })

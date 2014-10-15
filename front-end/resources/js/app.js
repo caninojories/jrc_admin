@@ -21,7 +21,7 @@
          * Feature areas
          */
         //'app.avengers',
-        'app.main',
+        'app.login',
         'app.dashboard',
         'app.database',
         'app.layout',

@@ -5,9 +5,9 @@
       .module('app.dashboard')
       .controller('MainDashBoard', MainDashBoard);
 
-    MainDashBoard.$inject = ['$q', 'logger', 'angularLoad', 'viewContentLoaded', 'dataserviceCommons'];
+    MainDashBoard.$inject = ['$q', 'logger', 'angularLoad', 'viewContentLoaded', 'commonsDataservice'];
 
-    function MainDashBoard( $q, logger, angularLoad , viewContentLoaded, dataserviceCommons ) {
+    function MainDashBoard( $q, logger, angularLoad , viewContentLoaded, commonsDataservice ) {
       /*jshint validthis: true */
       var vm = this;
 
@@ -30,7 +30,7 @@
       }
 
       function getAdminLoginData() {
-        dataserviceCommons.getAdminLoginStatus( 'admin', {} ).then( function ( data ) {
+        commonsDataservice.getAdminLoginStatus( 'admin', {} ).then( function ( data ) {
           vm.adminLogin = data.isAdminLogin
           return vm.adminLogin;
         })

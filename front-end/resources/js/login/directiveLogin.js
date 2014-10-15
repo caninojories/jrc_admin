@@ -1,13 +1,14 @@
+
 (function() {
   'use strict';
 
   angular
-    .module('app.main')
+    .module('app.login')
     .directive('mainLogin', mainLogin)
 
-    mainLogin.$inject = [ '$rootScope', 'dataserviceLogin', '$state', '$location', '$window','$loginModal' ]
+    mainLogin.$inject = [ '$rootScope', '$timeout', 'dataserviceLogin', '$state', '$location', '$window','$loginModal' ]
 
-    function mainLogin( $rootScope, dataserviceLogin, $state, $location, $window, $loginModal ) {
+    function mainLogin( $rootScope, $timeout, dataserviceLogin, $state, $location, $window, $loginModal ) {
       var directive = {
         restrict : "E",
         replace : true,
@@ -23,8 +24,13 @@
           if( isValid !== false ) {
             dataserviceLogin.getUser( 'users', {email:email, password: password} ).then(function( valid ) {
               if( valid === 'success' ) {
-                $rootScope.error  = false;
-                 $loginModal.hide();
+                /**
+                 ** Use $loginModal.hide() if you want
+                 ** to hide the modal before refreshing the page
+                ***/
+                $timeout(function() {
+                  $window.location.reload();
+                }, 100);
               } else {
                 $rootScope.error  = true;
                 $rootScope.valid  = valid;
@@ -34,22 +40,6 @@
             $rootScope.error      = false;
             $rootScope.submitted  = true;
 
-          }
-
-          function init() {
-            if($location.path() == '/') {
-              dashboard();
-            } else {
-              reloadUrl();
-            }
-          }
-
-          function reloadUrl() {
-            $window.location.reload()
-          }
-
-          function dashboard() {
-            $state.go( 'dashboard' );
           }
         }
       }

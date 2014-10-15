@@ -20,12 +20,12 @@
   app.route( "/db/:db" )
       .get( getDb.collections )
       .post( postDb.collections )
-      //.delete( deleteDb.collections )
+      .delete( deleteDb.collections )
 
   app.route( "/db/:db/:collection" )
       .get( getDb.listDocuments )
       .post( postDb.documents )
-      //.delete( deleteDb.documents )
+      .delete( deleteDb.documents )
 
   app.route( "/db/:db/:collection/:id" )
       .get( getDb.document )

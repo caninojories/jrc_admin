@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('commons.main')
+    .module('commons.control')
     .factory('viewContentLoaded', viewContentLoaded);
 
     viewContentLoaded.$inject = [ 'logger', 'angularLoad' ];

@@ -13,6 +13,7 @@
   "author": "Jo-Ries Canino",
   "license": "MIT",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "bluebird": "^2.3.5",
     "body-parser": "~1.4.3",
     "colors": "^1.0.3",

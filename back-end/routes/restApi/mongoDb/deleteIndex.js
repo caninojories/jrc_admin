@@ -10,26 +10,14 @@
       .then(function( dbName ) {
         res.json( dbName )
       })
-    // mongo(dbName, function(db){
-    //   db.open(function (err, db) {
-    //     db.dropDatabase(function(err,result){
-    //       if(err) throw({error : err});
-    //         res.send('success')
-    //     })
-    //   })
-    // })
   }
 
   exports.collections = function(req,res) {
-    var dbName = req.params.collection;
-    var collectionName = req.query.name;
-    mongo(dbName, function(db){
-      db.open(function (err, db) {
-        db.dropCollection(collectionName,function(err,result){
-          res.send('success')
-        });
+    mongo.db( req.params.db )
+      .dropCollection( req.query.name )
+      .then(function( collection ) {
+        res.json({response: 'success'})
       })
-    });
   }
 
   exports.documents = function (req, res) {
@@ -37,10 +25,10 @@
     var collName = req.params.collection;
     var documentName = req.query.name;
 
-    mongo(dbName, function(db) {
-      db.open(function (err,db) {
-        db.collection(collName).remove({_id: documentName})
-        res.send('Ok')
+    mongo.db( req.params.db )
+      .collection( req.params.collection )
+      .remove( {_id: documentName} )
+      .then(function( document ) {
+        res.json({response: 'success'})
       })
-    })
   }

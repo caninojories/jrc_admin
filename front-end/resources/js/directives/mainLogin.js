@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module('ngAPI')
-  .directive('mainLogin', function ($routeParams, ParagalaAdmin, Restangular, loginService) {
+  .directive('mainLogin', function ($routeParams, Admin, Restangular, loginService) {
     return {
       restrict : "E",
       replace : true,
@@ -9,7 +9,7 @@ angular.module('ngAPI')
         $scope.item;
       	$scope.login = function (email, password) {
           if($scope.loginForm.$valid) {
-        		$scope.result = ParagalaAdmin.all('users').post({email:email, password: password}).then(function (valid) {
+        		$scope.result = Admin.all('users').post({email:email, password: password}).then(function (valid) {
               //console.log(valid.adminUser)
               if(valid.valid == "success") {
                 window.location.href = "#/dashboard";

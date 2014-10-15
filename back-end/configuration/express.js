@@ -60,4 +60,10 @@ var express         = require('express'),
     app.use('/bower_components', express.static(path.join(rootPath, 'front-end/bower')))
     app.use('/commonsHtml', express.static(path.join(rootPath, 'front-end/views/commons')))
     app.use(flash()); /*make this module work!!!OK*/
+
+    app.use(function( req, res, next ) {
+      var username = req.user == undefined? '': req.user.username;
+      res.adminCredentials = {isAuthenticated: req.isAuthenticated(), username: username}
+      next();
+    })
   }

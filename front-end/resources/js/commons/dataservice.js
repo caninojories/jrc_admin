@@ -2,16 +2,17 @@
   'use strict';
 
   angular
-    .module('commons.main')
-    .factory('dataserviceCommons', dataserviceCommons)
+    .module('commons.control')
+    .factory('commonsDataservice', commonsDataservice)
 
-    dataserviceCommons.$inject = ['isAdminLogin', 'isStudentLogin', 'ParagalaAdmin']
+    commonsDataservice.$inject = ['isAdminLogin', 'isStudentLogin', 'Admin']
 
-    function dataserviceCommons( isAdminLogin, isStudentLogin, ParagalaAdmin ) {
+    function commonsDataservice( isAdminLogin, isStudentLogin, Admin ) {
       var service = {
         getAdminLoginStatus   : getAdminLoginStatus,
         getStudentLoginStatus : getStudentLoginStatus,
-        getAdminLogoutData    : getAdminLogoutData
+        adminLogout           : adminLogout,
+        createAdminAccount    : createAdminAccount
       }
 
       return service;
@@ -40,15 +41,27 @@
         }
       }
 
-      function getAdminLogoutData( api, param ) {
-        return ParagalaAdmin.all( api ).post()
+      function adminLogout( api, param ) {
+        return Admin.all( api ).post()
           .then( adminLogout )
           .catch( function (message ) {
             $location.url( '/' )
           })
 
         function adminLogout( data, status, headers, config ) {
-          return data;
+          return data.response;
+        }
+      }
+
+      function createAdminAccount( api, param ) {
+        return Admin.all( api ).post( param )
+          .then( adminAccount )
+          .catch(function( message ) {
+            $location.url( '/' )
+          })
+
+        function adminAccount( data, status, headers, config ) {
+          return data.response;
         }
       }
     }
