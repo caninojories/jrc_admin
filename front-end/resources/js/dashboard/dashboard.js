@@ -15,23 +15,23 @@
 
       function init() {
         viewContentLoadedJS();
-        isAdminLogin();
+        isserviceRestAdminLogin();
       }
 
       function viewContentLoadedJS() {
         viewContentLoaded.loadScript('/js/custom/layout.js')
       }
 
-       function isAdminLogin() {
-        var promise = [ getAdminLoginData() ]
+       function isserviceRestAdminLogin() {
+        var promise = [ getserviceRestAdminLoginData() ]
         return $q.all( promise ).then( function() {
           logger.success('Activated Dashboard View');
         })
       }
 
-      function getAdminLoginData() {
-        commonsDataservice.getAdminLoginStatus( 'admin', {} ).then( function ( data ) {
-          vm.adminLogin = data.isAdminLogin
+      function getserviceRestAdminLoginData() {
+        commonsDataservice.getserviceRestAdminLoginStatus( 'admin', {} ).then( function ( data ) {
+          vm.adminLogin = data.isserviceRestAdminLogin
           return vm.adminLogin;
         })
       }

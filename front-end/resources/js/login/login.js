@@ -17,16 +17,16 @@
 
 			function init() {
 				viewContentLoadedJS();
-				isAdminLogin();
+				isserviceRestAdminLogin();
 			}
 
 			function viewContentLoadedJS() {
 				viewContentLoaded.loadScript('/js/custom/main.js')
 			}
 
-			function isAdminLogin() {
-				commonsDataservice.getAdminLoginStatus( 'admin', {} ).then( function ( data ) {
-					vm.adminLogin = data.isAdminLogin
+			function isserviceRestAdminLogin() {
+				commonsDataservice.getserviceRestAdminLoginStatus( 'admin', {} ).then( function ( data ) {
+					vm.adminLogin = data.isserviceRestAdminLogin
 				})
 			}
 
@@ -55,15 +55,15 @@
 
 			function signup( email, username, password, confirmPassword ) {
 				console.log( email, username, password, confirmPassword )
-				return $q.all( createAdminAccount( email, username, password, confirmPassword ) )
+				return $q.all( createserviceRestAdminAccount( email, username, password, confirmPassword ) )
 					.then(function( response ) {
 						console.log( response )
 					})
 			}
 
-			function createAdminAccount( email, username, password, confirmPassword ) {
+			function createserviceRestAdminAccount( email, username, password, confirmPassword ) {
 				return commonsDataservice
-					.createAdminAccount( 'createAdminAccount', {email: email, username: username, password: password} )
+					.createserviceRestAdminAccount( 'createserviceRestAdminAccount', {email: email, username: username, password: password} )
 					.then(function( response ) {
 						return response;
 					})

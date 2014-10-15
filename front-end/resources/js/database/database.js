@@ -5,9 +5,9 @@
         .module('app.database')
         .controller('Database', Database);
 
-
     Database.$inject = ['$q', '$rootScope', '$stateParams', '$location', 'dataserviceDatabase', 'DatabaseService',
                         'logger', 'viewContentLoaded', 'angularLoad', 'commonsDataservice', 'Restangular'];
+
     function Database($q, $rootScope, $stateParams, $location, dataserviceDatabase, DatabaseService, logger, viewContentLoaded, angularLoad, commonsDataservice, Restangular ) {
 
         /*jshint validthis: true */
@@ -27,7 +27,7 @@
         function init() {
             runningUrl();
             loadDatabase();
-            getAdminLoginData();
+            getserviceRestAdminLoginData();
             loadScript();
         }
 
@@ -40,21 +40,18 @@
         }
 
         function loadDatabase() {
-            var promise = [getDatabaseData(), getAdminLoginData()];
+            var promise = [getDatabaseData(), getserviceRestAdminLoginData()];
             return $q.all(promise).then(function() {
                 logger.success('Activated Database View');
             });
         }
 
         function getDatabaseData() {
-            return dataserviceDatabase.getAdminDatabase( vm.route ).then(function( data ) {
+            return dataserviceDatabase.getserviceRestAdminDatabase( vm.route ).then(function( data ) {
               if ($stateParams['id'] ) {
-
                 vm.database = JSON.stringify( Restangular.stripRestangular( data ), null, 2 )
-                console.log( vm.database )
                 vm.showAce = true;
               } else {
-                console.log( data );
                 vm.database = data
                 vm.showAce = false
               }
@@ -62,9 +59,9 @@
             });
         }
 
-        function getAdminLoginData() {
-          return commonsDataservice.getAdminLoginStatus( 'admin', {} ).then( function ( data ) {
-            vm.adminLogin = data.isAdminLogin
+        function getserviceRestAdminLoginData() {
+          return commonsDataservice.getserviceRestAdminLoginStatus( 'admin', {} ).then( function ( data ) {
+            vm.adminLogin = data.isserviceRestAdminLogin
             return vm.adminLogin;
           })
         }

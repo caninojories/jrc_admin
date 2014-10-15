@@ -10,6 +10,7 @@
       databaseApi = require('./routes/restApi/api/databaseApi'),
       adminApi    = require('./routes/restApi/api/adminApi'),
       login       = require('./routes/clientRoutes/login'),
+      profile     = require('./routes/clientRoutes/profile'),
       dashboard   = require('./routes/clientRoutes/dashboard'),
       database    = require('./routes/clientRoutes/database'),
       paragala    = require('./routes/clientRoutes/paragala'),
@@ -37,8 +38,9 @@
     //require('./config/routes')(app,  passport);
 
     app.use( '/database-api', databaseApi );
-    app.use( '/paragala-api', adminApi );
+    app.use( '/admin-api', adminApi );
     app.use( '/', login );
+    app.use( '/', profile );
     app.use( '/', database );
     app.use( '/', dashboard );
     //app.use( '/paragala', paragala )

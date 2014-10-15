@@ -22,6 +22,7 @@
          */
         //'app.avengers',
         'app.login',
+        'app.profile',
         'app.dashboard',
         'app.database',
         'app.layout',

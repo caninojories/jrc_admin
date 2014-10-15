@@ -5,26 +5,26 @@
     .module('commons.control')
     .factory('commonsDataservice', commonsDataservice)
 
-    commonsDataservice.$inject = ['isAdminLogin', 'isStudentLogin', 'Admin']
+    commonsDataservice.$inject = ['isserviceRestAdminLogin', 'isStudentLogin', 'serviceRestAdmin']
 
-    function commonsDataservice( isAdminLogin, isStudentLogin, Admin ) {
+    function commonsDataservice( isserviceRestAdminLogin, isStudentLogin, serviceRestAdmin ) {
       var service = {
-        getAdminLoginStatus   : getAdminLoginStatus,
+        getserviceRestAdminLoginStatus   : getserviceRestAdminLoginStatus,
         getStudentLoginStatus : getStudentLoginStatus,
         adminLogout           : adminLogout,
-        createAdminAccount    : createAdminAccount
+        createserviceRestAdminAccount    : createserviceRestAdminAccount
       }
 
       return service;
 
-      function getAdminLoginStatus( api, param ) {
-        return isAdminLogin.one( api ).get( param )
-          .then( getAdminLoginStatusData )
+      function getserviceRestAdminLoginStatus( api, param ) {
+        return isserviceRestAdminLogin.one( api ).get( param )
+          .then( getserviceRestAdminLoginStatusData )
           .catch( function ( message ) {
             $location.url( '/' );
           })
 
-        function getAdminLoginStatusData( data, status, headers, config ) {
+        function getserviceRestAdminLoginStatusData( data, status, headers, config ) {
           return data;
         }
       }
@@ -42,7 +42,7 @@
       }
 
       function adminLogout( api, param ) {
-        return Admin.all( api ).post()
+        return serviceRestAdmin.all( api ).post()
           .then( adminLogout )
           .catch( function (message ) {
             $location.url( '/' )
@@ -53,8 +53,8 @@
         }
       }
 
-      function createAdminAccount( api, param ) {
-        return Admin.all( api ).post( param )
+      function createserviceRestAdminAccount( api, param ) {
+        return serviceRestAdmin.all( api ).post( param )
           .then( adminAccount )
           .catch(function( message ) {
             $location.url( '/' )

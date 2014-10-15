@@ -27,6 +27,8 @@
         'angularLoad',
         'ui.ace',
         'ui.bootstrap',
-        'mgcrea.ngStrap'
+        'mgcrea.ngStrap',
+        'angular-flash.service',
+        'angular-flash.flash-alert-directive'
     ]);
 })();

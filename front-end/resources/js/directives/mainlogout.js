@@ -28,7 +28,7 @@
       }
 
       function logoutPromise() {
-        return commonsDataservice.getAdminLogoutData( 'logout' )
+        return commonsDataservice.getserviceRestAdminLogoutData( 'logout' )
           .then(function(data) {
             return data;
           })

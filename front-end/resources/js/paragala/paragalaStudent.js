@@ -22,7 +22,7 @@
 			}
 
 			function getView() {
-				var promise = [getAdminLoginData()]
+				var promise = [getserviceRestAdminLoginData()]
 				return $q.all( promise ).then(function () {
 					logger.success('Activated Add-Student View');
 				})
@@ -55,9 +55,9 @@
 					})
 			}
 
-			function getAdminLoginData() {
-				commonsDataservice.getAdminLoginStatus( 'admin', {} ).then( function ( data ) {
-					vm.adminLogin = data.isAdminLogin
+			function getserviceRestAdminLoginData() {
+				commonsDataservice.getserviceRestAdminLoginStatus( 'admin', {} ).then( function ( data ) {
+					vm.adminLogin = data.isserviceRestAdminLogin
 					return vm.adminLogin;
 				})
 			}

@@ -116,10 +116,10 @@
               // } else if( toState.name == 'main' ) {
               //   console.log('main')
               //
-              //   var promise = [getAdminLoginData()]
+              //   var promise = [getserviceRestAdminLoginData()]
               //   return $q.all( promise ).then(function( data ) {
-              //     console.log( data[0].isAdminLogin )
-              //     if( data[0].isAdminLogin == true ) {
+              //     console.log( data[0].isserviceRestAdminLogin )
+              //     if( data[0].isserviceRestAdminLogin == true ) {
               //       $state.go( 'dashboard' )
               //     }
               //   })
@@ -144,8 +144,8 @@
           })
         }
 
-        function getAdminLoginData() {
-          return commonsDataservice.getAdminLoginStatus( 'admin', {} ).then( function ( data ) {
+        function getserviceRestAdminLoginData() {
+          return commonsDataservice.getserviceRestAdminLoginStatus( 'admin', {} ).then( function ( data ) {
             return data;
           })
         }

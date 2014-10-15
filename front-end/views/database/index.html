@@ -1,4 +1,10 @@
 
+  {#
+    {% if isAuthenticated %}
+      {% include 'commons/header.html' %}
+    {% endif %}
+  #}
+
   {% include 'commons/header.html' %}
   <div id='wrapper' class='sidebarOn container-fluid'>
     {% include 'database/partials/body.html' %}

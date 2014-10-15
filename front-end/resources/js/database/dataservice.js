@@ -10,19 +10,19 @@
     function dataserviceDatabase( DatabaseService, $location, $rootScope, $q, logger ) {
 
       var service = {
-        getAdminDatabase : getAdminDatabase
+        getserviceRestAdminDatabase : getserviceRestAdminDatabase
       }
 
       return service;
 
-      function getAdminDatabase( api ) {
+      function getserviceRestAdminDatabase( api ) {
         return DatabaseService.get( api )
-          .then( getAdminDatabaseData )
+          .then( getserviceRestAdminDatabaseData )
           .catch( function ( message ) {
             $location.url( '/' );
           })
 
-        function getAdminDatabaseData(data, status, headers, config) {
+        function getserviceRestAdminDatabaseData(data, status, headers, config) {
           return data;
         }
       }
