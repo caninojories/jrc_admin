@@ -5,14 +5,13 @@
   var mongo     = require('../../../configuration/mongodb');
   var bcrypt    = require('bcrypt-nodejs');
 
-  exports.login = function ( req, res, next ) {
+  exports.adminLogin = function ( req, res, next ) {
     passport.authenticate('local-login', function (err, user, info) {
       var error = req.flash('loginMessage');
       if (err) { return next(err); }
       if(user) {
         return req.logIn(user, function(err) {
-          req.session.isAdminLogin = true;
-          return res.json( {valid: 'success', adminUser: req.isAuthenticated()} )
+          return res.json( {response: 'success'} )
         });
       }
       if (!user) {
@@ -23,7 +22,7 @@
     })(req, res, next);
   }
 
-  exports.logoutAdmin = function( req, res ) {
+  exports.adminLogout = function( req, res ) {
     req.logout();
     res.json({response: 'success'})
   }

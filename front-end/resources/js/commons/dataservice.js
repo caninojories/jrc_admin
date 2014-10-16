@@ -10,9 +10,11 @@
     function commonsDataservice( isserviceRestAdminLogin, isStudentLogin, serviceRestAdmin ) {
       var service = {
         getserviceRestAdminLoginStatus   : getserviceRestAdminLoginStatus,
-        getStudentLoginStatus : getStudentLoginStatus,
-        adminLogout           : adminLogout,
-        createserviceRestAdminAccount    : createserviceRestAdminAccount
+        createserviceRestAdminAccount    : createserviceRestAdminAccount,
+        getStudentLoginStatus            : getStudentLoginStatus,
+        adminLogin                       : adminLogin,
+        adminLogout                      : adminLogout
+
       }
 
       return service;
@@ -61,6 +63,19 @@
           })
 
         function adminAccount( data, status, headers, config ) {
+          return data.response;
+        }
+      }
+
+      function adminLogin( api, param ) {
+        return serviceRestAdmin.all( api )
+          .post( param )
+          .then( adminLoginData )
+          .catch( function ( message ) {
+            $location.url( '/' );
+          })
+
+        function adminLoginData( data, status, headers, config ) {
           return data.response;
         }
       }

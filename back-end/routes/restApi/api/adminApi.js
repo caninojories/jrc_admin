@@ -12,11 +12,11 @@
   //   next();
   // })
 
-  app.route( '/users' )
-    .post( postDb.login );
+  app.route( '/adminLogin' )
+    .post( postDb.adminLogin );
 
-  app.route( '/logout' )
-    .post( postDb.logoutAdmin )
+  app.route( '/adminLogout' )
+    .post( postDb.adminLogout )
 
   app.route( '/createAdminAccount' )
     .post( postDb.createAdminAccount )

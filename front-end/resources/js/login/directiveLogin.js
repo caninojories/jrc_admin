@@ -6,9 +6,9 @@
     .module('app.login')
     .directive('mainLogin', mainLogin)
 
-    mainLogin.$inject = [ '$rootScope', '$timeout', 'dataserviceLogin', '$state', '$location', '$window','$loginModal' ]
+    mainLogin.$inject = [ '$rootScope', '$timeout', '$window', '$loginModal', 'commonsDataservice' ]
 
-    function mainLogin( $rootScope, $timeout, dataserviceLogin, $state, $location, $window, $loginModal ) {
+    function mainLogin( $rootScope, $timeout, $window, $loginModal, commonsDataservice ) {
       var directive = {
         restrict : "E",
         replace : true,
@@ -22,8 +22,8 @@
       function controller( $rootScope, $modal ) {
         $rootScope.login = function ( isValid, email, password ) {
           if( isValid !== false ) {
-            dataserviceLogin.getUser( 'users', {email:email, password: password} ).then(function( valid ) {
-              if( valid === 'success' ) {
+            commonsDataservice.adminLogin( 'adminLogin', {email:email, password: password} ).then(function( response ) {
+              if( response === 'success' ) {
                 /**
                  ** Use $loginModal.hide() if you want
                  ** to hide the modal before refreshing the page
@@ -33,7 +33,7 @@
                 }, 100);
               } else {
                 $rootScope.error  = true;
-                $rootScope.valid  = valid;
+                $rootScope.valid  = response;
               }
             })
           } else {

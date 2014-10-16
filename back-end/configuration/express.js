@@ -49,14 +49,19 @@ var express         = require('express'),
         return method
       }
     }))
-    app.use(cookieParser());
+    app.use(cookieParser('secret'));
     app.use(session({
                     store: new MongoStore({
-                       db: 'paragala'
+                       db: 'sessions'
                     }),
                     secret: 'joriescanino',
+                    /**
+                     ** @cookie: { maxAge: 60000 }
+                     ** Use this so that session expires
+                    ***/
                     saveUninitialized: true,
                     resave: true}))
+    app.use(flash()); /*make this module work!!!OK*/
     app.use(passport.initialize());
     app.use(passport.session());
     app.use('/css', express.static(path.join(rootPath, 'front-end/resources/css')))
@@ -66,7 +71,7 @@ var express         = require('express'),
     app.use('/compileCss', express.static(path.join(rootPath, 'front-end/.tmp')))
     app.use('/bower_components', express.static(path.join(rootPath, 'front-end/bower')))
     app.use('/commonsHtml', express.static(path.join(rootPath, 'front-end/views/commons')))
-    app.use(flash()); /*make this module work!!!OK*/
+
 
     app.use(function( req, res, next ) {
       var username = req.user == undefined? '': req.user.username;

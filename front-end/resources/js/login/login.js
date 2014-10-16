@@ -47,7 +47,7 @@
 
 			function adminLogout() {
 				return commonsDataservice
-					.adminLogout( 'logout' )
+					.adminLogout( 'adminLogout' )
 					.then(function ( response ) {
 						return response
 					})
@@ -63,7 +63,7 @@
 
 			function createserviceRestAdminAccount( email, username, password, confirmPassword ) {
 				return commonsDataservice
-					.createserviceRestAdminAccount( 'createserviceRestAdminAccount', {email: email, username: username, password: password} )
+					.createserviceRestAdminAccount( 'createAdminAccount', {email: email, username: username, password: password} )
 					.then(function( response ) {
 						return response;
 					})

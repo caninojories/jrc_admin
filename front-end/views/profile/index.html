@@ -4,31 +4,37 @@
     <div class='col-sm-2 col-sm-offset-5'>
       Sample
     </div>
-    <form ng-submit='vm.updateProfile( vm.email, vm.username, vm.password, vm.confirmPassword )' class='modal-dialog' name='signupForm' novalidate='novalidate'>
+    <form ng-submit='vm.updateProfile( updateForm.$valid, vm.email, vm.username, vm.password, vm.confirmPassword )' class='modal-dialog' name='updateForm' novalidate='novalidate'>
       <div>
         <div class='modal-header'>
-          <h4 class='modal-title'>Account <$ response $></h4>
-          <div flash-alert="success" active-class="in" class="alert fade">
-            <span class="alert-message">{{flash.message}}</span>
+          <h4 class='modal-title'>Account <$ user $></h4>
+          <div flash-alert="error" active-class="in alert" class="alert-danger fade" ng-bind='flash.message'>
           </div>
-          <div ng-show='vm.error' ng-bind='vm.message'/>
+          <div flash-alert="success" active-class="in alert" class="alert-success fade" ng-bind='flash.message'>
+          </div>
         </div>
         <div class='modal-body'>
-          <div class='form-group' ng-class='showError(signupForm.email)'>
+          <div class='form-group' ng-class='showError(updateForm.email)'>
             <label class='control-label'>Email</label>
-            <input type='email' name='email' ng-model='vm.email' class='form-control' required>
+            <input type='email' name='email' ng-model='vm.email' class='form-control'>
           </div>
-          <div class='form-group' ng-class='showError(signupForm.username)'>
+          <div class='form-group' ng-class='showError(updateForm.username)'>
             <label class='control-label'>Username</label>
-            <input type='text' name='username' ng-model='vm.username' class='form-control' required>
+            <input type='text' name='username' ng-model='vm.username' class='form-control'>
           </div>
-          <div class='form-group' ng-class='showError(signupForm.password)'>
+          <div class='form-group'>
             <label class='control-label'>Password</label>
-            <input type='password' name='password' ng-model='vm.password' class='form-control' required ng-minlength='6'>
+            <input type='password' name='password' ng-model='vm.password' class='form-control' ng-minlength='6'>
+            <span class="form-control alert-danger" ng-show="updateForm.password.$error.minlength">
+              Your password must be at least 6 characters
+            </span>
           </div>
-          <div class='form-group' ng-class='showError(signupForm.confirmPassword)'>
+          <div class='form-group' ng-class='showError(updateForm.confirmPassword)'>
             <label class='control-label'>Confirm Password</label>
             <input type='password' name='confirmPassword' ng-model='vm.confirmPassword' class='form-control' required>
+            <span class='form-control alert-danger' ng-show='updateForm.confirmPassword.$dirty && (vm.password !== vm.confirmPassword)'>
+              Password Mismatch
+            </span>
           </div>
         </div>
         <div class='modal-footer'>

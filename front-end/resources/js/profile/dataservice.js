@@ -11,7 +11,7 @@
       function profileDataservice( serviceRestAdmin ) {
         var service = {
           getProfile    : getProfile,
-          updateProfile : updateProfile
+          updateProfile : updateProfile,
         }
 
         return service;
@@ -40,5 +40,6 @@
             return data.response;
           }
         }
+
       }
   })()
