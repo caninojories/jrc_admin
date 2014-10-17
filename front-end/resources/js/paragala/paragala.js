@@ -5,9 +5,11 @@
         .module('app.paragala')
         .controller('Paragala', Paragala);
 
-    Paragala.$inject = ['$q', '$rootScope', '$state', '$timeout', 'dataservice', 'logger', 'commonsDataservice', 'viewContentLoaded', 'ParagalaDataService', '$window', '$location'];
+    Paragala.$inject = [ '$location', '$q', '$rootScope', '$state', '$timeout', '$window'
+      , 'dataservice', 'logger', 'commonsDataservice', 'paragalaDataservice'  ];
 
-    function Paragala( $q, $rootScope, $state, $timeout, dataservice, logger, commonsDataservice, viewContentLoaded, ParagalaDataService, $window, $location ) {
+    function Paragala( $location, $q, $rootScope, $state, $timeout, $window
+      , dataservice, logger, commonsDataservice, paragalaDataservice ) {
 
         /*jshint validthis: true */
         var vm = this;
@@ -120,7 +122,7 @@
         }
 
         function getStudentLogout() {
-          return ParagalaDataService.studentLogout( 'logout' ).then(function( data ) {
+          return paragalaDataservice.studentLogout( 'logout' ).then(function( data ) {
             return data;
           })
         }
@@ -144,7 +146,7 @@
         }
 
         function getStudentLogin( SN ) {
-          return ParagalaDataService.studentLogin( 'student', {studentNumber: SN} ).then(function( data ) {
+          return paragalaDataservice.studentLogin( 'student', {studentNumber: SN} ).then(function( data ) {
             return data;
           })
         }

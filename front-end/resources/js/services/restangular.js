@@ -2,7 +2,7 @@
   "use strict";
 
   angular.module('app.restangular', [])
-    .factory( 'DatabaseService', function ( Restangular ) {
+    .factory( 'serviceDatabaseApi', function ( Restangular ) {
       //return Restangular.all( 'mongo-api' )
       return Restangular.all( 'database-api' )
     })

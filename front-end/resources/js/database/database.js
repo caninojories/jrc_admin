@@ -5,10 +5,11 @@
         .module('app.database')
         .controller('Database', Database);
 
-    Database.$inject = ['$q', '$rootScope', '$stateParams', '$location', 'dataserviceDatabase', 'DatabaseService',
-                        'logger', 'viewContentLoaded', 'angularLoad', 'commonsDataservice', 'Restangular'];
+    Database.$inject = ['$q', '$rootScope', '$stateParams', '$location', 'databaseDataservice',
+      'serviceDatabaseApi', 'logger', 'commonsDataservice', 'Restangular'];
 
-    function Database($q, $rootScope, $stateParams, $location, dataserviceDatabase, DatabaseService, logger, viewContentLoaded, angularLoad, commonsDataservice, Restangular ) {
+    function Database($q, $rootScope, $stateParams, $location, databaseDataservice,
+      serviceDatabaseApi, logger, commonsDataservice, Restangular ) {
 
         /*jshint validthis: true */
         var vm = this;
@@ -28,15 +29,6 @@
             runningUrl();
             loadDatabase();
             getserviceRestAdminLoginData();
-            loadScript();
-        }
-
-        function loadScript() {
-            angularLoad.loadScript('/js/custom/layout.js').then(function() {
-                logger.info('JS LOADED');
-            }).catch(function() {
-
-            });
         }
 
         function loadDatabase() {
@@ -47,7 +39,7 @@
         }
 
         function getDatabaseData() {
-            return dataserviceDatabase.getserviceRestAdminDatabase( vm.route ).then(function( data ) {
+            return databaseDataservice.getserviceRestAdminDatabase( vm.route ).then(function( data ) {
               if ($stateParams['id'] ) {
                 vm.database = JSON.stringify( Restangular.stripRestangular( data ), null, 2 )
                 vm.showAce = true;
@@ -74,7 +66,7 @@
 
             if( dbName && dbexisted ) {
                 var newDb = ({name : dbName});
-                DatabaseService.all( vm.route ).post( newDb )
+                serviceDatabaseApi.all( vm.route ).post( newDb )
                 _.extend($rootScope, $stateParams);
                 vm.database.push({name : dbName, url : $location.path().slice(1) + '/' + dbName })
             }
@@ -82,7 +74,7 @@
 
         function removeDb( db ) {
             if(confirm( 'Delete' )) {
-                DatabaseService.all( vm.route ).remove({name : db.name})
+                serviceDatabaseApi.all( vm.route ).remove({name : db.name})
                 vm.database.splice(vm.database.indexOf( db ), 1)
             }
         }
@@ -102,7 +94,7 @@
 
         function saveDocument( doc ) {
           var parse = JSON.parse(doc)
-          DatabaseService.all( vm.route ).post({documentId:parse})
+          serviceDatabaseApi.all( vm.route ).post({documentId:parse})
         }
 
         function runningUrl() {

@@ -5,9 +5,9 @@
 		.module('app.database')
 		.directive('addButton', addButton)
 
-    addButton.$inject = [ '$rootScope', 'dataserviceDatabase', 'DatabaseService' ]
+    addButton.$inject = [ '$rootScope', 'databaseDataservice', 'serviceDatabaseApi' ]
 
-		function addButton( $rootScope, dataserviceDatabase, DatabaseService ) {
+		function addButton( $rootScope, databaseDataservice, serviceDatabaseApi ) {
       var directive = {
         restrict: 'E',
         replace: true,

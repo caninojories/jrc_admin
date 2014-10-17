@@ -10,12 +10,8 @@
    next();
  })
 
- router.get( '/login/index.html',  function( req, res ) {
-  res.render( 'login/index.html' )
- })
-
- router.get( '/login/about/index.html',  function( req, res ) {
-  res.render( 'login/about/index.html' )
+ router.get( '/primary/index.html',  function( req, res ) {
+  res.render( 'primary/index.html' )
  })
 
  module.exports = router;

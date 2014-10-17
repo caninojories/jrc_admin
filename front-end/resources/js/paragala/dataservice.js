@@ -3,11 +3,11 @@
 
 	angular
 		.module('app.paragala')
-		.factory('ParagalaDataService', ParagalaDataService)
+		.factory('paragalaDataservice', paragalaDataservice)
 
-		ParagalaDataService.$inject = ['$rootScope', 'ParagalaStudent']
+		paragalaDataservice.$inject = ['$rootScope', 'ParagalaStudent']
 
-		function ParagalaDataService( $rootScope, ParagalaStudent ){
+		function paragalaDataservice( $rootScope, ParagalaStudent ){
 			var service = {
 				studentLogout: studentLogout,
 				studentLogin: studentLogin,

@@ -5,21 +5,15 @@
     .module('commons.control')
     .factory('viewContentLoaded', viewContentLoaded);
 
-    viewContentLoaded.$inject = [ 'logger', 'angularLoad' ];
+    viewContentLoaded.$inject = [ '$rootScope', 'logger' ];
 
-    function viewContentLoaded ( logger, angularLoad ) {
+    function viewContentLoaded ( $rootScope, logger ) {
 
-      var service = {
-        loadScript : loadScript
-      }
-
-      return service;
-
-      function loadScript(str) {
-        angularLoad.loadScript(str).then(function() {
-            logger.info('JS LOADED');
-        }).catch(function() {
-
+      loadScript();
+  
+      function loadScript() {
+        $rootScope.$on('$viewContentLoaded', function(){
+          jcaLayout.init()
         });
       }
     }

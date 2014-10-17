@@ -6,9 +6,16 @@
       .module( 'app.profile' )
       .controller( 'Profile', Profile )
 
-      Profile.$inject = ['$q', '$timeout', '$window', 'flash', 'profileDataservice', 'commonsDataservice']
+      Profile.$inject = [
+        /**
+         ** Angular
+         ** Third Party Service/Factory/Provider
+         ** Custom Factory/Provider
+         ** Service
+        ***/
+        '$q', '$timeout', '$window', 'flash', 'commonsDataservice', 'profileDataservice' ]
 
-      function Profile( $q, $timeout, $window, flash, profileDataservice, commonsDataservice ) {
+      function Profile( $q, $timeout, $window, flash, commonsDataservice, profileDataservice  ) {
         var vm = this;
 
         vm.updateProfile = updateProfile;

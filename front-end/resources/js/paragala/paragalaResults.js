@@ -5,9 +5,9 @@
     .module('app.paragala')
     .controller( 'ParagalaResults', ParagalaResults )
 
-    ParagalaResults.$inject = [ '$q', 'ParagalaDataService', 'commonsDataservice'];
+    ParagalaResults.$inject = [ '$q', 'paragalaDataservice', 'commonsDataservice'];
 
-    function ParagalaResults( $q, ParagalaDataService, commonsDataservice ) {
+    function ParagalaResults( $q, paragalaDataservice, commonsDataservice ) {
       var vm = this;
 
       vm.all        = "Know the Results?"
@@ -76,7 +76,7 @@
       }
 
       function getVoteResults() {
-        return ParagalaDataService.voteResultsData( 'userResults', {} )
+        return paragalaDataservice.voteResultsData( 'userResults', {} )
           .then( function ( data ) {
             return data;
           })

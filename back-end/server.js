@@ -9,7 +9,7 @@
 
       databaseApi = require('./routes/restApi/api/databaseApi'),
       adminApi    = require('./routes/restApi/api/adminApi'),
-      login       = require('./routes/clientRoutes/login'),
+      primary     = require('./routes/clientRoutes/primary'),
       profile     = require('./routes/clientRoutes/profile'),
       dashboard   = require('./routes/clientRoutes/dashboard'),
       database    = require('./routes/clientRoutes/database'),
@@ -39,7 +39,7 @@
 
     app.use( '/database-api', databaseApi );
     app.use( '/admin-api', adminApi );
-    app.use( '/', login );
+    app.use( '/', primary );
     app.use( '/', profile );
     app.use( '/', database );
     app.use( '/', dashboard );

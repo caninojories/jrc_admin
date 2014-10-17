@@ -5,9 +5,9 @@
 		.module( 'app.login' )
 		.controller( 'Login', Login )
 
-		Login.$inject = [ '$q', '$window', '$timeout', 'viewContentLoaded', 'commonsDataservice', '$loginModal' ];
+		Login.$inject = [ '$q', '$window', '$timeout',  'commonsDataservice', '$loginModal' ];
 
-		function Login( $q, $window, $timeout, viewContentLoaded, commonsDataservice, $loginModal ) {
+		function Login( $q, $window, $timeout, commonsDataservice, $loginModal ) {
 			var vm 		= this;
 
 			vm.strapLoginHtml = strapLoginHtml;
@@ -16,12 +16,7 @@
 			init();
 
 			function init() {
-				viewContentLoadedJS();
 				isserviceRestAdminLogin();
-			}
-
-			function viewContentLoadedJS() {
-				viewContentLoaded.loadScript('/js/custom/main.js')
 			}
 
 			function isserviceRestAdminLogin() {

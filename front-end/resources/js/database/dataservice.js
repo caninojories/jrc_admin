@@ -3,11 +3,11 @@
 
   angular
     .module('app.database')
-    .factory( 'dataserviceDatabase', dataserviceDatabase )
+    .factory( 'databaseDataservice', databaseDataservice )
 
-    dataserviceDatabase.$inject = ['DatabaseService', '$location', '$rootScope', '$q', 'logger']
+    databaseDataservice.$inject = ['serviceDatabaseApi', '$location', '$rootScope', '$q', 'logger']
 
-    function dataserviceDatabase( DatabaseService, $location, $rootScope, $q, logger ) {
+    function databaseDataservice( serviceDatabaseApi, $location, $rootScope, $q, logger ) {
 
       var service = {
         getserviceRestAdminDatabase : getserviceRestAdminDatabase
@@ -16,7 +16,7 @@
       return service;
 
       function getserviceRestAdminDatabase( api ) {
-        return DatabaseService.get( api )
+        return serviceDatabaseApi.get( api )
           .then( getserviceRestAdminDatabaseData )
           .catch( function ( message ) {
             $location.url( '/' );

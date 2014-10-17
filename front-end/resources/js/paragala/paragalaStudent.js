@@ -5,9 +5,9 @@
 		.module( 'app.paragala' )
 		.controller( 'ParagalaStudents', ParagalaStudents )
 
-		ParagalaStudents.$inject = ['$q', 'ParagalaDataService', 'logger', 'commonsDataservice' ]
+		ParagalaStudents.$inject = ['$q', 'paragalaDataservice', 'logger', 'commonsDataservice' ]
 
-		function ParagalaStudents( $q, ParagalaDataService, logger, commonsDataservice ) {
+		function ParagalaStudents( $q, paragalaDataservice, logger, commonsDataservice ) {
 			var vm = this;
 
 			vm.SN         				= false;
@@ -49,7 +49,7 @@
 			}
 
 			function addStudentData( SN ) {
-				return ParagalaDataService.postAddStudent( 'addStudent', { SN:SN } )
+				return paragalaDataservice.postAddStudent( 'addStudent', { SN:SN } )
 					.then( function ( data ) {
 						return data;
 					})

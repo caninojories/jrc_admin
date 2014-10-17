@@ -5,9 +5,9 @@
 		.module('app.paragala')
 		.directive('questionSubmit', questionSubmit)
 
-		questionSubmit.$inject = ['$q', '$location', 'ParagalaDataService', 'logger']
+		questionSubmit.$inject = ['$q', '$location', 'paragalaDataservice', 'logger']
 
-		function questionSubmit( $q, $location, ParagalaDataService, logger ) {
+		function questionSubmit( $q, $location, paragalaDataservice, logger ) {
       var directive = {
         restrict: 'E',
         replace: true,
@@ -33,7 +33,7 @@
 
 
       function getStudentLogout() {
-        return ParagalaDataService.studentLogout( 'logout' ).then(function( data ) {
+        return paragalaDataservice.studentLogout( 'logout' ).then(function( data ) {
           return data;
         })
       }
@@ -41,7 +41,7 @@
 
       function postAnswer( $scope ) {
       	var data = getData( $scope )
-      	return ParagalaDataService.postAnswerStudent( 'castUserVotes', {data: data } ).then( function ( data ) {
+      	return paragalaDataservice.postAnswerStudent( 'castUserVotes', {data: data } ).then( function ( data ) {
       		return data;
       	})
       }

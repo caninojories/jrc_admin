@@ -11,10 +11,10 @@
 
     function getRoutes() {
       return [{
-        state: 'main',
+        state: 'primary',
         config: {
           url: '/',
-          templateUrl: '/login/index.html',
+          templateUrl: '/primary/index.html',
           controller: 'Login as vm',
           title: 'main'
         }
