@@ -83,15 +83,15 @@
       }
 
       function adminLoginData() {
-        var promise = [getserviceRestAdminLoginData()]
+        var promise = [getserviceAdminApiLoginData()]
         return $q.all( promise ).then(function ( data ) {
           return data
         })
       }
 
-      function getserviceRestAdminLoginData() {
-        commonsDataservice.getserviceRestAdminLoginStatus( 'admin', {} ).then( function ( data ) {
-          vm.adminLogin = data.isserviceRestAdminLogin
+      function getserviceAdminApiLoginData() {
+        commonsDataservice.getserviceAdminApiLoginStatus( 'admin', {} ).then( function ( data ) {
+          vm.adminLogin = data.isserviceAdminApiLogin
           return vm.adminLogin;
         })
       }

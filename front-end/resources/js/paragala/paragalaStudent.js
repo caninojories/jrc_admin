@@ -3,11 +3,11 @@
 
 	angular
 		.module( 'app.paragala' )
-		.controller( 'ParagalaStudents', ParagalaStudents )
+		.controller( 'serviceParagalaStudentApis', serviceParagalaStudentApis )
 
-		ParagalaStudents.$inject = ['$q', 'paragalaDataservice', 'logger', 'commonsDataservice' ]
+		serviceParagalaStudentApis.$inject = ['$q', 'paragalaDataservice', 'logger', 'commonsDataservice' ]
 
-		function ParagalaStudents( $q, paragalaDataservice, logger, commonsDataservice ) {
+		function serviceParagalaStudentApis( $q, paragalaDataservice, logger, commonsDataservice ) {
 			var vm = this;
 
 			vm.SN         				= false;
@@ -22,7 +22,7 @@
 			}
 
 			function getView() {
-				var promise = [getserviceRestAdminLoginData()]
+				var promise = [getserviceAdminApiLoginData()]
 				return $q.all( promise ).then(function () {
 					logger.success('Activated Add-Student View');
 				})
@@ -55,9 +55,9 @@
 					})
 			}
 
-			function getserviceRestAdminLoginData() {
-				commonsDataservice.getserviceRestAdminLoginStatus( 'admin', {} ).then( function ( data ) {
-					vm.adminLogin = data.isserviceRestAdminLogin
+			function getserviceAdminApiLoginData() {
+				commonsDataservice.getserviceAdminApiLoginStatus( 'admin', {} ).then( function ( data ) {
+					vm.adminLogin = data.isserviceAdminApiLogin
 					return vm.adminLogin;
 				})
 			}

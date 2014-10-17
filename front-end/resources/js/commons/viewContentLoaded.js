@@ -10,9 +10,9 @@
     function viewContentLoaded ( $rootScope, logger ) {
 
       loadScript();
-  
+
       function loadScript() {
-        $rootScope.$on('$viewContentLoaded', function(){
+        $rootScope.$on('$viewContentLoaded', function() {
           jcaLayout.init()
         });
       }

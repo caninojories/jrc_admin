@@ -6,17 +6,17 @@
       //return Restangular.all( 'mongo-api' )
       return Restangular.all( 'database-api' )
     })
-    .factory('serviceRestAdmin', function (Restangular) {
+    .factory('serviceAdminApi', function (Restangular) {
     	return Restangular.all("admin-api")
     })
-    .factory('ParagalaStudent', function (Restangular) {
+    .factory('serviceParagalaStudentApi', function (Restangular) {
       return Restangular.all("paragala-student-api")
     })
-    .factory('ParagaQuestions', function (Restangular) {
+    .factory('serviceParagalaQuestionsApi', function (Restangular) {
       return Restangular.all("paragala-student-api")
     })
-    .factory( 'isserviceRestAdminLogin', function (Restangular)  {
-      return Restangular.all( 'isserviceRestAdminLogin' )
+    .factory( 'isserviceAdminApiLogin', function (Restangular)  {
+      return Restangular.all( 'isserviceAdminApiLogin' )
     })
     .factory( 'isStudentLogin', function (Restangular) {
       return Restangular.all( 'isStudentLogin' )

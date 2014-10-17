@@ -5,12 +5,12 @@
     .module('commons.control')
     .factory('commonsDataservice', commonsDataservice)
 
-    commonsDataservice.$inject = ['isserviceRestAdminLogin', 'isStudentLogin', 'serviceRestAdmin']
+    commonsDataservice.$inject = ['isserviceAdminApiLogin', 'isStudentLogin', 'serviceAdminApi']
 
-    function commonsDataservice( isserviceRestAdminLogin, isStudentLogin, serviceRestAdmin ) {
+    function commonsDataservice( isserviceAdminApiLogin, isStudentLogin, serviceAdminApi ) {
       var service = {
-        getserviceRestAdminLoginStatus   : getserviceRestAdminLoginStatus,
-        createserviceRestAdminAccount    : createserviceRestAdminAccount,
+        getserviceAdminApiLoginStatus   : getserviceAdminApiLoginStatus,
+        createserviceAdminApiAccount    : createserviceAdminApiAccount,
         getStudentLoginStatus            : getStudentLoginStatus,
         adminLogin                       : adminLogin,
         adminLogout                      : adminLogout
@@ -19,14 +19,14 @@
 
       return service;
 
-      function getserviceRestAdminLoginStatus( api, param ) {
-        return isserviceRestAdminLogin.one( api ).get( param )
-          .then( getserviceRestAdminLoginStatusData )
+      function getserviceAdminApiLoginStatus( api, param ) {
+        return isserviceAdminApiLogin.one( api ).get( param )
+          .then( getserviceAdminApiLoginStatusData )
           .catch( function ( message ) {
             $location.url( '/' );
           })
 
-        function getserviceRestAdminLoginStatusData( data, status, headers, config ) {
+        function getserviceAdminApiLoginStatusData( data, status, headers, config ) {
           return data;
         }
       }
@@ -44,7 +44,7 @@
       }
 
       function adminLogout( api, param ) {
-        return serviceRestAdmin.all( api ).post()
+        return serviceAdminApi.all( api ).post()
           .then( adminLogout )
           .catch( function (message ) {
             $location.url( '/' )
@@ -55,8 +55,8 @@
         }
       }
 
-      function createserviceRestAdminAccount( api, param ) {
-        return serviceRestAdmin.all( api ).post( param )
+      function createserviceAdminApiAccount( api, param ) {
+        return serviceAdminApi.all( api ).post( param )
           .then( adminAccount )
           .catch(function( message ) {
             $location.url( '/' )
@@ -68,7 +68,7 @@
       }
 
       function adminLogin( api, param ) {
-        return serviceRestAdmin.all( api )
+        return serviceAdminApi.all( api )
           .post( param )
           .then( adminLoginData )
           .catch( function ( message ) {

@@ -5,9 +5,9 @@
     .module( 'app.paragala' )
     .directive( 'studentLogin', studentLogin )
 
-    studentLogin.$inject = ['$q', '$timeout', '$location', 'logger', 'paragalaDataservice', 'ParagalaStudent']
+    studentLogin.$inject = ['$q', '$timeout', '$location', 'logger', 'paragalaDataservice', 'serviceParagalaStudentApi']
 
-    function studentLogin( $q, $timeout, $location, logger, paragalaDataservice, ParagalaStudent ) {
+    function studentLogin( $q, $timeout, $location, logger, paragalaDataservice, serviceParagalaStudentApi ) {
       var directive = {
         restrict: 'A',
         replace: true,

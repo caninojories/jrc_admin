@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module('ngAPI')
-	.controller('paragalaResultsCtrl', function($scope, ParagalaStudent, Restangular, loginService) {
-		ParagalaStudent.all('userResults').getList({}).then(function(response){
+	.controller('paragalaResultsCtrl', function($scope, serviceParagalaStudentApi, Restangular, loginService) {
+		serviceParagalaStudentApi.all('userResults').getList({}).then(function(response){
 			$scope.data = response[0].results
 			$scope.actor = response[1].actor
 			$scope.actress = response[2].actress

@@ -110,7 +110,6 @@
         init();
 
         function init() {
-          viewContentLoadedJS();
           isStudentLogin();
         }
 
@@ -149,11 +148,6 @@
           return paragalaDataservice.studentLogin( 'student', {studentNumber: SN} ).then(function( data ) {
             return data;
           })
-        }
-
-        function viewContentLoadedJS() {
-          viewContentLoaded.loadScript('/js/custom/questions.js')
-          viewContentLoaded.loadScript('/js/custom/main.js')
         }
 
         function isStudentLogin() {

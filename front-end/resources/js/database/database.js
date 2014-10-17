@@ -28,18 +28,18 @@
         function init() {
             runningUrl();
             loadDatabase();
-            getserviceRestAdminLoginData();
+            getserviceAdminApiLoginData();
         }
 
         function loadDatabase() {
-            var promise = [getDatabaseData(), getserviceRestAdminLoginData()];
+            var promise = [getDatabaseData(), getserviceAdminApiLoginData()];
             return $q.all(promise).then(function() {
                 logger.success('Activated Database View');
             });
         }
 
         function getDatabaseData() {
-            return databaseDataservice.getserviceRestAdminDatabase( vm.route ).then(function( data ) {
+            return databaseDataservice.getserviceAdminApiDatabase( vm.route ).then(function( data ) {
               if ($stateParams['id'] ) {
                 vm.database = JSON.stringify( Restangular.stripRestangular( data ), null, 2 )
                 vm.showAce = true;
@@ -51,9 +51,9 @@
             });
         }
 
-        function getserviceRestAdminLoginData() {
-          return commonsDataservice.getserviceRestAdminLoginStatus( 'admin', {} ).then( function ( data ) {
-            vm.adminLogin = data.isserviceRestAdminLogin
+        function getserviceAdminApiLoginData() {
+          return commonsDataservice.getserviceAdminApiLoginStatus( 'admin', {} ).then( function ( data ) {
+            vm.adminLogin = data.isserviceAdminApiLogin
             return vm.adminLogin;
           })
         }

@@ -5,9 +5,9 @@
 		.module('app.paragala')
 		.factory('paragalaDataservice', paragalaDataservice)
 
-		paragalaDataservice.$inject = ['$rootScope', 'ParagalaStudent']
+		paragalaDataservice.$inject = ['$rootScope', 'serviceParagalaStudentApi']
 
-		function paragalaDataservice( $rootScope, ParagalaStudent ){
+		function paragalaDataservice( $rootScope, serviceParagalaStudentApi ){
 			var service = {
 				studentLogout: studentLogout,
 				studentLogin: studentLogin,
@@ -19,7 +19,7 @@
 			return service;
 
 			function studentLogout( api ) {
-				return ParagalaStudent.all( api ).post({})
+				return serviceParagalaStudentApi.all( api ).post({})
 					.then( studentLogoutStatus )
 					.catch( function ( message ) {
 						$location.url( '/' );
@@ -31,7 +31,7 @@
 			}
 
 			function studentLogin( api, param ) {
-				return ParagalaStudent.one( api ).get( param )
+				return serviceParagalaStudentApi.one( api ).get( param )
 					.then( getStudent )
 					.catch( function ( message ) {
 						$location.url( '/' )
@@ -43,7 +43,7 @@
 			}
 
 			function postAnswerStudent ( api, param ) {
-				return ParagalaStudent.all( api ).post( param )
+				return serviceParagalaStudentApi.all( api ).post( param )
 					.then( getPostAnswerStudent )
 					.catch( function ( message ) {
 						$location.url( '/' )
@@ -55,7 +55,7 @@
 			}
 
 			function postAddStudent( api, param ) {
-				return ParagalaStudent.all( api ).post( param )
+				return serviceParagalaStudentApi.all( api ).post( param )
 					.then( getPostAddStudent )
 					.catch( function ( message ) {
 						$location.url( '/' )
@@ -67,7 +67,7 @@
 			}
 
 			function voteResultsData( api, param ) {
-				return ParagalaStudent.all( api ).getList( {} )
+				return serviceParagalaStudentApi.all( api ).getList( {} )
 					.then( getVoteResultsData )
 					.catch( function ( message ) {
 						$location.url( '/' )

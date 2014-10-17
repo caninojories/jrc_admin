@@ -6,9 +6,9 @@
       .module( 'app.profile' )
       .factory( 'profileDataservice', profileDataservice )
 
-      profileDataservice.$inject = ['serviceRestAdmin']
+      profileDataservice.$inject = ['serviceAdminApi']
 
-      function profileDataservice( serviceRestAdmin ) {
+      function profileDataservice( serviceAdminApi ) {
         var service = {
           getProfile    : getProfile,
           updateProfile : updateProfile,
@@ -17,7 +17,7 @@
         return service;
 
         function getProfile( api ) {
-          return serviceRestAdmin.get( api )
+          return serviceAdminApi.get( api )
             .then( getProfileData )
             .catch(function( response ) {
 
@@ -30,7 +30,7 @@
 
         function updateProfile( api, param ) {
           console.log( param )
-          return serviceRestAdmin.one( api )
+          return serviceAdminApi.one( api )
             .put( param )
             .then( updateProfileData )
             .catch(function( response ) {

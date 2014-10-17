@@ -49,7 +49,7 @@
               config: {
                 url: '/paragala/add-student',
                 templateUrl: '/paragalaAddStudent/index.html',
-                controller: 'ParagalaStudents as vm',
+                controller: 'serviceParagalaStudentApis as vm',
                 title: 'paragala'
               }
             }, {

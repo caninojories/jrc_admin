@@ -5,9 +5,9 @@
     .module('app.login')
     .factory( 'dataserviceLogin', dataserviceLogin )
 
-    dataserviceLogin.$inject = ['$http', '$location', '$q', 'logger', 'serviceRestAdmin', 'isserviceRestAdminLogin']
+    dataserviceLogin.$inject = ['$http', '$location', '$q', 'logger', 'serviceAdminApi', 'isserviceAdminApiLogin']
 
-    function dataserviceLogin($http, $location, $q, logger, serviceRestAdmin, isserviceRestAdminLogin) {
+    function dataserviceLogin($http, $location, $q, logger, serviceAdminApi, isserviceAdminApiLogin) {
 
       var service = {
         getUser: getUser
@@ -16,7 +16,7 @@
       return service;
 
       function getUser( api, param ) {
-        return serviceRestAdmin.all( api )
+        return serviceAdminApi.all( api )
           .post( param )
           .then( getUserData )
           .catch( function ( message ) {

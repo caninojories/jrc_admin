@@ -65,10 +65,6 @@
 
       init();
 
-      function init() {
-        loadScript();
-      }
-
       function largest(array){
         return Math.max.apply(Math, array);
       }
@@ -1203,14 +1199,6 @@
         return RaveDataservice.getJudgesVote( 'final-result' ).then(function (data) {
           return data;
         })
-      }
-
-      function loadScript() {
-          angularLoad.loadScript('/js/custom/layout.js').then(function() {
-            //logger.info('JS LOADED');
-          }).catch(function() {
-
-          });
       }
 
       function loginJudges( screenName, userName, password, confirmPassword, code ) {
