@@ -5,14 +5,15 @@
 		.module( 'app.login' )
 		.controller( 'Login', Login )
 
-		Login.$inject = [ '$q', '$window', '$timeout', 'viewContentLoaded', 'commonsDataservice', '$loginModal' ];
+		Login.$inject = [ '$q', '$window', '$timeout', 'viewContentLoaded', 'commonsDataservice', '$loginModal', '$SignUpModal' ];
 
-		function Login( $q, $window, $timeout, viewContentLoaded, commonsDataservice, $loginModal ) {
+		function Login( $q, $window, $timeout, viewContentLoaded, commonsDataservice, $loginModal, $SignUpModal ) {
 			var vm 		= this;
 
-			vm.strapLoginHtml = strapLoginHtml;
-			vm.logout 				= logout;
-			vm.signup					= signup;
+			vm.strapLoginHtml 	= strapLoginHtml;
+			vm.strapSignUpHtml 	= strapSignUpHtml;
+			vm.logout 					= logout;
+			vm.signup						= signup;
 			init();
 
 			function init() {
@@ -27,6 +28,10 @@
 
 			function strapLoginHtml() {
 				$loginModal.show();
+			}
+
+			function strapSignUpHtml() {
+				$SignUpModal.show();
 			}
 
 			function logout() {

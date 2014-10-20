@@ -66,7 +66,7 @@ var express         = require('express'),
     app.use(passport.session());
     app.use('/css', express.static(path.join(rootPath, 'front-end/resources/css')))
     app.use('/fonts', express.static(path.join(rootPath, 'front-end/resources/fonts')))
-    app.use('/img', express.static(path.join(rootPath,  'front-end/resources/img')))
+    app.use('/images', express.static(path.join(rootPath, 'front-end/resources/img')))
     app.use('/js', express.static(path.join(rootPath, 'front-end/resources/js')))
     app.use('/compileCss', express.static(path.join(rootPath, 'front-end/.tmp')))
     app.use('/bower_components', express.static(path.join(rootPath, 'front-end/bower')))

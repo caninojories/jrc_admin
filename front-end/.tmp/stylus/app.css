@@ -1,0 +1,42 @@
+@font-face {
+  font-family: gothic;
+  src: url("/fonts/gothic/webfonts/leaguegothic-regular-webfont.woff");
+}
+@font-face {
+  font-family: josipinSlap;
+  src: url("/fonts/josepinSlab/JosefinSlab-Slab-Light.ttf");
+}
+#fullpage #first {
+  background-image: url("/images/city.jpg");
+  background-size: cover;
+}
+#fullpage #first a {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  color: #fff;
+}
+#fullpage #second .secondPage {
+  position: relative;
+  top: -40%;
+}
+#fullpage #second .secondPage h1 {
+  font-family: gothic;
+  font-size: 5em;
+}
+#fullpage #second .secondPage .tagline {
+  font-family: gothic;
+  font-size: 2em;
+  font-weight: bolder;
+}
+#fullpage #second .secondPage .tagline ul {
+  letter-spacing: 2px;
+  list-style-type: none;
+}
+#fullpage #second .secondPage .tagline ul li {
+  line-height: 27px;
+}
+#fullpage #second .secondPage .content {
+  font-family: josipinSlap;
+  font-size: 2em;
+}

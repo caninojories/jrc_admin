@@ -1,8 +1,7 @@
 
-  var nib     = require('nib'),
-      stylus  = require('gulp-stylus');
+  var nib     = require('nib');
 
-  module.exports = function ( gulp, handleErrors ) {
+  module.exports = function ( gulp, stylus, handleErrors ) {
     gulp.task('stylus', function () {
       return gulp.src( 'front-end/resources/css/stylus/app.styl' )
         .pipe( stylus({use: [nib()]}) )

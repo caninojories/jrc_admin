@@ -3,13 +3,24 @@
 
   angular.module( 'strapService', [] )
     .service('$loginModal',function( $modal ){
-      var myModal = $modal({template:'/commonsHtml/login.html', show:false});
+      var login   = $modal({template:'/commonsHtml/login.html', show:false});
 
       this.show = function() {
-        myModal.$promise.then(myModal.show);
+        login.$promise.then(login.show);
       }
 
       this.hide = function() {
-        myModal.$promise.then(myModal.hide);
+        login.$promise.then(login.hide);
       }
-    });
+    })
+    .service( '$SignUpModal', function( $modal ) {
+      var signup  = $modal({template:'/commonsHtml/signup.html', show:false});
+
+      this.show = function() {
+        signup.$promise.then(signup.show);
+      }
+
+      this.hide = function() {
+        signup.$promise.then(signup.hide);
+      }
+    })

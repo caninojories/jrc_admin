@@ -1,5 +1,5 @@
 
-  <nav class='navbar navbar-default' role='navigation'>
+  <nav class='navbar navbar-default navbar-fixed-top' role='navigation'>
     <div class='container-fluid'>
       <div class='navbar-header'>
         <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#responsiveMode'>
@@ -61,7 +61,7 @@
 
         <ul ng-hide='user' class='nav navbar-nav navbar-right' ng-controller='Login as vm'>
           <li ng-hide='<$ isAuthenticated $>'>
-            <a href='' bs-modal='signupModal' data-template='/commonsHtml/signup.html' data-animation='am-fade-and-slide-top' class='login-link'>Sign-up</a>
+            <a href='' ng-click='vm.strapSignUpHtml()' data-animation='am-fade-and-slide-top' class='login-link'>Sign-up</a>
           </li>
           <li ng-show='<$ isAuthenticated $>'>
             <a ui-sref='profile' >Welcome <$ username $></a>

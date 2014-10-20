@@ -20,7 +20,7 @@
           anchors:['firstSlide', 'secondSlide'],
           scrollingSpeed: 700,
           easing: 'easeInQuart',
-          menu: false,
+          menu: true,
           navigation: false,
           navigationPosition: 'right',
           navigationTooltips: ['firstSlide', 'secondSlide'],
@@ -32,7 +32,7 @@
           autoScrolling: true,
           scrollOverflow: false,
           css3: false,
-          paddingTop: '-100px',
+          paddingTop: '40px',
           paddingBottom: '0px',
           normalScrollElements: '#element1, .element2',
           normalScrollElementTouchThreshold: 5,
@@ -51,6 +51,10 @@
           afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){},
           onSlideLeave: function(anchorLink, index, slideIndex, direction){}
       });
+
+      $('#secondSection').on('click', function() {
+        $.fn.fullpage.moveSectionDown();
+      })
   }
   window.jcaLayout = new layout();
 }( jQuery )
