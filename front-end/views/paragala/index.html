@@ -1,67 +1,41 @@
 
-<div class="container-fluid">
-  <div class="row">
-    <div id="carousel-bis-generic" class="carousel slide">
-      <img src="/img/paragala/paragala-logo.png" alt="Paragala Logo" class="logo img-responsive" id='offCanvasInitiate'/>
-      <div class="carousel-inner">
-        <div class="item active"><img src="/img/paragala/01.jpg" alt="..." class="img-responsive"/></div>
-        <div class="item"><img src="/img/paragala/02.jpg" alt="..." class="img-responsive"/></div>
-        <div class="item"><img src="/img/paragala/03.jpg" alt="..." class="img-responsive"/></div>
-        <div class="item"><img src="/img/paragala/04.jpg" alt="..." class="img-responsive"/></div>
-        <div class="item"><img src="/img/paragala/05.jpg" alt="..." class="img-responsive"/></div>
-        <div class="item"><img src="/img/paragala/06.jpg" alt="..." class="img-responsive"/></div>
-        <div class="item"><img src="/img/paragala/07.jpg" alt="..." class="img-responsive"/></div>
-        <div class="item"><img src="/img/paragala/08.jpg" alt="..." class="img-responsive"/></div>
-        <div class="item"><img src="/img/paragala/09.jpg" alt="..." class="img-responsive"/></div>
-        <div class="item"><img src="/img/paragala/10.jpg" alt="..." class="img-responsive"/></div>
-        <div class="item"><img src="/img/paragala/11.jpg" alt="..." class="img-responsive"/></div>
-        <div class="item"><img src="/img/paragala/12.jpg" alt="..." class="img-responsive"/></div>
-        <div class="item"><img src="/img/paragala/13.jpg" alt="..." class="img-responsive"/></div>
-        <div class="item"><img src="/img/paragala/14.jpg" alt="..." class="img-responsive"/></div>
-        <div class="item"><img src="/img/paragala/15.jpg" alt="..." class="img-responsive"/></div>
-        <div class="item"><img src="/img/paragala/16.jpg" alt="..." class="img-responsive"/></div>
+<div class='paragala'>
+  <div class="container-fluid">
+    <div class='col-sm-8 hidden-xs'>
+      <div id="carousel-bis-generic" class="carousel slide">
+        <!-- <img ng-click='vm.paragalaLogin()' src="/images/paragala/paragala-logo.png" alt="Paragala Logo" class="logo img-responsive" /> -->
+        <div class="carousel-inner img-rounded">
+          <div class="item active"><img src="/images/paragala/01.jpg" alt="..." class="img-responsive img-thumbnail"/></div>
+          <div class="item"><img src="/images/paragala/02.jpg" alt="..." class="img-responsive img-thumbnail"/></div>
+          <div class="item"><img src="/images/paragala/03.jpg" alt="..." class="img-responsive img-thumbnail"/></div>
+          <div class="item"><img src="/images/paragala/04.jpg" alt="..." class="img-responsive img-thumbnail"/></div>
+          <div class="item"><img src="/images/paragala/05.jpg" alt="..." class="img-responsive img-thumbnail"/></div>
+          <div class="item"><img src="/images/paragala/06.jpg" alt="..." class="img-responsive img-thumbnail"/></div>
+          <div class="item"><img src="/images/paragala/07.jpg" alt="..." class="img-responsive img-thumbnail"/></div>
+          <div class="item"><img src="/images/paragala/08.jpg" alt="..." class="img-responsive img-thumbnail"/></div>
+          <div class="item"><img src="/images/paragala/09.jpg" alt="..." class="img-responsive img-thumbnail"/></div>
+          <div class="item"><img src="/images/paragala/10.jpg" alt="..." class="img-responsive img-thumbnail"/></div>
+          <div class="item"><img src="/images/paragala/11.jpg" alt="..." class="img-responsive img-thumbnail"/></div>
+          <div class="item"><img src="/images/paragala/12.jpg" alt="..." class="img-responsive img-thumbnail"/></div>
+          <div class="item"><img src="/images/paragala/13.jpg" alt="..." class="img-responsive img-thumbnail"/></div>
+          <div class="item"><img src="/images/paragala/14.jpg" alt="..." class="img-responsive img-thumbnail"/></div>
+          <div class="item"><img src="/images/paragala/15.jpg" alt="..." class="img-responsive img-thumbnail"/></div>
+          <div class="item"><img src="/images/paragala/16.jpg" alt="..." class="img-responsive img-thumbnail"/></div>
+        </div>
       </div>
     </div>
-
-    <div class='offCanvas-container is-hide'>
-      <i class="fa fa-bars fa-2x pull-left offCanvas-close"></i>
-      <div class='offCanvas-inner'>
-
-        <div class='offCanvas-content'>
-
-          <div class='alert alert-danger' ng-show='vm.errors' ng-model='vm.text'>
-            {{vm.text}}
+    <div class='col-sm-4 loginForm'>
+      <div class="account-wall">
+        <img src="/images/paragala/paragala-logo.png" alt="">
+        <form class="form-signin" name='paragalaSignIn'>
+          <div class='form-group'>
+            <input type="text" placeholder="Student/Employee No." name='studentNumber' class="form-control"  required autofocus>
           </div>
-
-          <form name="studentForm" novalidate="novalidate" class='offCanvasForm'>
-            <div ng-class="{ 'has-error' : studentForm.SN.$invalid &amp;&amp; !studentForm.SN.$pristine &amp;&amp; vm.submitted}" class="form-group">
-              <div class='col-sm-12'>
-                <input id="student-num" type="number" name='SN' placeholder="Enter Your Designated No:." ng-model="vm.SN" class="form-control text-center" required ng-minlength="3"/>
-                <h5 class='text-center'>
-                  <div ng-show="studentForm.SN.$error.required &amp;&amp; vm.submitted" class="label label-danger">
-                    Required
-                  </div>
-                  <div ng-show="studentForm.SN.$error.minlength &amp;&amp; vm.submitted" class="label label-danger">
-                    Student Number is too short
-                  </div>
-                </h5>
-              </div>
-            </div>
-          </form>
-
-          <div class="col-sm-12 offCanvasLogin">
-            <div class="form-group text-center">
-              <button id='studentLogin' ng-click="vm.studentLoginData( studentForm.$valid, vm.SN )" class="btn btn-success">
-                <i class="fa fa-sign-in">
-                  &nbsp;Sign-in
-                </i>
-              </button>
-            </div>
-          </div>
-
-        </div><!--end offCanvas-content -->
-      </div><!--end offCanvas-inner -->
-    </div><!--end offCanvas-container -->
-
+          <button class="btn btn-lg btn-default btn-block" type="submit">
+              Sign-in
+          </button>
+        </form>
+      </div>
+    </div>
   </div>
 </div>

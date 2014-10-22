@@ -7,23 +7,32 @@
 
   layout.prototype.init = function () {
     console.log( 'Layout.js is running ')
+    this.carousel();
     this.fullPage();
 
     return this;
+  }
+
+  layout.prototype.carousel = function() {
+    $('.carousel').carousel({
+      interval: 3000,
+      pause: "hover",
+      wrap: true
+    })
   }
 
   layout.prototype.fullPage = function() {
     $('#fullpage').fullpage({
           verticalCentered: true,
           resize : false,
-          sectionsColor : ['#ccc', '#fff'],
-          anchors:['firstSlide', 'secondSlide'],
+          sectionsColor : ['#ccc', '#fff', '#E6E6E6'],
+          anchors:['', 'databasePage', 'paragalaPage'],
           scrollingSpeed: 700,
           easing: 'easeInQuart',
           menu: true,
           navigation: false,
           navigationPosition: 'right',
-          navigationTooltips: ['firstSlide', 'secondSlide'],
+          navigationTooltips: ['', 'databasePage', 'paragalaPage'],
           slidesNavigation: true,
           slidesNavPosition: 'bottom',
           loopBottom: false,
@@ -52,9 +61,11 @@
           onSlideLeave: function(anchorLink, index, slideIndex, direction){}
       });
 
-      $('#secondSection').on('click', function() {
+      $('.selectSection').on('click', function() {
+        console.log( 'select Section' )
         $.fn.fullpage.moveSectionDown();
       })
+
   }
   window.jcaLayout = new layout();
 }( jQuery )

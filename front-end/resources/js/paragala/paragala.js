@@ -6,10 +6,10 @@
         .controller('Paragala', Paragala);
 
     Paragala.$inject = [ '$location', '$q', '$rootScope', '$state', '$timeout', '$window'
-      , 'dataservice', 'logger', 'commonsDataservice', 'paragalaDataservice'  ];
+      , 'logger', '$ParagalaLoginModal', 'viewContentLoaded', 'commonsDataservice', 'paragalaDataservice'  ];
 
     function Paragala( $location, $q, $rootScope, $state, $timeout, $window
-      , dataservice, logger, commonsDataservice, paragalaDataservice ) {
+      , logger, $ParagalaLoginModal, viewContentLoaded, commonsDataservice, paragalaDataservice ) {
 
         /*jshint validthis: true */
         var vm = this;
@@ -106,6 +106,8 @@
         vm.response          = false;
         vm.error             = false;
         vm.text              = null
+
+        vm.paragalaLogin     = paragalaLogin;
 
         init();
 
@@ -369,6 +371,10 @@
             console.log( 'eight' )
             vm.finalSubmit = false;
           }
+        }
+
+        function paragalaLogin() {
+          $ParagalaLoginModal.show();
         }
 
     }

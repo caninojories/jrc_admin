@@ -24,3 +24,14 @@
         signup.$promise.then(signup.hide);
       }
     })
+    .service( '$ParagalaLoginModal', function( $modal ) {
+      var paragalaLogin  = $modal({template:'/commonsHtml/paragalaLogin.html', show:false});
+
+      this.show = function() {
+        paragalaLogin.$promise.then(paragalaLogin.show);
+      }
+
+      this.hide = function() {
+        paragalaLogin.$promise.then(paragalaLogin.hide);
+      }
+    })

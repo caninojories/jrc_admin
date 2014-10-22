@@ -1,3 +1,32 @@
+.paragala {
+  height: 100vh;
+  overflow: auto;
+  padding-top: 10%;
+  background-color: #7cbc33;
+}
+.paragala .carousel-inner img {
+  width: 100%;
+  height: 500px;
+}
+.paragala .loginForm .account-wall {
+  padding: 20px;
+  background-color: #ccc;
+  border-radius: 10px;
+  -moz-box-shadow: inset 0 0 10px #000;
+  -webkit-box-shadow: inset 0 0 10px #000;
+  box-shadow: inset 0 0 10px #000;
+}
+.paragala .loginForm .account-wall input {
+  border: 1px solid #7cbc33;
+}
+.paragala .loginForm .account-wall button {
+  color: #7cbc33;
+  border: 1px solid #7cbc33;
+}
+.paragala .loginForm img {
+  width: 100%;
+  height: 200px;
+}
 @font-face {
   font-family: gothic;
   src: url("/fonts/gothic/webfonts/leaguegothic-regular-webfont.woff");
@@ -20,23 +49,60 @@
   position: relative;
   top: -40%;
 }
-#fullpage #second .secondPage h1 {
+#fullpage #second a {
+  position: absolute;
+  left: 10%;
+  top: 90%;
+  z-index: 1;
+  color: #000;
+}
+#fullpage #second .container-fluid {
+  position: absolute;
+}
+#fullpage #second .container-fluid h1 {
   font-family: gothic;
   font-size: 5em;
 }
-#fullpage #second .secondPage .tagline {
+#fullpage #second .container-fluid .tagline {
   font-family: gothic;
   font-size: 2em;
   font-weight: bolder;
 }
-#fullpage #second .secondPage .tagline ul {
+#fullpage #second .container-fluid .tagline ul {
   letter-spacing: 2px;
   list-style-type: none;
 }
-#fullpage #second .secondPage .tagline ul li {
+#fullpage #second .container-fluid .tagline ul li {
   line-height: 27px;
 }
-#fullpage #second .secondPage .content {
+#fullpage #second .container-fluid .content {
   font-family: josipinSlap;
   font-size: 2em;
+}
+#fullpage #second .container-fluid .content button {
+  font-family: gothic;
+  font-size: 1em;
+  border: 2px solid #000;
+}
+@media (min-width: 320px) and (max-width: 479px) {
+  #fullpage #second .container-fluid h1 {
+    font-size: 2em;
+  }
+  #fullpage #second .container-fluid .tagline {
+    font-size: 22px;
+  }
+  #fullpage #second .container-fluid .content {
+    font-size: 20px;
+  }
+}
+@media (min-width: 480px) and (max-width: 767px) {
+  #fullpage #second .container-fluid h1 {
+    font-size: 2em;
+  }
+  #fullpage #second .container-fluid .tagline {
+    font-size: 22px;
+  }
+  #fullpage #second .container-fluid .content {
+    font-size: 18px;
+  }
 }
