@@ -48,8 +48,8 @@
               state: 'paragala_add-student',
               config: {
                 url: '/paragala/add-student',
-                templateUrl: '/paragalaAddStudent/index.html',
-                controller: 'serviceParagalaStudentApis as vm',
+                templateUrl: '/paragala/addStudent/index.html',
+                controller: 'ParagalaAddStudent as vm',
                 title: 'paragala'
               }
             }, {

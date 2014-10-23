@@ -10,8 +10,12 @@
     next();
   })
 
-  router.get( '/paragala/index.html',  function(req, res) {
-   res.render('paragala/index.html')
+  router.get( '/paragala/index.html', function( req, res ) {
+   res.render( 'paragala/index.html' )
+  })
+
+  router.get( '/paragala/addStudent/index.html', function( req, res ) {
+    res.render( 'paragala/addStudent/index.html', res.adminCredentials )
   })
 
   module.exports = router;

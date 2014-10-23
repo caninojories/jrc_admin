@@ -27,7 +27,7 @@
     <div class='col-sm-4 loginForm'>
       <div class="account-wall">
         <img src="/images/paragala/paragala-logo.png" alt="">
-        <form class="form-signin" name='paragalaSignIn'>
+        <form ng-submit='vm.paragalaSignIn()' class="form-signin" name='paragalaSignIn' novalidate='novalidate'>
           <div class='form-group'>
             <input type="text" placeholder="Student/Employee No." name='studentNumber' class="form-control"  required autofocus>
           </div>

@@ -1,0 +1,96 @@
+
+  @font-face {
+    font-family: gothic;
+    src: url('/fonts/gothic/webfonts/leaguegothic-regular-webfont.woff')
+  }
+
+  @font-face {
+    font-family: josipinSlap;
+    src: url('/fonts/josepinSlab/JosefinSlab-Slab-Light.ttf')
+  }
+
+  .footer {
+    -moz-box-shadow:    inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow:         inset 0 0 10px #000000;
+  }
+
+  .paragalaStudentAccount {
+    height: 100vh;
+    overflow: auto;
+    background-color: #7cbc33;
+    .addStudent {
+      padding-top: 8%;
+      .panel {
+        box-shadow: 10px 10px 0px;
+        .panel-heading {
+          font-family: gothic;
+          background-color: #ccc;
+        }
+        .panel-body {
+          font-family: josipinSlap;
+          background-color: #ccc;
+          label {
+            font-size: 16px;
+          }
+          button {
+            font-family: gothic;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    .footer {
+      position: fixed;
+      width: 100%;
+      bottom: 0px;
+      background-color: #ccc;
+      .poweredBy {
+        span {
+          font-family: gothic;
+          font-size: 25px;
+        }
+        ul {
+          list-style-type: none;
+          display: inline-flex;
+          img {
+            width: 100px;
+            height: 100px;
+          }
+        }
+      }
+      .main-org ul {
+        list-style-type: none;
+        display: inline-flex;
+        img {
+          width: 170px;
+          height: 170px;
+        }
+      }
+      .developers {
+        span {
+          font-family: gothic;
+          font-size: 25px;
+        }
+        ul {
+          list-style-type: none;
+          li {
+            font-family: josipinSlap;
+            font-size: 18px
+            font-weight: 900;
+            a {
+              color: #333;
+              &:hover {
+                text-decoration: none;
+              }
+            }
+          }
+        }
+      }
+    }
+    .sub-footer {
+      font-family: gothic;
+      font-size: 18px;
+      color: #7cbc33;
+    }
+  }

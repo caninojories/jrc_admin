@@ -9,11 +9,11 @@
 
 		function paragalaDataservice( $rootScope, serviceParagalaStudentApi ){
 			var service = {
-				studentLogout: studentLogout,
-				studentLogin: studentLogin,
-				postAnswerStudent: postAnswerStudent,
-				postAddStudent: postAddStudent,
-				voteResultsData: voteResultsData
+				studentLogout			: studentLogout,
+				studentLogin			: studentLogin,
+				postAnswerStudent	: postAnswerStudent,
+				addStudent				: addStudent,
+				voteResultsData		: voteResultsData
 			}
 
 			return service;
@@ -54,14 +54,16 @@
 				}
 			}
 
-			function postAddStudent( api, param ) {
+			function addStudent( api, param ) {
+				console.log( api, param )
 				return serviceParagalaStudentApi.all( api ).post( param )
-					.then( getPostAddStudent )
+					.then( addStudentData )
 					.catch( function ( message ) {
 						$location.url( '/' )
 					})
 
-				function getPostAddStudent( data, status, headers, config ) {
+				function addStudentData( data, status, headers, config ) {
+					console.log( data )
 					return data.response;
 				}
 			}

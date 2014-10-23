@@ -96,6 +96,7 @@
          * Student Logout Click and
          * Student Login Click
          **/
+        vm.paragalaSignIn    = paragalaSignIn;
         vm.studentLogout     = studentLogout;
         vm.studentLoginData  = studentLoginData;
         vm.counter           = counter;
@@ -113,6 +114,10 @@
 
         function init() {
           isStudentLogin();
+        }
+
+        function paragalaSignIn() {
+          console.log( 'click' )
         }
 
         function studentLogout() {

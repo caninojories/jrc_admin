@@ -3,11 +3,11 @@
 
 	angular
 		.module( 'app.paragala' )
-		.controller( 'serviceParagalaStudentApis', serviceParagalaStudentApis )
+		.controller( 'ParagalaAddStudent', ParagalaAddStudent )
 
-		serviceParagalaStudentApis.$inject = ['$q', 'paragalaDataservice', 'logger', 'commonsDataservice' ]
+		ParagalaAddStudent.$inject = ['$q', 'paragalaDataservice', 'logger', 'commonsDataservice' ]
 
-		function serviceParagalaStudentApis( $q, paragalaDataservice, logger, commonsDataservice ) {
+		function ParagalaAddStudent( $q, paragalaDataservice, logger, commonsDataservice ) {
 			var vm = this;
 
 			vm.SN         				= false;
@@ -29,9 +29,11 @@
 			}
 
 			function addStudent( isValid, SN ) {
+				console.log( isValid )
 				if( isValid !== false) {
-					var promise = [addStudentData( SN )]
-					return $q.all( promise ).then( function ( data ) {
+					console.log( 'valid' )
+					return $q.all( addStudentData(SN) ).then( function ( response ) {
+						console.log( response )
 						if( data[0] == 'isAlreadyRegistered' ) {
 							vm.isAlreadyRegistered = true;
 							vm.notYetVoted = false;
@@ -49,9 +51,10 @@
 			}
 
 			function addStudentData( SN ) {
-				return paragalaDataservice.postAddStudent( 'addStudent', { SN:SN } )
-					.then( function ( data ) {
-						return data;
+				return paragalaDataservice.addStudent( 'paragalaAddStudent', { SN:SN } )
+					.then( function ( response ) {
+						console.log( response )
+						return response;
 					})
 			}
 
