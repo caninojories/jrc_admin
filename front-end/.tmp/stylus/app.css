@@ -1,3 +1,202 @@
+#wrapper.sidebarOn {
+  width: 100%;
+  padding-left: 150px;
+  padding-top: 50px;
+  margin: 0px;
+  transition: padding-left 0.5s ease-in-out;
+}
+#wrapper.sidebarOn #sidebar-wrapper {
+  position: fixed;
+  left: 0;
+  width: 150px;
+  height: 100%;
+  background: #2a3542;
+  z-index: 1;
+  transition: all 0.5s ease-in-out;
+}
+#wrapper.sidebarOn #sidebar-wrapper #sidebarOnandOff {
+  position: relative;
+  top: -5px;
+  float: right;
+  font-size: 30px;
+  padding-top: 10px;
+  padding-right: 10px;
+}
+#wrapper.sidebarOn #sidebar-wrapper #sidebarOnandOff a {
+  color: #fff;
+}
+#wrapper.sidebarOn #sidebar-wrapper .sidebar-nav {
+  position: absolute;
+  top: 50px;
+  width: 150px;
+  padding: 0px;
+  list-style: none;
+  transition: all 0.5s ease-in-out;
+}
+#wrapper.sidebarOn #sidebar-wrapper .sidebar-nav li {
+  font-size: 12px;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  box-shadow: 10px 0 5px #111;
+  transition: all 0.5s ease-in-out;
+}
+#wrapper.sidebarOn #sidebar-wrapper .sidebar-nav li a {
+  display: flex;
+  color: #aeb2b7;
+  text-decoration: none;
+}
+#wrapper.sidebarOn #sidebar-wrapper .sidebar-nav li a .icon-hide {
+  padding-left: 10px;
+}
+#wrapper.sidebarOn #sidebar-wrapper .sidebar-nav li:hover {
+  background: #31708f;
+  cursor: pointer;
+}
+#wrapper.sidebarOn #sidebar-wrapper .sidebar-nav li:hover a {
+  color: #fff;
+}
+#wrapper.sidebarOff {
+  width: 100%;
+  padding-left: 40px;
+  padding-top: 50px;
+  padding-right: 400px;
+  margin: 0px;
+  transition: padding-left 0.5s ease-in-out;
+}
+#wrapper.sidebarOff #sidebar-wrapper {
+  position: fixed;
+  left: 0;
+  width: 40px;
+  height: 100%;
+  background: #2a3542;
+  transition: all 0.5s ease-in-out;
+}
+#wrapper.sidebarOff #sidebar-wrapper #sidebarOnandOff {
+  position: relative;
+  top: -5px;
+  float: right;
+  font-size: 30px;
+  padding-top: 10px;
+  padding-right: 10px;
+}
+#wrapper.sidebarOff #sidebar-wrapper #sidebarOnandOff a {
+  color: #fff;
+}
+#wrapper.sidebarOff #sidebar-wrapper .sidebar-nav {
+  position: absolute;
+  top: 40px;
+  width: 40px;
+  padding: 0px;
+  list-style: none;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+#wrapper.sidebarOff #sidebar-wrapper .sidebar-nav li {
+  font-size: 15px;
+  padding: 10px;
+}
+#wrapper.sidebarOff #sidebar-wrapper .sidebar-nav li a {
+  color: #aeb2b7;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+#wrapper.sidebarOff #sidebar-wrapper .sidebar-nav li a i {
+  font-size: 12px;
+  font-weight: bolder;
+  font-smooth: antialiased;
+}
+#wrapper.sidebarOff #sidebar-wrapper .sidebar-nav li a .icon-hide {
+  display: none;
+  word-wrap: no-wrap;
+  transition: all 0.5s ease-in-out;
+}
+#wrapper.sidebarOff #sidebar-wrapper .sidebar-nav li:hover {
+  background: #31708f;
+  cursor: pointer;
+}
+#wrapper.sidebarOff #sidebar-wrapper .sidebar-nav li:hover a {
+  color: #fff;
+}
+.mainContent .container-fluid .row h4 i {
+  font-weight: 700;
+  padding-left: 10px;
+  text-decoration: underline;
+}
+.mainContent .container-fluid .row .jumbotron ul,
+.mainContent .container-fluid .row .jumbotron li {
+  list-style-type: none;
+}
+.shuffle-animation.ng-enter,
+.shuffle-animation.ng-leave {
+  position: relative;
+}
+.shuffle-animation.ng-enter {
+  -moz-transition: ease-out all 0.3s 0.4s;
+  -o-transition: ease-out all 0.3s 0.4s;
+  -webkit-transition: ease-out all 0.3s 0.4s;
+  transition: ease-out all 0.3s 0.4s;
+  left: 2em;
+  opacity: 0;
+}
+.shuffle-animation.ng-enter.ng-enter-active {
+  left: 0;
+  opacity: 1;
+}
+.shuffle-animation.ng-leave {
+  -moz-transition: 0.3s ease-out all;
+  -o-transition: 0.3s ease-out all;
+  -webkit-transition: 0.3s ease-out all;
+  transition: 0.3s ease-out all;
+  left: 0;
+  opacity: 1;
+}
+.shuffle-animation.ng-leave.ng-leave-active {
+  left: 2em;
+  opacity: 0;
+}
+.ngplus-overlay-background {
+/*background-color: #000;*/
+  top: 0px;
+  left: 0px;
+  padding-left: 100px;
+  position: absolute;
+  z-index: 10000;
+  height: 100%;
+  width: 100%;
+  background-color: #808080;
+  opacity: 0.5;
+}
+.ngplus-overlay-content {
+  position: absolute;
+/*border: 1px solid #000;*/
+/*background-color: #fff;*/
+  font-weight: bold;
+  height: 100px;
+  width: 300px;
+  height: 15em;
+  width: 20em;
+  z-index: 10000;
+  text-align: center;
+}
+.dissolve-animation.ng-hide-remove,
+.dissolve-animation.ng-hide-add {
+  display: inline !important;
+  -webkit-transition: 0.5s linear all;
+  -moz-transition: 0.5s linear all;
+  -o-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+}
+.dissolve-animation.ng-hide-remove.ng-hide-remove-active,
+.dissolve-animation.ng-hide-add {
+  opacity: 1;
+}
+.dissolve-animation.ng-hide-add.ng-hide-add-active,
+.dissolve-animation.ng-hide-remove {
+  opacity: 0;
+}
+body {
+  overflow: auto;
+}
 .paragala {
   height: 100vh;
   overflow: auto;
@@ -128,14 +327,14 @@
   background-size: cover;
 }
 #fullpage #first a {
-  position: relative;
+  position: absolute;
   left: 50%;
-  top: 50%;
+  top: 90%;
   color: #fff;
 }
 #fullpage #second .secondPage {
-  position: relative;
-  top: -40%;
+  position: absolute;
+  top: 80px;
 }
 #fullpage #second a {
   position: absolute;
@@ -143,9 +342,6 @@
   top: 90%;
   z-index: 1;
   color: #000;
-}
-#fullpage #second .container-fluid {
-  position: absolute;
 }
 #fullpage #second .container-fluid h1 {
   font-family: gothic;
@@ -193,4 +389,7 @@
   #fullpage #second .container-fluid .content {
     font-size: 18px;
   }
+}
+.database {
+  padding-top: 80px;
 }
