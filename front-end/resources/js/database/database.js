@@ -39,12 +39,12 @@
         }
 
         function getDatabaseData() {
-            return databaseDataservice.getserviceAdminApiDatabase( vm.route ).then(function( data ) {
+            return databaseDataservice.getserviceAdminApiDatabase( vm.route ).then(function( response ) {
               if ($stateParams['id'] ) {
-                vm.database = JSON.stringify( Restangular.stripRestangular( data ), null, 2 )
+                vm.database = JSON.stringify( Restangular.stripRestangular( response ), null, 2 )
                 vm.showAce = true;
               } else {
-                vm.database = data
+                vm.database = response
                 vm.showAce = false
               }
               return vm.database

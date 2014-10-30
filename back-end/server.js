@@ -16,6 +16,7 @@
       dashboard   = require('./routes/clientRoutes/dashboard'),
       database    = require('./routes/clientRoutes/database'),
       paragala    = require('./routes/clientRoutes/paragala'),
+      adminPanelParagalaQuestions = require('./routes/clientRoutes/adminPanel/paragala/questions.js'),
       catchAll    = require('./routes/clientRoutes/all');
 
     /**
@@ -46,7 +47,8 @@
     app.use( '/', profile );
     app.use( '/', database );
     app.use( '/', dashboard );
-    app.use( '/', paragala )
+    app.use( '/', paragala );
+    app.use( '/', adminPanelParagalaQuestions);
     app.use( '*', catchAll );
 
     /**

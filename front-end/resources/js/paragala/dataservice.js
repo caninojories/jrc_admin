@@ -13,7 +13,9 @@
 				studentLogin			: studentLogin,
 				postAnswerStudent	: postAnswerStudent,
 				addStudent				: addStudent,
-				voteResultsData		: voteResultsData
+				voteResultsData		: voteResultsData,
+				questionsUpdate		: questionsUpdate,
+				questionsList			: questionsList
 			}
 
 			return service;
@@ -31,13 +33,14 @@
 			}
 
 			function studentLogin( api, param ) {
-				return serviceParagalaStudentApi.one( api ).get( param )
-					.then( getStudent )
+				return serviceParagalaStudentApi.all( api )
+					.post( param )
+					.then( studentLoginData )
 					.catch( function ( message ) {
 						$location.url( '/' )
 					})
 
-				function getStudent( data, status, headers, config ) {
+				function studentLoginData( data, status, headers, config ) {
 					return data;
 				}
 			}
@@ -78,6 +81,31 @@
 
 			function getVoteResultsData( data, status, headers, config ) {
 				return data;
+			}
+
+			function questionsUpdate( api, param ) {
+				return serviceParagalaStudentApi.one( api )
+					.put( param )
+					.then( questionsUpdateData )
+					.catch(function( message ) {
+						//error for update angular ui
+					})
+
+					function questionsUpdateData( response, status, headers, config ) {
+						return response
+					}
+			}
+
+			function questionsList( api ) {
+				return serviceParagalaStudentApi.get( api )
+					.then( questionsListData )
+					.catch(function( message ) {
+						$location.url( '/' )
+					})
+
+				function questionsListData( response, status, headers, config ) {
+					return response;
+				}
 			}
 		}
 })()

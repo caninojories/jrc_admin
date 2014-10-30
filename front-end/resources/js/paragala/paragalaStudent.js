@@ -29,19 +29,16 @@
 			}
 
 			function addStudent( isValid, SN ) {
-				console.log( isValid )
 				if( isValid !== false) {
 					console.log( 'valid' )
 					return $q.all( addStudentData(SN) ).then( function ( response ) {
 						console.log( response )
-						if( data[0] == 'isAlreadyRegistered' ) {
+						if( response.alreadyRegistered ) {
 							vm.isAlreadyRegistered = true;
 							vm.notYetVoted = false;
-							vm.SN = ''
 						} else {
 							vm.isAlreadyRegistered = false;
 							vm.notYetVoted = true;
-							vm.SN = ''
 						}
 						vm.studentNumber = SN;
 					})

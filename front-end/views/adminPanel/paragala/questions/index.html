@@ -1,0 +1,90 @@
+
+  <div class='container questions'>
+    <div class='col-sm-12'>
+      <div ui-tree='treeOptions'>
+        <ol ui-tree-nodes="" ng-model="list">
+          <li ng-repeat="item in list" ui-tree-node class="ng-scope angular-ui-tree-node">
+            <div ui-tree-handle ng-show='!item.editing' class='category'>
+              <a class="btn btn-success btn-xs" data-nodrag="" ng-click="vm.toggle(this)">
+                <span class="glyphicon glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right': !collapsed, 'glyphicon-chevron-down': collapsed}"></span>
+              </a>
+              {{item.title}}
+              <a class="pull-right btn btn-danger btn-xs" data-nodrag="" ng-click="vm.remove(this)">
+                <span class="glyphicon glyphicon-remove"></span>
+              </a>
+              <a class="pull-right btn btn-primary btn-xs" data-nodrag="" ng-click="vm.newSubItem(this)" style="margin-right: 8px;">
+                <span class="glyphicon glyphicon-plus"></span>
+              </a>
+              <a href="" class="btn btn-primary btn-xs pull-right" data-nodrag="" ng-click="vm.editCategory(item)">
+                <i class="glyphicon glyphicon-pencil"></i>
+              </a>
+            </div>
+            <div class="group-title angular-ui-tree-handle" data-nodrag="" ng-show="item.editing">
+              <!-- ng-show="group.editing" -->
+              <form class="form-inline ng-pristine ng-valid" role="form">
+                <div class="form-group">
+                  <label class="sr-only" for="groupName">Group name</label>
+                  <input type="text" class="form-control ng-pristine ng-valid" placeholder="Group name" ng-model="item.title">
+                </div>
+                <button type="submit" class="btn btn-default" ng-click="vm.saveCategory(item)">Save</button>
+                <button type="submit" class="btn btn-default" ng-click="vm.cancelEditingCategory(item)">Cancel</button>
+              </form>
+            </div>
+            <ol ui-tree-nodes="" ng-model="item.items" ng-class="{hidden: !collapsed}">
+              <li ng-repeat="subItem in item.items" ui-tree-node>
+                <div ui-tree-handle ng-show='!subItem.editing' class='subItem'>
+                  <a class="btn btn-success btn-xs" data-nodrag="" ng-click="vm.toggle(this)">
+                    <span class="glyphicon glyphicon-chevron-right" ng-class="{'glyphicon-chevron-right': !collapsed, 'glyphicon-chevron-down': collapsed}"></span>
+                  </a>
+                  {{subItem.title}}
+                  <a class="pull-right btn btn-danger btn-xs" data-nodrag="" ng-click="vm.remove(this)">
+                    <span class="glyphicon glyphicon-remove"></span>
+                  </a>
+                  <a class="pull-right btn btn-primary btn-xs" data-nodrag="" ng-click="vm.newSubItem(this)" style="margin-right: 8px;">
+                    <span class="glyphicon glyphicon-plus"></span>
+                  </a>
+                  <a href="" class="btn btn-primary btn-xs pull-right" data-nodrag="" ng-click="vm.editSubItem(subItem)">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                  </a>
+                </div>
+                <div class="group-title angular-ui-tree-handle" data-nodrag="" ng-show="subItem.editing">
+                  <!-- ng-show="group.editing" -->
+                  <form class="form-inline ng-pristine ng-valid" role="form">
+                    <div class="form-group">
+                      <label class="sr-only" for="groupName">Question Header</label>
+                      <input type="text" class="form-control ng-pristine ng-valid" placeholder="Group name" ng-model="subItem.title">
+                    </div>
+                    <button type="submit" class="btn btn-default" ng-click="vm.saveSubItem(subItem)">Save</button>
+                    <button type="submit" class="btn btn-default" ng-click="vm.cancelEditingSubItem(subItem)">Cancel</button>
+                  </form>
+                </div>
+                <ol ui-tree-nodes='' ng-model='subItem.items' ng-class="{hidden: !collapsed}">
+                  <li ng-repeat="secondSubItem in subItem.items" ui-tree-node>
+                    <div ui-tree-handle ng-show='!secondSubItem.editing' class='secondSubItem'>
+                      {{secondSubItem.title}}
+                      <a class="pull-right btn btn-danger btn-xs" data-nodrag="" ng-click="vm.remove(this)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                      </a>
+                      <a href="" class="btn btn-primary btn-xs pull-right" data-nodrag="" ng-click="vm.editSecondSubItem(secondSubItem)">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                      </a>
+                    </div>
+                    <div class="group-title angular-ui-tree-handle" data-nodrag="" ng-show='secondSubItem.editing'>
+                      <form>
+                        <div class="form-group">
+                          <label class="sr-only" for="groupName">Add a Choice Name</label>
+                          <input type="text" class="form-control ng-pristine ng-valid" placeholder="Add a Choice Name" ng-model="secondSubItem.title">
+                        </div>
+                        <button type="submit" class="btn btn-default" ng-click="vm.saveSecondSubItem(secondSubItem)">Save</button>
+                        <button type="submit" class="btn btn-default" ng-click="vm.cancelEditingSecondSubItem(secondSubItem)">Cancel</button>
+                      </form>
+                    </div>
+                  </li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>

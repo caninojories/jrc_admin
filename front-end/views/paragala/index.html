@@ -27,11 +27,11 @@
     <div class='col-sm-4 loginForm'>
       <div class="account-wall">
         <img src="/images/paragala/paragala-logo.png" alt="">
-        <form ng-submit='vm.paragalaSignIn()' class="form-signin" name='paragalaSignIn' novalidate='novalidate'>
+        <form name='studentLogin' novalidate='novalidate'>
           <div class='form-group'>
-            <input type="text" placeholder="Student/Employee No." name='studentNumber' class="form-control"  required autofocus>
+            <input type="text" placeholder="Student/Employee No." name='studentNumber' class="form-control" ng-model='vm.SN'  required autofocus>
           </div>
-          <button class="btn btn-lg btn-default btn-block" type="submit">
+          <button class="btn btn-lg btn-default btn-block" ng-click='vm.studentLogin(vm.SN)'>
               Sign-in
           </button>
         </form>

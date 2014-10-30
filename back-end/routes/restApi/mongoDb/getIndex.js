@@ -5,7 +5,7 @@
       _         = require('underscore')._,
       url       = require('url');
 
-  exports.dbs = function ( req, res ) {
+  exports.dbs = function( req, res ) {
     mongo.db('admin')
       .runCommand({ listDatabases: 1 })
       .then(function( database ) {
@@ -18,7 +18,7 @@
       })
   }
 
-  exports.collections = function (req, res) {
+  exports.collections = function( req, res ) {
     var dbName = req.params.db;
     var request = 'database/' + dbName + '/';
     mongo.db( dbName )
@@ -34,7 +34,7 @@
       })
   }
 
-  exports.listDocuments = function (req, res) {
+  exports.listDocuments = function( req, res ) {
     var dbName = req.params.db;
     var dbCollection = req.params.collection;
     var request = 'database/' + dbName + '/' + dbCollection + '/';
@@ -51,13 +51,10 @@
       })
   }
 
-  exports.document = function (req, res) {
-    var dbName = req.params.db;
-    var dbCollection = req.params.collection;
-    var id = req.params.id;
-    mongo.db( dbName )
-      .collection( dbCollection )
-      .findOne( {'_id': id} )
+  exports.document = function( req, res ) {
+    mongo.db( req.params.db )
+      .collection( req.params.collection )
+      .findOne( {'_id': req.params.id.toString()} )
       .then(function( document ) {
         res.json( document )
       })

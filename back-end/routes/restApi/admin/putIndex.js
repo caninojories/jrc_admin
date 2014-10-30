@@ -8,7 +8,6 @@
 
   exports.adminUpdateProfile = function( req, res ) {
     var query = url.parse(req.url, true).query;
-    console.log( req.user )
 
     if( req.user._id !== query.email ) {
       mongo.db( 'admin' )

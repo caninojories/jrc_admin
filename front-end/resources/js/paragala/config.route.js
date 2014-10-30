@@ -37,11 +37,19 @@
                 // }
               }
             }, {
+              state: 'admin_paragala_questions',
+              config: {
+                url: '/adminPanel/paragala/questions',
+                templateUrl: 'adminPanel/paragala/questions/index.html',
+                controller: 'Questions as vm',
+                title: 'paragala'
+              }
+            }, {
               state: 'paragala_questions',
               config: {
                 url: '/paragala/questions',
-                templateUrl: '/paragalaQuestions/index.html',
-                controller: 'Paragala as vm',
+                templateUrl: 'paragala/questions/index.html',
+                controller: 'Questions as vm',
                 title: 'paragala'
               }
             }, {

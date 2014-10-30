@@ -5,6 +5,7 @@ var express         = require('express'),
     favicon         = require('serve-favicon'),
     logger          = require('morgan'),
     cookieParser    = require('cookie-parser'),
+    parserCookie    = require('cookie').parse,
     bodyParser      = require('body-parser'),
     methodOverride  = require('method-override'),
     multer          = require('multer'),
@@ -76,6 +77,12 @@ var express         = require('express'),
     app.use(function( req, res, next ) {
       var username = req.user == undefined? '': req.user.username;
       res.adminCredentials = {isAuthenticated: req.isAuthenticated(), username: username}
+
+      console.log( parserCookie(req.headers.cookie) )
+      console.log( req.cookies.auth_token )
+      // if( !req.cookies.auth_token ) {
+      //    res.redirect('primary/index.html')
+      // }
       next();
     })
   }

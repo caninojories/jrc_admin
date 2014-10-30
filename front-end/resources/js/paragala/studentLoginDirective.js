@@ -21,9 +21,9 @@
       vm.status = null;
 
       function controller( $scope ) {
-        $scope.vm.studentLoginData = function( isValid, SN ) {
+        $scope.vm.studentLogin = function( isValid, SN ) {
           if( isValid !== false) {
-            var promise = [getStudentLogin( SN )]
+            var promise = [studentLoginData( SN )]
             return $q.all( promise ).then(function ( data ) {
               if( data[0] == 'success' ) {
                 $scope.vm.response = true
@@ -36,10 +36,11 @@
           }
         }
 
-        function getStudentLogin( SN ) {
-          return paragalaDataservice.studentLogin( 'student', {studentNumber: SN} ).then(function( data ) {
-            return data;
-          })
+        function studentLoginData( SN ) {
+          return paragalaDataservice.studentLogin( 'studentLogin', {studentNumber: SN} )
+            .then(function( data ) {
+              return data;
+            })
         }
       }
     }

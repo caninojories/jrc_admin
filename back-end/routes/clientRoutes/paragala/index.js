@@ -18,4 +18,8 @@
     res.render( 'paragala/addStudent/index.html', res.adminCredentials )
   })
 
+  router.get( '/paragala/questions/index.html', function(req, res ) {
+    res.render( 'paragala/questions/index.html' )
+  })
+
   module.exports = router;

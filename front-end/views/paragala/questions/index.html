@@ -1,0 +1,24 @@
+
+  <div ng-repeat='item in list'>
+    {{item.title}}
+    <div ng-repeat='subItem in item.items'>
+      {{subItem.title}}
+      <div class="panel-heading row">
+        <h3 class="panel-title text-center" ng-bind='subItem.title'></h3>
+      </div>
+      <div ng-repeat='secondSubItem in subItem.items'>
+        {{secondSubItem.title}}
+          <div class="panel-body">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <div class="radio">
+                  <label>
+                    <input type="radio" ng-bind='secondSubItem.title'/>
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </div>

@@ -14,7 +14,7 @@
         /*jshint validthis: true */
         var vm = this;
 
-        vm.studentLogin                 = null;
+        // vm.studentLogin                 = null;
         vm.actor                        = null;
         vm.actress                      = null;
         vm.maleChildPerformer           = null;
@@ -96,9 +96,9 @@
          * Student Logout Click and
          * Student Login Click
          **/
-        vm.paragalaSignIn    = paragalaSignIn;
-        vm.studentLogout     = studentLogout;
-        vm.studentLoginData  = studentLoginData;
+        // vm.studentLogin      = studentLogin;
+        // vm.studentLogout     = studentLogout;
+        // vm.studentLoginData  = studentLoginData;
         vm.counter           = counter;
         vm.submitted         = false;
         vm.SN                = null;
@@ -106,18 +106,29 @@
         vm.count             = 0;
         vm.response          = false;
         vm.error             = false;
-        vm.text              = null
+        vm.text              = null;
 
-        vm.paragalaLogin     = paragalaLogin;
+        vm.studentLogin     = studentLogin;
 
         init();
 
         function init() {
-          isStudentLogin();
+          //isStudentLogin();
         }
 
-        function paragalaSignIn() {
-          console.log( 'click' )
+        function studentLogin(SN) {
+          console.log( 'jories' )
+          return $q.all(  studentLoginData(SN) )
+            .then(function ( response ) {
+              return response;
+            })
+        }
+
+        function studentLoginData(SN) {
+          return paragalaDataservice.studentLogin( 'studentLogin', {studentNumber: SN} )
+            .then(function( response ) {
+              return response;
+            })
         }
 
         function studentLogout() {
@@ -133,43 +144,43 @@
           })
         }
 
-        function studentLoginData( isValid, SN ) {
-          if( isValid !== false) {
-            var promise = [getStudentLogin( SN )]
-            return $q.all( promise ).then(function ( data ) {
-              if( data[0].response == 'success' && data[0].isAlreadyVoted == 'false' ) {
-                $state.go('paragala_questions');
-              } else if( data[0].response == 'success' && data[0].isAlreadyVoted == 'true' ) {
-                vm.errors = true;
-                vm.text   = 'Opps!!! You are already Voted'
-              } else if( data[0].response == 'fail' ) {
-                vm.errors = true;
-                vm.text   = 'Opps!!! Please Register First Before Voting'
-              }
-            })
-          }
-          vm.submitted = true;
-        }
+        // function studentLogin( isValid, SN ) {
+        //   if( isValid !== false) {
+        //     var promise = [getStudentLogin( SN )]
+        //     return $q.all( promise ).then(function ( data ) {
+        //       if( data[0].response == 'success' && data[0].isAlreadyVoted == 'false' ) {
+        //         $state.go('paragala_questions');
+        //       } else if( data[0].response == 'success' && data[0].isAlreadyVoted == 'true' ) {
+        //         vm.errors = true;
+        //         vm.text   = 'Opps!!! You are already Voted'
+        //       } else if( data[0].response == 'fail' ) {
+        //         vm.errors = true;
+        //         vm.text   = 'Opps!!! Please Register First Before Voting'
+        //       }
+        //     })
+        //   }
+        //   vm.submitted = true;
+        // }
+        //
+        // function studentLoginData( SN ) {
+        //   return paragalaDataservice.studentLogin( 'studentLogin', {studentNumber: SN} ).then(function( response ) {
+        //     return response;
+        //   })
+        // }
 
-        function getStudentLogin( SN ) {
-          return paragalaDataservice.studentLogin( 'student', {studentNumber: SN} ).then(function( data ) {
-            return data;
-          })
-        }
-
-        function isStudentLogin() {
-          var promise = [getStudentLoginData()]
-          return $q.all( promise ).then( function( data ) {
-            return data;
-          })
-        }
-
-        function getStudentLoginData() {
-          return commonsDataservice.getStudentLoginStatus( 'student', {} ).then( function ( data ) {
-            vm.studentLogin = data.isStudentLogin;
-            return vm.studentLogin
-          })
-        }
+        // function isStudentLogin() {
+        //   var promise = [getStudentLoginData()]
+        //   return $q.all( promise ).then( function( data ) {
+        //     return data;
+        //   })
+        // }
+        //
+        // function getStudentLoginData() {
+        //   return commonsDataservice.getStudentLoginStatus( 'student', {} ).then( function ( data ) {
+        //     vm.studentLogin = data.isStudentLogin;
+        //     return vm.studentLogin
+        //   })
+        // }
 
         function counter( header ) {
           vm.header = header;

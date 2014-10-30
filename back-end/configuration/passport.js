@@ -18,11 +18,22 @@
 				.collection( 'users' )
 				.findOne({_id:id})
 				.then(function( user ) {
-					done( null, user )
+					if( user ) {
+						done( null, user )
+					} else {
+						mongo.db( 'paragala' )
+							.collection( 'students' )
+							.findOne( {'_id': id} )
+							.then(function( paragalaUser ) {
+								console.log( paragalaUser )
+								done( null, paragalaUser )
+							})
+					}
+
 				})
 	  })
 
-	  passport.use('local-login',new LocalStrategy({
+	  passport.use('local-login', new LocalStrategy({
 			usernameField : 'email',
 			passwordField : 'password',
 			passReqToCallback: true //allows us to pass back the entire request to the callback
@@ -48,4 +59,19 @@
 						})
 			}
 		))
+
+		passport.use('local-student', new LocalStrategy({
+			usernameField : 'studentNumber',
+			passwordField	: 'password',
+			passReqToCallback: true
+		}, function( req, studentNumber, password, done ) {
+				console.log( 'StudentNumber: ' + studentNumber )
+				mongo.db( 'paragala' )
+					.collection( 'students' )
+					.findOne( {'_id': studentNumber} )
+					.then(function( paragalaUser ) {
+						console.log( 'PARAGALA USER: ' + paragalaUser )
+						return done(null, paragalaUser)
+					})
+		}))
 	}
