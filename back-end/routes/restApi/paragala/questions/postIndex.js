@@ -10,7 +10,7 @@
       .collection( 'questions' )
       .findAndModify({
         query: {_id:'paragalaQuestionnaire'},
-        update: {$set: {questions: query.updateQuestions}}
+        update: {$set: {questions: JSON.parse(query.updateQuestions)}}
       })
       .then(function( document ) {
         res.json({response: {questionsUpdate: true}});

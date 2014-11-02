@@ -9,6 +9,7 @@ var express         = require('express'),
     bodyParser      = require('body-parser'),
     methodOverride  = require('method-override'),
     multer          = require('multer'),
+    compression     = require('compression'),
     session         = require('express-session'),
     passport        = require('passport'),
     LocalStrategy   = require('passport-local').Strategy,
@@ -38,6 +39,7 @@ var express         = require('express'),
     });
     app.set('port', process.env.PORT || 3001)
     app.set('view engine', 'html');
+    app.use(compression());
     app.use(favicon(rootPath + 'front-end/resources/favicon.ico'))
     app.use(logger('dev'));
     app.use(bodyParser.urlencoded({extended:true}));
@@ -62,6 +64,7 @@ var express         = require('express'),
                     ***/
                     saveUninitialized: true,
                     resave: true}))
+
     app.use(flash()); /*make this module work!!!OK*/
     app.use(passport.initialize());
     app.use(passport.session());
@@ -74,15 +77,13 @@ var express         = require('express'),
     app.use('/commonsHtml', express.static(path.join(rootPath, 'front-end/views/commons')))
 
 
+
     app.use(function( req, res, next ) {
       var username = req.user == undefined? '': req.user.username;
       res.adminCredentials = {isAuthenticated: req.isAuthenticated(), username: username}
-
-      console.log( parserCookie(req.headers.cookie) )
-      console.log( req.cookies.auth_token )
-      // if( !req.cookies.auth_token ) {
-      //    res.redirect('primary/index.html')
-      // }
+      // //parserCookie(req.headers.cookie)
+      // console.log( req.cookies.auth_token )
       next();
     })
+
   }

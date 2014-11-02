@@ -40,8 +40,8 @@
 						$location.url( '/' )
 					})
 
-				function studentLoginData( data, status, headers, config ) {
-					return data;
+				function studentLoginData( response, status, headers, config ) {
+					return response;
 				}
 			}
 

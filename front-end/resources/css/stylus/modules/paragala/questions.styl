@@ -1,0 +1,57 @@
+
+  @font-face {
+    font-family: gothic;
+    src: url('/fonts/gothic/webfonts/leaguegothic-regular-webfont.woff')
+  }
+
+  @font-face {
+    font-family: josipinSlap;
+    src: url('/fonts/josepinSlab/JosefinSlab-Slab-Light.ttf')
+  }
+
+  .questions {
+    height: 100vh;
+    overflow: auto;
+    background-color: wheat;
+    .heading-content {
+      .container-fluid {
+        background: rgb(250, 247, 247);
+        box-shadow: 2px 1px 12px 6px;
+      }
+    }
+    .comLeague {
+      font-family: josipinSlap;
+      font-size: 20px;
+    }
+    .category {
+      .text-center {
+        font-family: gothic;
+        font-size: 3em;
+      }
+      .subItem {
+        background-color: #7cbc33;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border: 5px solid;
+        font-family: gothic;
+        .panel-heading {
+          font-size: 2em;
+        }
+        .secondSubItem {
+          .panel-body {
+            padding: 4px;
+            .list-group {
+              font-size: 25px;
+              margin:0px;
+              .radio {
+                margin: 0px;
+                label > input {
+                  margin-top: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

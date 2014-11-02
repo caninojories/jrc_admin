@@ -24,6 +24,23 @@
                 settings: {
                     nav: 3,
                     content: '<i class="fa fa-lock"></i> Paragala'
+                },
+                resolve: {
+                  urlRedirect: function( $q, $window, paragalaDataservice ) {
+                      return $q.all(  studentLoginData('') )
+                        .then(function ( response ) {
+                          if( response.studentIsAuthenticated ) {
+                            $window.location.href = 'paragala/questions'
+                          }
+                        })
+
+                    function studentLoginData(SN) {
+                      return paragalaDataservice.studentLogin( 'studentLogin', {studentNumber: SN} )
+                        .then(function( response ) {
+                          return response;
+                        })
+                    }
+                  }
                 }
                 // resolve: {
                 //   commonsDataservice: 'commonsDataservice',

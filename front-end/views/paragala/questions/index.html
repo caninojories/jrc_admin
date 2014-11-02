@@ -1,24 +1,47 @@
-
-  <div ng-repeat='item in list'>
-    {{item.title}}
-    <div ng-repeat='subItem in item.items'>
-      {{subItem.title}}
-      <div class="panel-heading row">
-        <h3 class="panel-title text-center" ng-bind='subItem.title'></h3>
+  <div class='questions'>
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-8 col-xs-offset-2"><a href="https://www.facebook.com/paragalamediaawards" target="_blank"><img src="/images/paragala/paragala.png" alt="Paragala Logo" class="img-responsive"/></a></div>
+        </div>
       </div>
-      <div ng-repeat='secondSubItem in subItem.items'>
-        {{secondSubItem.title}}
-          <div class="panel-body">
-            <ul class="list-group">
-              <li class="list-group-item">
-                <div class="radio">
-                  <label>
-                    <input type="radio" ng-bind='secondSubItem.title'/>
-                  </label>
-                </div>
-              </li>
-            </ul>
+    </header>
+    <div class="heading-content">
+      <div class="container-fluid">
+        <div class="container">
+          <div class="col-xs-12 comLeague">
+            <p>The<strong> COMMUNICATIONS' LEAGUE</strong> is the official organization of the
+              Bachelor of Arts in Communication of Holy Angel University.
+              The biggest event that organization holds is the<strong>
+              PARAGALA: THE CENTRAL LUZON MEDIA AWARDS.</strong> This Year,
+              PARAGALA will be on its second year and it aims to give recognation to the best media personalities,
+              shows and TV station which are being aired throughout Central Luzon and in National Television.</p>
           </div>
+        </div>
+      </div>
+    </div>
+    <div ng-repeat='item in list' class='col-sm-8 col-sm-offset-2 category'>
+      <div class='col-sm-12 text-center'>
+        {{item.title}}
+      </div>
+      <div ng-repeat='subItem in item.items' class='col-sm-6 subItem'>
+        <div class='panel-heading row' ng-bind='subItem.title'>
+        </div>
+        <div ng-repeat='secondSubItem in subItem.items' class='secondSubItem'>
+            <div class='panel-body'>
+              <ul class='list-group'>
+                <li class='list-group-item'>
+                  <div class='radio'>
+                    <label>
+                      <input type='radio' name={{subItem.title}} ng-click='vm.selected(item.title, subItem.title, secondSubItem.title)'>
+                        <span ng-bind='secondSubItem.title'></span>
+                      </input>
+                    </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+        </div>
       </div>
     </div>
   </div>

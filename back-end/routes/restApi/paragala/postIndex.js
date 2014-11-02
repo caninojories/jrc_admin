@@ -6,24 +6,37 @@
   var mongo     = require('../../../configuration/mongodb');
 
   exports.studentLogin = function ( req, res, next ) {
-    console.log(req.body);
-
+    if(!req.session.studentUser) req.session.studentUser = req.body.studentNumber.toString()
     mongo.db( 'paragala' )
       .collection( 'students' )
-      .findOne( {'_id': req.body.studentNumber.toString()} )
+      .findOne( {'_id': req.session.studentUser} )
       .then(function( paragalaUser ) {
         console.log( 'ParagalaUser: ' +  paragalaUser );
         if( paragalaUser ) {
           mongo.db( 'sessions' )
             .collection( 'sessions' )
-            .insert({
-              _id: req.body.studentNumber,
-              token: uuid.v4()
-            })
+            .findOne({_id: req.session.studentUser})
             .then(function( session ) {
-              res.cookie( 'auth_token', session.token , {httpOnly: true})
-              res.send(200)
+              if( session ) {
+                res.cookie( 'auth_token', session.token , {httpOnly: true})
+                res.json({studentIsAuthenticated: true})
+              } else {
+                mongo.db( 'sessions' )
+                  .collection( 'sessions' )
+                  .insert({
+                    _id: req.session.studentUser,
+                    token: uuid.v4()
+                  })
+                  .then(function( session ) {
+                    res.cookie( 'auth_token', session.token , {httpOnly: true})
+                    //res.send(200)
+                    res.json({studentIsAuthenticated: true})
+                  })
+              }
             })
+
+        } else {
+          res.json({response: 'No User Found'})
         }
       })
   }

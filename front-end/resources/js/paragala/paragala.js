@@ -5,10 +5,10 @@
         .module('app.paragala')
         .controller('Paragala', Paragala);
 
-    Paragala.$inject = [ '$location', '$q', '$rootScope', '$state', '$timeout', '$window'
+    Paragala.$inject = [ '$cookies', '$location', '$q', '$rootScope', '$state', '$timeout', '$window'
       , 'logger', '$ParagalaLoginModal', 'viewContentLoaded', 'commonsDataservice', 'paragalaDataservice'  ];
 
-    function Paragala( $location, $q, $rootScope, $state, $timeout, $window
+    function Paragala( $cookies, $location, $q, $rootScope, $state, $timeout, $window
       , logger, $ParagalaLoginModal, viewContentLoaded, commonsDataservice, paragalaDataservice ) {
 
         /*jshint validthis: true */
@@ -117,10 +117,11 @@
         }
 
         function studentLogin(SN) {
-          console.log( 'jories' )
           return $q.all(  studentLoginData(SN) )
             .then(function ( response ) {
-              return response;
+              if( response.studentIsAuthenticated ) {
+                $window.location.href = 'paragala/questions'
+              }
             })
         }
 

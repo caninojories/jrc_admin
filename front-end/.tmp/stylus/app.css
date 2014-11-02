@@ -140,17 +140,65 @@
   background-color: #687074 !important;
   color: #fff !important;
 }
-.questions .category {
+.adminQuestions .category {
   color: #000;
   background-color: #f64747;
 }
-.questions .subItem {
+.adminQuestions .subItem {
   color: #000;
   background-color: #f1a9a0;
 }
-.questions .secondSubItem {
+.adminQuestions .secondSubItem {
   color: #000;
   background-color: #ffecdb;
+}
+@font-face {
+  font-family: gothic;
+  src: url("/fonts/gothic/webfonts/leaguegothic-regular-webfont.woff");
+}
+@font-face {
+  font-family: josipinSlap;
+  src: url("/fonts/josepinSlab/JosefinSlab-Slab-Light.ttf");
+}
+.questions {
+  height: 100vh;
+  overflow: auto;
+  background-color: #f5deb3;
+}
+.questions .heading-content .container-fluid {
+  background: #faf7f7;
+  box-shadow: 2px 1px 12px 6px;
+}
+.questions .comLeague {
+  font-family: josipinSlap;
+  font-size: 20px;
+}
+.questions .category .text-center {
+  font-family: gothic;
+  font-size: 3em;
+}
+.questions .category .subItem {
+  background-color: #7cbc33;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border: 5px solid;
+  font-family: gothic;
+}
+.questions .category .subItem .panel-heading {
+  font-size: 2em;
+}
+.questions .category .subItem .secondSubItem .panel-body {
+  padding: 4px;
+}
+.questions .category .subItem .secondSubItem .panel-body .list-group {
+  font-size: 25px;
+  margin: 0px;
+}
+.questions .category .subItem .secondSubItem .panel-body .list-group .radio {
+  margin: 0px;
+}
+.questions .category .subItem .secondSubItem .panel-body .list-group .radio label > input {
+  margin-top: 10px;
 }
 @font-face {
   font-family: gothic;
