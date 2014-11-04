@@ -5,10 +5,10 @@
         .module('app.paragala')
         .controller('Paragala', Paragala);
 
-    Paragala.$inject = [ '$cookies', '$location', '$q', '$rootScope', '$state', '$timeout', '$window'
+    Paragala.$inject = [ '$location', '$q', '$rootScope', '$state', '$timeout', '$window'
       , 'logger', '$ParagalaLoginModal', 'viewContentLoaded', 'commonsDataservice', 'paragalaDataservice'  ];
 
-    function Paragala( $cookies, $location, $q, $rootScope, $state, $timeout, $window
+    function Paragala( $location, $q, $rootScope, $state, $timeout, $window
       , logger, $ParagalaLoginModal, viewContentLoaded, commonsDataservice, paragalaDataservice ) {
 
         /*jshint validthis: true */

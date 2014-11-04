@@ -96,8 +96,8 @@
 					}
 			}
 
-			function questionsList( api ) {
-				return serviceParagalaStudentApi.get( api )
+			function questionsList( api, param ) {
+				return serviceParagalaStudentApi.one(api).get( param )
 					.then( questionsListData )
 					.catch(function( message ) {
 						$location.url( '/' )

@@ -33,6 +33,9 @@
       vm.selected        = selected;
       vm.questionBuilder = [];
 
+      vm.next = next;
+      vm.url  = null;
+
         init();
 
         function init() {
@@ -42,23 +45,31 @@
         function questionsList() {
           return $q.all( questionsListData() )
             .then(function( response ) {
-              $rootScope.list = response;
-              vm.questionBuilder = angular.copy($rootScope.list);
-              for( var i = 0; i < vm.questionBuilder.length; i++) {
-                for( var j = 0; j < vm.questionBuilder[i].items.length; j++ ) {
-                  for( var z = 0; z < 1; z++ ) {
-                    vm.questionBuilder[i].items[j].items.splice(1, vm.questionBuilder[i].items.length -1)
-                    vm.questionBuilder[i].items[j].items[0].title = ''
-                  }
-                }
-              }
+              console.log( response )
+              $rootScope.list = response.questions;
+              vm.previousUrl = response.previousUrl;
+              vm.nextUrl = response.nextUrl;
+              //$rootScope.list = $rootScope.list[0].items.slice(0,2)
+              vm.sliceObject = angular.copy($rootScope.list)
+                // vm.sliceObject.splice( 1, vm.sliceObject.length -1 )
+                // vm.sliceObject[0].items.splice(2,$rootScope.list[0].items.length -1)
+              console.log( vm.sliceObject )
+              // vm.questionBuilder = angular.copy($rootScope.list);
+              // for( var i = 0; i < vm.questionBuilder.length; i++) {
+              //   for( var j = 0; j < vm.questionBuilder[i].items.length; j++ ) {
+              //     for( var z = 0; z < 1; z++ ) {
+              //       vm.questionBuilder[i].items[j].items.splice(1, vm.questionBuilder[i].items[j].items.length -1)
+              //       vm.questionBuilder[i].items[j].items[0].title = ''
+              //     }
+              //   }
+              // }
             })
         }
 
         function questionsListData() {
-          return paragalaDataservice.questionsList( 'questionsList' )
+          return paragalaDataservice.questionsList( 'questionsList', {param:location.search.slice(1)} )
             .then(function( response ) {
-              return response.response;
+              return response;
             })
         }
 
@@ -160,7 +171,7 @@
 
         function selected( categoryTitle, subItemTitle, SecondSubItemTitle ) {
           for( var i = 0; i < $rootScope.list.length; i++) {
-            if(vm.questionBuilder[i].title == categoryTitle ) {
+            if($rootScope.list[i].title == categoryTitle ) {
               for( var j = 0; j <$rootScope.list[i].items.length; j++ ) {
                 if($rootScope.list[i].items[j].title == subItemTitle ) {
                   for( var z = 0; z < $rootScope.list[i].items[j].items.length; z++ ) {
@@ -177,6 +188,10 @@
           console.log( categoryTitle )
           console.log( subItemTitle )
           console.log( SecondSubItemTitle )
+        }
+
+        function next( category ) {
+          console.log( category )
         }
     }
 })()

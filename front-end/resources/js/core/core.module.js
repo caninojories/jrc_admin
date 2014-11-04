@@ -25,7 +25,6 @@
          */
         'ngplus',
         'angularLoad',
-        'ngCookies',
         'ui.ace',
         'ui.bootstrap',
         'mgcrea.ngStrap',
