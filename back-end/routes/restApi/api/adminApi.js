@@ -3,9 +3,9 @@
   var express   = require('express'),
       router    = express.Router(),
       app       = express(),
-      getDb 		= require( '../admin/getIndex.js' ),
-      postDb 		= require( '../admin/postIndex.js' ),
-      putDb     = require( '../admin/putIndex.js' );
+      getDb 		= require( '../clientPanel/adminAccount/getIndex.js' ),
+      postDb 		= require( '../clientPanel/adminAccount/postIndex.js' ),
+      putDb     = require( '../clientPanel/adminAccount/putIndex.js' );
 
   // router.use(function timeLog( req, res, next) {
   //   console.log( 'Time: ', Date.now() );

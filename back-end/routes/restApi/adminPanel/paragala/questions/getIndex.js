@@ -1,7 +1,7 @@
 
   'use strict';
 
-  var mongo = require('../../../../configuration/mongodb');
+  var mongo = require('../../../../../configuration/mongodb');
   var url   = require('url')
   var querystring = require('querystring')
 

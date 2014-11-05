@@ -30,12 +30,24 @@
                       return $q.all(  studentLoginData('') )
                         .then(function ( response ) {
                           if( response.studentIsAuthenticated ) {
-                            $window.location.href = 'paragala/questions'
+                            $q.all( questionsListData() )
+                              .then(function( response ) {
+                                console.log( response.questions )
+                                $window.location.href = 'paragala/questions?category=' +
+                                response.questions[0].title.toLowerCase() + '&sub=2'
+                              })
                           }
                         })
 
                     function studentLoginData(SN) {
                       return paragalaDataservice.studentLogin( 'studentLogin', {studentNumber: SN} )
+                        .then(function( response ) {
+                          return response;
+                        })
+                    }
+
+                    function questionsListData() {
+                      return paragalaDataservice.questionsList( 'questionsListAdmin', {} )
                         .then(function( response ) {
                           return response;
                         })
@@ -58,7 +70,7 @@
               config: {
                 url: '/adminPanel/paragala/questions',
                 templateUrl: 'adminPanel/paragala/questions/index.html',
-                controller: 'Questions as vm',
+                controller: 'QuestionsAdmin as vm',
                 title: 'paragala'
               }
             }, {
@@ -66,7 +78,7 @@
               config: {
                 url: '/paragala/questions',
                 templateUrl: 'paragala/questions/index.html',
-                controller: 'Questions as vm',
+                controller: 'QuestionsClient as vm',
                 title: 'paragala'
               }
             }, {

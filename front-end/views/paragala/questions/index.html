@@ -2,7 +2,11 @@
     <header>
       <div class="container">
         <div class="row">
-          <div class="col-xs-8 col-xs-offset-2"><a href="https://www.facebook.com/paragalamediaawards" target="_blank"><img src="/images/paragala/paragala.png" alt="Paragala Logo" class="img-responsive"/></a></div>
+          <div class="col-xs-8 col-xs-offset-2">
+            <a href="https://www.facebook.com/paragalamediaawards" target="_blank">
+              <img src="/images/paragala/paragala.png" alt="Paragala Logo" class="img-responsive"/>
+            </a>
+          </div>
         </div>
       </div>
     </header>
@@ -48,12 +52,14 @@
         </div>
       </div>
       <div class='container-fluid '>
-        <nav class='col-sm-8 col-sm-offset-2'>
+        <nav ng-class="vm.sliceObject[0].items.length > 1?
+          'col-sm-8 col-sm-offset-2':'col-sm-4 col-sm-offset-4'">
           <ul class="pager">
             <li class="previous"><a href={{vm.previousUrl}} target='_self'>Previous</a></li>
             <li class="next"><a href='{{vm.nextUrl}}' ng-click='vm.next(item)' target='_self'>Next</a></li>
           </ul>
         </nav>
       </div>
+      <button class='btn btn-success'>logout</button>
     </div>
   </div>

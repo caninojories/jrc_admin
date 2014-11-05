@@ -2,7 +2,7 @@
   'use strict';
 
   var passport  = require('passport');
-  var mongo     = require('../../../configuration/mongodb');
+  var mongo     = require('../../../../configuration/mongodb');
   var bcrypt    = require('bcrypt-nodejs');
 
   exports.adminLogin = function ( req, res, next ) {

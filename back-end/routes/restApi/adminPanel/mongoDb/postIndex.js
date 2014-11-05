@@ -1,6 +1,6 @@
   "use strict";
 
-  var mongo = require('../../../configuration/mongodb');
+  var mongo = require('../../../../configuration/mongodb');
   var util  = require('util');
 
   exports.dbs = function ( req, res ) {

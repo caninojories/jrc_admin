@@ -3,7 +3,6 @@
 
   var express = require('express')
   var router  = express.Router();
-  var index   = require('../../restApi');
   var cookieParser = require('cookie').parse;
 
   router.use(function timeLog( req, res, next) {

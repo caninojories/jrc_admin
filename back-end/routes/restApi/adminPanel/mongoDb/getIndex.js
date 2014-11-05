@@ -1,6 +1,6 @@
   "use strict";
 
-  var mongo     = require('../../../configuration/mongodb'),
+  var mongo     = require('../../../../configuration/mongodb'),
       ObjectId  = require('mongodb').ObjectID,
       _         = require('underscore')._,
       url       = require('url');

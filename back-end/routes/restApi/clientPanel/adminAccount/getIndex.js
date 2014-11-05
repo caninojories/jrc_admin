@@ -1,7 +1,7 @@
 
   'use strict';
 
-  var mongo     = require('../../../configuration/mongodb');
+  var mongo     = require('../../../../configuration/mongodb');
 
   exports.adminProfile = function( req, res ) {
     mongo.db( 'admin' )

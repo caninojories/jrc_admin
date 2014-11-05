@@ -1,7 +1,7 @@
 
   'use strict';
 
-  var mongo    = require('../../../configuration/mongodb'),
+  var mongo    = require('../../../../configuration/mongodb'),
       bcrypt   = require('bcrypt-nodejs'),
       postDb 	 = require( './postIndex.js' ),
       url      = require('url');

@@ -1,6 +1,6 @@
   "use strict";
 
-  var mongo = require('../../../configuration/mongodb')
+  var mongo = require('../../../../configuration/mongodb')
   var _     = require('underscore')._
 
   exports.dbs = function(req,res){
