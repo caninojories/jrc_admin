@@ -1,4 +1,4 @@
-
+{% if studentUser != null %}
 <div class='paragala'>
   <div class="container-fluid">
     <div class='col-sm-8 hidden-xs'>
@@ -32,10 +32,11 @@
             <input type="text" placeholder="Student/Employee No." name='studentNumber' class="form-control" ng-model='vm.SN'  required autofocus>
           </div>
           <button class="btn btn-lg btn-default btn-block" ng-click='vm.studentLogin(vm.SN)'>
-              Sign-in
+              Sign-in <$ studentUser $>
           </button>
         </form>
       </div>
     </div>
   </div>
 </div>
+{% endif %}

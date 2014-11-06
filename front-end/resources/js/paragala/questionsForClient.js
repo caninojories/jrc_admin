@@ -13,8 +13,7 @@
       vm.selected        = selected;
       vm.questionBuilder = [];
 
-      vm.next = next;
-      vm.url  = null;
+      vm.studentLogout   = studentLogout;
 
         init();
 
@@ -51,7 +50,7 @@
                     try {
                       vm.questionBuilder[i].items[j].items[0].title = ''
                     }catch(e) {
-                      
+
                     }
                   }
                 }
@@ -81,14 +80,21 @@
               }
             }
           }
-          console.log( vm.questionBuilder )
-          console.log( categoryTitle )
-          console.log( subItemTitle )
-          console.log( SecondSubItemTitle )
         }
 
-        function next( category ) {
-          console.log( category )
+        function studentLogout() {
+          return $q.all( studentLogoutData() )
+            .then(function( response ) {
+              console.log(response)
+              return response;
+            })
+        }
+
+        function studentLogoutData() {
+          return paragalaDataservice.studentLogout( 'studentlogout', {} )
+            .then(function( response ) {
+              return response;
+            })
         }
     }
 })()

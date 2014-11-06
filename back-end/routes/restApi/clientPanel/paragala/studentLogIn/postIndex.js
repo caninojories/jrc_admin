@@ -5,13 +5,14 @@
   var uuid      = require('node-uuid');
   var mongo     = require('../../../../../configuration/mongodb');
 
-  exports.studentLogin = function ( req, res, next ) {
+  exports.studentLogIn = function ( req, res, next ) {
     if(!req.session.studentUser) req.session.studentUser = req.body.studentNumber.toString()
+    console.log( 'Req.body: ' + req.body.studentNumber.toString() )
     mongo.db( 'paragala' )
       .collection( 'students' )
       .findOne( {'_id': req.session.studentUser} )
       .then(function( paragalaUser ) {
-        console.log( 'ParagalaUser: ' +  paragalaUser );
+        console.log( 'ParagalaUser: ' +  req.session.studentUser );
         if( paragalaUser ) {
           mongo.db( 'sessions' )
             .collection( 'sessions' )

@@ -122,9 +122,10 @@
               if( response.studentIsAuthenticated ) {
                 $q.all( questionsListData() )
                   .then(function( response ) {
-                    console.log( response.questions )
-                    $window.location.href = 'paragala/questions?category=' +
-                    response.questions[0].title.toLowerCase() + '&sub=2'
+                    $timeout(function() {
+                      $window.location.href = 'paragala/questions?category=' +
+                      response.questions[0].title.toLowerCase() + '&sub=2'
+                    }, 5000)
                   })
               }
             })

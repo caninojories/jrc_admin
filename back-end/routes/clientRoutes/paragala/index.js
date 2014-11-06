@@ -11,7 +11,7 @@
   })
 
   router.get( '/paragala/index.html', studentIsAuthenticated, function( req, res ) {
-   res.render( 'paragala/index.html' )
+    res.render( 'paragala/index.html', {studentUser:req.session.studentUser } )
   })
 
   router.get( '/paragala/addStudent/index.html', function( req, res ) {
@@ -23,9 +23,8 @@
   })
 
   function studentIsAuthenticated( req, res, next ) {
-    console.log( 'COOKIES: ' + req.session.studentUser );
     if( !req.session.studentUser ) return next();
-    res.redirect('/adminPanel/paragala/questions/index.html')
+    res.redirect('/paragala/questions/index.html')
   }
 
   module.exports = router;

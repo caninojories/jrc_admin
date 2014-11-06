@@ -56,10 +56,10 @@
           'col-sm-8 col-sm-offset-2':'col-sm-4 col-sm-offset-4'">
           <ul class="pager">
             <li class="previous"><a href={{vm.previousUrl}} target='_self'>Previous</a></li>
-            <li class="next"><a href='{{vm.nextUrl}}' ng-click='vm.next(item)' target='_self'>Next</a></li>
+            <li class="next"><a href='{{vm.nextUrl}}' target='_self'>Next</a></li>
           </ul>
         </nav>
       </div>
-      <button class='btn btn-success'>logout</button>
+      <button class='btn btn-success' ng-click='vm.studentLogout()'>logout</button>
     </div>
   </div>

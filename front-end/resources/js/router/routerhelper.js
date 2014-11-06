@@ -6,7 +6,7 @@
         .provider('routehelperConfig', routehelperConfig)
         .factory('routehelper', routehelper);
 
-    routehelper.$inject = ['$location', '$rootScope', '$q', '$state', '$timeout', 'logger', 'routehelperConfig', 'commonsDataservice'];
+    routehelper.$inject = ['$location', '$rootScope', '$q', '$state', '$timeout', '$window', 'logger', 'routehelperConfig', 'commonsDataservice', 'paragalaDataservice'];
 
     // Must configure via the routehelperConfigProvider
     function routehelperConfig() {
@@ -25,7 +25,7 @@
         };
     }
 
-    function routehelper( $location, $rootScope, $q, $state, $timeout, logger, routehelperConfig, commonsDataservice ) {
+    function routehelper( $location, $rootScope, $q, $state, $timeout, $window, logger, routehelperConfig, commonsDataservice, paragalaDataservice ) {
         var handlingRouteChangeError = false;
         var routeCounts = {
             errors: 0,
@@ -99,6 +99,16 @@
         function stateStart() {
           $rootScope.$on('$stateChangeStart',
             function( event, toState, toParams, fromState, fromParams ) {
+              return $q.all(  studentLoginData('') )
+                  .then(function ( response ) {
+                    if( response.studentIsAuthenticated ) {
+                      $q.all( questionsListData() )
+                        .then(function( response ) {
+                          $window.location.href = 'paragala/questions?category=' +
+                          response.questions[0].title.toLowerCase() + '&sub=2'
+                        })
+                    }
+                  })
               // if( toState.name == 'paragala_questions') {
               //   var promise = [getStudentLoginData()]
               //   return $q.all( promise ).then( function( data ) {
@@ -136,6 +146,20 @@
                   $rootScope.title = title; // data bind to <title>
                 }
             );
+        }
+
+        function studentLoginData(SN) {
+          return paragalaDataservice.studentLogin( 'studentLogin', {studentNumber: SN} )
+            .then(function( response ) {
+              return response;
+            })
+        }
+
+        function questionsListData() {
+          return paragalaDataservice.questionsList( 'questionsListAdmin', {} )
+            .then(function( response ) {
+              return response;
+            })
         }
 
         function getStudentLoginData() {
