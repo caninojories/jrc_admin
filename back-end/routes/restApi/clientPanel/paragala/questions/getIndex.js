@@ -5,6 +5,7 @@
   var url   = require('url')
   var querystring = require('querystring')
 
+  //admin
   exports.questionsList = function( req, res ) {
     console.log( 'URL: ' +  req.url )
     var query   = url.parse(req.url, true).query;
@@ -73,12 +74,16 @@
 
           }
         }
-          // previousUrl = 'paragala/questions?category=' + queries.category + '&sub=' + (parseInt(queries.sub));
-          // if( parseInt(queries.sub) == 2 ) {
-          //   previousUrl = 'paragala/questions'
-          // }
-          // nextUrl = 'paragala/questions?category=' + queries.category + '&sub=' + querySubTemp;
-
         res.json({questions: questionnaire.questions, previousUrl: previousUrl, nextUrl: nextUrl})
+      })
+   }
+
+   //client
+   exports.studentQuestionList = function( req, res ) {
+     mongo.db( 'paragala' )
+      .collection( 'students' )
+      .findOne({_id: req.session.studentUser})
+      .then(function( student ) {
+        res.json({questions: student.questions})
       })
    }

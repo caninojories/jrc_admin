@@ -83,6 +83,7 @@ var express         = require('express'),
       res.adminCredentials = {isAuthenticated: req.isAuthenticated(), username: username}
       // //parserCookie(req.headers.cookie)
       // console.log( req.cookies.auth_token )
+      
       next();
     })
 

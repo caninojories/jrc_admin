@@ -78,9 +78,8 @@
         }
 
         function init() {
-            handleRoutingErrors();
-            stateStart();
-            updateDocTitle();
+          handleRoutingErrors();
+          updateDocTitle();
         }
 
         function getRoutes() {
@@ -96,45 +95,11 @@
             return routes;
         }
 
-        function stateStart() {
+        function fromToState() {
           $rootScope.$on('$stateChangeStart',
             function( event, toState, toParams, fromState, fromParams ) {
-              return $q.all(  studentLoginData('') )
-                  .then(function ( response ) {
-                    if( response.studentIsAuthenticated ) {
-                      $q.all( questionsListData() )
-                        .then(function( response ) {
-                          $window.location.href = 'paragala/questions?category=' +
-                          response.questions[0].title.toLowerCase() + '&sub=2'
-                        })
-                    }
-                  })
-              // if( toState.name == 'paragala_questions') {
-              //   var promise = [getStudentLoginData()]
-              //   return $q.all( promise ).then( function( data ) {
-              //     if( data[0].isStudentLogin == false ) {
-              //       $state.go('paragala')
-              //     }
-              //   })
-              // } else if( toState.name == 'paragala' ) {
-              //   var promise = [getStudentLoginData()]
-              //   return $q.all( promise ).then(function( data ) {
-              //     if( data[0].isStudentLogin == true ) {
-              //       $state.go( 'paragala_questions' )
-              //     }
-              //   })
-              // } else if( toState.name == 'main' ) {
-              //   console.log('main')
-              //
-              //   var promise = [getserviceAdminApiLoginData()]
-              //   return $q.all( promise ).then(function( data ) {
-              //     console.log( data[0].isserviceAdminApiLogin )
-              //     if( data[0].isserviceAdminApiLogin == true ) {
-              //       $state.go( 'dashboard' )
-              //     }
-              //   })
-              // }
-             })
+              
+            })
         }
 
         function updateDocTitle() {
@@ -146,32 +111,6 @@
                   $rootScope.title = title; // data bind to <title>
                 }
             );
-        }
-
-        function studentLoginData(SN) {
-          return paragalaDataservice.studentLogin( 'studentLogin', {studentNumber: SN} )
-            .then(function( response ) {
-              return response;
-            })
-        }
-
-        function questionsListData() {
-          return paragalaDataservice.questionsList( 'questionsListAdmin', {} )
-            .then(function( response ) {
-              return response;
-            })
-        }
-
-        function getStudentLoginData() {
-          return commonsDataservice.getStudentLoginStatus( 'student', {} ).then( function ( data ) {
-            return data;
-          })
-        }
-
-        function getserviceAdminApiLoginData() {
-          return commonsDataservice.getserviceAdminApiLoginStatus( 'admin', {} ).then( function ( data ) {
-            return data;
-          })
         }
     }
 })();

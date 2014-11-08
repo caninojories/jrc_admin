@@ -40,7 +40,7 @@
                   <li class='list-group-item'>
                     <div class='radio'>
                       <label>
-                        <input type='radio' name={{subItem.title}} ng-click='vm.selected(item.title, subItem.title, secondSubItem.title)'>
+                        <input type='radio' ng-checked='vm.dataQuestionSelected(item.title, subItem.title, secondSubItem.title)' name={{subItem.title}} ng-click='vm.selectedQuestion(item.title, subItem.title, secondSubItem.title)'>
                           <span ng-bind='secondSubItem.title'></span>
                         </input>
                       </label>

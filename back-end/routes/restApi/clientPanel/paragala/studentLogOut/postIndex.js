@@ -9,6 +9,6 @@
       .remove( {_id: req.session.studentUser} )
       .then(function( session ) {
         req.session.studentUser = null;
-        res.json({response: {studentIsLogOut: true}})
+        res.json({studentIsLogOut: true})
       })
   }

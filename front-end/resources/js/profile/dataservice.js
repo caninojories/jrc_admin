@@ -29,7 +29,6 @@
         }
 
         function updateProfile( api, param ) {
-          console.log( param )
           return serviceAdminApi.one( api )
             .put( param )
             .then( updateProfileData )

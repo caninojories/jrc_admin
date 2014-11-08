@@ -3,9 +3,10 @@
 
   var express               = require('express'),
       app                   = express(),
-      getDbQuestionsAdmin   = require( '../adminPanel/paragala/questions/getIndex.js' ),
-      postDbQuestionsAdmin  = require( '../adminPanel/paragala/questions/postIndex.js' ),
-      getDbQuestionsClient  = require( '../clientPanel/paragala/questions/getIndex.js' ),
+      getDbQuestionAdmin   = require( '../adminPanel/paragala/questions/getIndex.js' ),
+      postDbQuestionAdmin  = require( '../adminPanel/paragala/questions/postIndex.js' ),
+      getDbQuestionClient  = require( '../clientPanel/paragala/questions/getIndex.js' ),
+      putDbQuestionClient  = require( '../clientPanel/paragala/questions/putIndex.js' ),
       postDbAddStudent 		  = require( '../clientPanel/paragala/addStudent/postIndex.js' ),
       postDbStudentLogIn    = require( '../clientPanel/paragala/studentLogIn/postIndex.js' ),
       postDbStudentLogOut   = require( '../clientPanel/paragala/studentLogOut/postIndex.js' );
@@ -27,13 +28,17 @@
     .post( postDbStudentLogOut.studentLogOut)
 
   app.route( '/questionsUpdate' )
-    .put( postDbQuestionsAdmin.questionsUpdate )
+    .put( postDbQuestionAdmin.questionsUpdate )
 
   app.route( '/questionsListAdmin' )
-    .get( getDbQuestionsAdmin.questionsList )
+    .get( getDbQuestionAdmin.questionsList )
 
   app.route( '/questionsListClient' )
-    .get( getDbQuestionsClient.questionsList )
+    .get( getDbQuestionClient.questionsList )
+    .put( putDbQuestionClient.questionsSubmit )
+
+  app.route( '/studentQuestionList' )
+    .get( getDbQuestionClient.studentQuestionList )
 
 
   module.exports = app;

@@ -10,7 +10,7 @@
     next();
   })
 
-  router.get( '/paragala/index.html', studentIsAuthenticated, function( req, res ) {
+  router.get( '/paragala/index.html', function( req, res ) {
     res.render( 'paragala/index.html', {studentUser:req.session.studentUser } )
   })
 
@@ -23,7 +23,10 @@
   })
 
   function studentIsAuthenticated( req, res, next ) {
+    console.log( 'jories' )
     if( !req.session.studentUser ) return next();
+    //res.send({redirect: '/dashboard/index.html'})
+    req.method = 'get';
     res.redirect('/paragala/questions/index.html')
   }
 

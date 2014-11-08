@@ -114,6 +114,7 @@
 
         function init() {
           //isStudentLogin();
+
         }
 
         function studentLogin(SN) {
@@ -122,10 +123,8 @@
               if( response.studentIsAuthenticated ) {
                 $q.all( questionsListData() )
                   .then(function( response ) {
-                    $timeout(function() {
-                      $window.location.href = 'paragala/questions?category=' +
-                      response.questions[0].title.toLowerCase() + '&sub=2'
-                    }, 5000)
+                    $window.location.href = 'paragala/questions?category=' +
+                    response.questions[0].title.toLowerCase() + '&sub=2'
                   })
               }
             })

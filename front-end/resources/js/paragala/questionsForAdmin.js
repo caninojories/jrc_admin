@@ -72,6 +72,7 @@
           nodeData.items.push({
             title: nodeData.title + '.' + (nodeData.items.length + 1),
             editing: false,
+            selected: false,
             items: []
           });
           return $q.all( questionsData() )

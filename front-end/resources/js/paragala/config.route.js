@@ -18,7 +18,7 @@
               state: 'paragala',
               config: {
                 url: '/paragala',
-                templateUrl: '/paragala/index.html',
+                templateUrl: 'paragala/index.html',
                 controller: 'Paragala as vm',
                 title: 'paragala',
                 settings: {
@@ -26,7 +26,8 @@
                     content: '<i class="fa fa-lock"></i> Paragala'
                 },
                 resolve: {
-                  urlRedirect: function( $q, $window, paragalaDataservice ) {
+                  canino: function( $q, $rootScope, $window, paragalaDataservice ) {
+                    $rootScope.authenticatedUser = false;
                       return $q.all(  studentLoginData('') )
                         .then(function ( response ) {
                           if( response.studentIsAuthenticated ) {
@@ -36,6 +37,8 @@
                                 $window.location.href = 'paragala/questions?category=' +
                                 response.questions[0].title.toLowerCase() + '&sub=2'
                               })
+                          } else {
+                            $rootScope.authenticatedUser = true;
                           }
                         })
 
@@ -54,16 +57,6 @@
                     }
                   }
                 }
-                // resolve: {
-                //   commonsDataservice: 'commonsDataservice',
-                //   urlRedirect: function ( commonsDataservice, $state ) {
-                //     commonsDataservice.getStudentLoginStatus( 'student', {} ).then( function ( data ) {
-                //       if( data.isStudentLogin == true ) {
-                //         $state.go( 'paragala_questions' )
-                //       }
-                //     })
-                //   }
-                // }
               }
             }, {
               state: 'admin_paragala_questions',
@@ -79,7 +72,25 @@
                 url: '/paragala/questions',
                 templateUrl: 'paragala/questions/index.html',
                 controller: 'QuestionsClient as vm',
-                title: 'paragala'
+                title: 'paragalaQuestions',
+                resolve: {
+                  questionList: function( $q, $rootScope, paragalaDataservice ) {
+                    console.log( 'jories' )
+                    return $q.all( studentQuestionListData() )
+                      .then(function( response ) {
+                        console.log( response )
+                        $rootScope.questionList = response.questions;
+                        return response;
+                      })
+
+                    function studentQuestionListData() {
+                      return paragalaDataservice.studentQuestionList( 'studentQuestionList' )
+                        .then(function( response ) {
+                          return response;
+                        })
+                    }
+                  }
+                }
               }
             }, {
               state: 'paragala_add-student',

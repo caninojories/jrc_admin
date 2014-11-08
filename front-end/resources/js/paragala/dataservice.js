@@ -9,13 +9,15 @@
 
 		function paragalaDataservice( $rootScope, serviceParagalaStudentApi ){
 			var service = {
-				studentLogin			: studentLogin,
-				studentLogout			: studentLogout,
-				postAnswerStudent	: postAnswerStudent,
-				addStudent				: addStudent,
-				voteResultsData		: voteResultsData,
-				questionsUpdate		: questionsUpdate,
-				questionsList			: questionsList
+				studentLogin				: studentLogin,
+				studentLogout				: studentLogout,
+				postAnswerStudent		: postAnswerStudent,
+				addStudent					: addStudent,
+				voteResultsData			: voteResultsData,
+				questionsUpdate			: questionsUpdate,
+				questionsList				: questionsList,
+				selectedQuestion		: selectedQuestion,
+				studentQuestionList : studentQuestionList
 			}
 
 			return service;
@@ -106,6 +108,32 @@
 					})
 
 				function questionsListData( response, status, headers, config ) {
+					return response;
+				}
+			}
+
+			function selectedQuestion( api, param ) {
+				return serviceParagalaStudentApi.one( api )
+					.put( param )
+					.then( selectedQuestionData )
+					.catch(function( message ) {
+						$location.url( '/' )
+					})
+
+				function selectedQuestionData( response, status, headers, config ) {
+					return response;
+				}
+			}
+
+			function studentQuestionList( api ) {
+				return serviceParagalaStudentApi.one( api )
+					.get({})
+					.then( studentQuestionListData )
+					.catch(function( message ) {
+						$location.url( '/' )
+					})
+
+				function studentQuestionListData( response, status, headers, config ) {
 					return response;
 				}
 			}
