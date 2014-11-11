@@ -25,8 +25,9 @@
       </div>
     </div>
     <div class='container-fluid'>
+      <i class="fa fa-caret-square-o-left pull-left" style='margin-left: -10px;margin-top: 10px'></i>
       <div ng-repeat='item in vm.sliceObject' class='category' ng-class="vm.sliceObject[0].items.length > 1?
-        'col-sm-8 col-sm-offset-2':'col-sm-4 col-sm-offset-4'">
+        'col-sm-10 col-sm-offset-1':'col-sm-4 col-sm-offset-4'">
         <div class='col-sm-12 text-center'>
           {{item.title}}
         </div>

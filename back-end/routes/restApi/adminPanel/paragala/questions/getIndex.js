@@ -5,7 +5,7 @@
   var url   = require('url')
   var querystring = require('querystring')
 
-  exports.questionsList = function( req, res ) {
+  exports.questionListAdmin = function( req, res ) {
     mongo.db( 'paragala' )
       .collection( 'questions' )
       .findOne({_id: 'paragalaQuestionnaire'})

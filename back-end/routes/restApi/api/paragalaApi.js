@@ -31,10 +31,10 @@
     .put( postDbQuestionAdmin.questionsUpdate )
 
   app.route( '/questionsListAdmin' )
-    .get( getDbQuestionAdmin.questionsList )
+    .get( getDbQuestionAdmin.questionListAdmin )
 
   app.route( '/questionsListClient' )
-    .get( getDbQuestionClient.questionsList )
+    .get( getDbQuestionClient.questionListClient )
     .put( putDbQuestionClient.questionsSubmit )
 
   app.route( '/studentQuestionList' )

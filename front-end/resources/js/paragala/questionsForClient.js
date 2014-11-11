@@ -24,7 +24,6 @@
         function init() {
           questionsList();
           questionListAdmin();
-          //studentQuestionList();
         }
 
         function questionsList() {
@@ -46,16 +45,19 @@
         function questionListAdmin() {
           return $q.all( questionsListAdminData() )
             .then(function( response ) {
-              vm.questionBuilder = response.questions;
+              vm.questionBuilder = $rootScope.studentQuestionList;
               $rootScope.list    = response.questions;
-              for( var i = 0; i < vm.questionBuilder.length; i++) {
-                for( var j = 0; j < vm.questionBuilder[i].items.length; j++ ) {
-                  for( var z = 0; z < 1; z++ ) {
-                    vm.questionBuilder[i].items[j].items.splice(1, vm.questionBuilder[i].items[j].items.length -1)
-                    try {
-                      //vm.questionBuilder[i].items[j].items[0].title = ''
-                    }catch(e) {
+              if( !$rootScope.studentQuestionList ) {
+                vm.questionBuilder = response.questions;
+                for( var i = 0; i < vm.questionBuilder.length; i++) {
+                  for( var j = 0; j < vm.questionBuilder[i].items.length; j++ ) {
+                    for( var z = 0; z < 1; z++ ) {
+                      vm.questionBuilder[i].items[j].items.splice(1, vm.questionBuilder[i].items[j].items.length -1)
+                      try {
+                        vm.questionBuilder[i].items[j].items[0].title = ''
+                      }catch(e) {
 
+                      }
                     }
                   }
                 }
@@ -139,12 +141,13 @@
         }
 
         function dataQuestionSelected( categoryTitle, subItemTitle, SecondSubItemTitle ) {
-          for( var i = 0; i < $rootScope.questionList.length; i++) {
-            if($rootScope.questionList[i].title == categoryTitle ) {
-              for( var j = 0; j < $rootScope.questionList[i].items.length; j++ ) {
-                if($rootScope.questionList[i].items[j].title == subItemTitle ) {
-                  for( var z = 0; z < $rootScope.questionList[i].items[j].items.length; z++ ) {
-                    if($rootScope.questionList[i].items[j].items[z].title == SecondSubItemTitle ) {
+          if( $rootScope.studentQuestionList == undefined ) return 0;
+          for( var i = 0; i < $rootScope.studentQuestionList.length; i++) {
+            if($rootScope.studentQuestionList[i].title == categoryTitle ) {
+              for( var j = 0; j < $rootScope.studentQuestionList[i].items.length; j++ ) {
+                if($rootScope.studentQuestionList[i].items[j].title == subItemTitle ) {
+                  for( var z = 0; z < $rootScope.studentQuestionList[i].items[j].items.length; z++ ) {
+                    if($rootScope.studentQuestionList[i].items[j].items[z].title == SecondSubItemTitle ) {
                       return true;
                     }
                   }

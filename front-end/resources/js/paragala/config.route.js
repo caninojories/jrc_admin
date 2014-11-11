@@ -75,11 +75,10 @@
                 title: 'paragalaQuestions',
                 resolve: {
                   questionList: function( $q, $rootScope, paragalaDataservice ) {
-                    console.log( 'jories' )
                     return $q.all( studentQuestionListData() )
                       .then(function( response ) {
                         console.log( response )
-                        $rootScope.questionList = response.questions;
+                        $rootScope.studentQuestionList = response.questions;
                         return response;
                       })
 
