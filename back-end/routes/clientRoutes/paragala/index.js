@@ -22,6 +22,11 @@
     res.render( 'paragala/questions/index.html' )
   })
 
+  router.get( '/paragala/startVoting/index.html', function(req, res ) {
+    res.render( 'paragala/startVoting/index.html' )
+  })
+
+
   function studentIsAuthenticated( req, res, next ) {
     console.log( 'jories' )
     if( !req.session.studentUser ) return next();

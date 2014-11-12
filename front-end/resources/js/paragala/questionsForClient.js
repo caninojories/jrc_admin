@@ -15,8 +15,8 @@
       vm.questionBuilder  = [];
       vm.questionList     = null;
 
-      vm.selectedQuestion = selectedQuestion;
-      vm.studentLogout    = studentLogout;
+      vm.selectedQuestion     = selectedQuestion;
+      vm.studentLogout        = studentLogout;
       vm.dataQuestionSelected = dataQuestionSelected;
 
         init();
@@ -71,21 +71,6 @@
               return response;
             })
         }
-
-        // function studentQuestionList() {
-        //   return $q.all( studentQuestionListData() )
-        //     .then(function( response ) {
-        //       vm.questionList = response;
-        //       return response;
-        //     })
-        // }
-        //
-        // function studentQuestionListData() {
-        //   return paragalaDataservice.studentQuestionList( 'studentQuestionList' )
-        //     .then(function( response ) {
-        //       return response;
-        //     })
-        // }
 
         function selectedQuestion( categoryTitle, subItemTitle, SecondSubItemTitle ) {
           console.log( $rootScope.list )

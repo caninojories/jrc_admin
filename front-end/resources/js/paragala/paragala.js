@@ -117,28 +117,22 @@
 
         }
 
-        function studentLogin(SN) {
+        function studentLogin( SN ) {
           return $q.all(  studentLoginData(SN) )
             .then(function ( response ) {
+              $window.location.href = 'paragala/startVoting'
               if( response.studentIsAuthenticated ) {
-                $q.all( questionsListData() )
-                  .then(function( response ) {
-                    $window.location.href = 'paragala/questions?category=' +
-                    response.questions[0].title.toLowerCase() + '&sub=2'
-                  })
+                // $q.all( questionsListData() )
+                //   .then(function( response ) {
+                //     $window.location.href = 'paragala/questions?category=' +
+                //     response.questions[0].title.toLowerCase() + '&sub=2'
+                //   })
               }
             })
         }
 
         function studentLoginData(SN) {
           return paragalaDataservice.studentLogin( 'studentLogin', {studentNumber: SN} )
-            .then(function( response ) {
-              return response;
-            })
-        }
-
-        function questionsListData() {
-          return paragalaDataservice.questionsList( 'questionsListAdmin', {} )
             .then(function( response ) {
               return response;
             })

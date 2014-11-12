@@ -92,6 +92,14 @@
                 }
               }
             }, {
+              state: 'paragala_startVoting',
+              config: {
+                url: '/paragala/startVoting',
+                templateUrl: 'paragala/startVoting/index.html',
+                controller: 'StartVoting as vm',
+                title: 'paragalaStartVoting'
+              }
+            }, {
               state: 'paragala_add-student',
               config: {
                 url: '/paragala/add-student',

@@ -126,6 +126,7 @@
 			}
 
 			function studentQuestionList( api ) {
+				console.log( api )
 				return serviceParagalaStudentApi.one( api )
 					.get({})
 					.then( studentQuestionListData )
