@@ -18,7 +18,7 @@
                     <li class='list-group-item'>
                       <div class='radio'>
                         <label>
-                          <input type='radio' ng-checked='vm.dataQuestionSelected(item.title, subItem.title, secondSubItem.title)' name={{subItem.title}} ng-click='vm.selectedQuestion(item.title, subItem.title, secondSubItem.title)'>
+                          <input type='radio' ng-checked='vm.dataQuestionSelected(item.title, subItem.title, secondSubItem.title )' name={{subItem.title}} ng-click='vm.selectedQuestion(item.title, subItem.title, secondSubItem.title)'>
                             <span ng-bind='secondSubItem.title'></span>
                           </input>
                         </label>
@@ -34,8 +34,18 @@
         <nav ng-class="vm.sliceObject[0].items.length > 1?
           'col-sm-8 col-sm-offset-2':'col-sm-4 col-sm-offset-4'">
           <ul class="pager">
-            <li class="previous"><a href={{vm.previousUrl}} target='_self'>Previous</a></li>
-            <li class="next"><a href='{{vm.nextUrl}}' target='_self'>Next</a></li>
+            <li class="previous">
+              <button class='btn btn-default pull-left'>
+                <a href={{vm.previousUrl}} target='_self'>Previous
+                </a>
+              </button>
+            </li>
+            <li class="next">
+              <button class='btn btn-default pull-right' ng-disabled="vm.counterSelected">
+                <a href='{{vm.nextUrl}}' target='_self'>Next {{vm.counterSelected}}
+                </a>
+              </button>
+            </li>
           </ul>
         </nav>
       </div>

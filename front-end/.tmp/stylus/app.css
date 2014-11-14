@@ -205,16 +205,20 @@
 .questions .category .subItem .secondSubItem .panel-body .list-group .radio label > input {
   margin-top: 10px;
 }
-.questions .pager a {
+.questions .pager button {
   font-family: gothic;
   font-size: 18px;
   color: #000;
   background-color: #d84444;
   border-radius: 0px;
 }
-.questions .pager a:hover {
+.questions .pager button:hover {
   background-color: #b83636;
   border: 2px solid;
+}
+.questions .pager button a {
+  color: #000;
+  text-decoration: none;
 }
 .questions .startVoting {
   font-family: gothic;
