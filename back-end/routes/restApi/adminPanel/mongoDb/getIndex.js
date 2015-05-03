@@ -26,15 +26,17 @@
       .then(function ( collNames ) {
         var pushCleanDatabaseCollection = [];
         _.forEach( collNames, function( collName ) {
-            var cleanName = collName.name.replace( dbName + ".","" );
-            if(cleanName != "system.indexes")
+            var cleanName = collName.name.replace( dbName + '.','' );
+            if(cleanName !== 'system.indexes') {
               pushCleanDatabaseCollection.push( {name:cleanName, url: request + cleanName} );
-          })
-        res.json( pushCleanDatabaseCollection )
-      })
-  }
+            }
+          });
+        res.json( pushCleanDatabaseCollection );
+      });
+  };
 
   exports.listDocuments = function( req, res ) {
+    console.log( 'databaseList' );
     var dbName = req.params.db;
     var dbCollection = req.params.collection;
     var request = 'database/' + dbName + '/' + dbCollection + '/';
@@ -43,19 +45,21 @@
       .find({})
       .toArray()
       .then(function( documents ) {
+        console.log( documents );
         var pushDocument = [];
         _.forEach( documents, function( document ) {
-          pushDocument.push( {name: document._id, url: request + document._id} )
-        })
-        res.json( pushDocument )
-      })
-  }
+          pushDocument.push( {name: document._id, url: request + document._id} );
+        });
+        res.json( pushDocument );
+      });
+  };
 
   exports.document = function( req, res ) {
     mongo.db( req.params.db )
       .collection( req.params.collection )
-      .findOne( {'_id': req.params.id.toString()} )
+      .findOne( {'_id': ObjectId.isValid(req.params.id.toString())?
+        new ObjectId(req.params.id.toString()): req.params.id.toString()} )
       .then(function( document ) {
-        res.json( document )
-      })
-  }
+        res.json( document );
+      });
+  };

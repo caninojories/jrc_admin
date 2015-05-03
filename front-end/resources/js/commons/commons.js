@@ -8,12 +8,6 @@
     Control.$inject = ['viewContentLoaded'];
 
     function Control( viewContentLoaded ) {
-      var vm = this;
-
-      viewContentLoaded();
-
-      function viewContentLoaded() {
-        viewContentLoaded.loadScript('/js/custom/layout.js');
-      }
+      //delete this commonsjs
     }
-})()
+})();

@@ -1,5 +1,5 @@
 (function() {
     'use strict';
 
-    angular.module('app.dashboard',['angularLoad']);
+    angular.module('app.dashboard',[]);
 })();

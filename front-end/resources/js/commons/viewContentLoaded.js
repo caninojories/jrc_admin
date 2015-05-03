@@ -8,13 +8,17 @@
     viewContentLoaded.$inject = [ '$rootScope', 'logger' ];
 
     function viewContentLoaded ( $rootScope, logger ) {
-
-      loadScript();
-
-      function loadScript() {
-        $rootScope.$on('$viewContentLoaded', function() {
-          jcaLayout.init()
-        });
-      }
+      return {
+        loadScript : function loadScript() {
+          $rootScope.$on('$viewContentLoaded', function() {
+            jcaLayout.fullPage();
+          });
+        },
+        carouselScript : function carouselScript() {
+          $rootScope.$on('$viewContentLoaded', function() {
+            jcaLayout.carousel();
+          });
+        }
+      };
     }
-})()
+})();

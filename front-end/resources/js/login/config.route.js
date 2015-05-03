@@ -3,7 +3,7 @@
 
   angular
     .module('app.login')
-    .run(appRun)
+    .run(appRun);
 
     function appRun( routehelper ) {
       routehelper.configureRoutes(getRoutes());
@@ -16,8 +16,13 @@
           url: '/',
           templateUrl: '/primary/index.html',
           controller: 'Login as vm',
-          title: 'main'
+          title: 'main',
+          resolve: {
+            fullPage: function ( viewContentLoaded ) {
+              viewContentLoaded.loadScript();
+            }
+          }
         }
-      }]
+      }];
     }
-})()
+})();

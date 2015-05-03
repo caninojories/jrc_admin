@@ -10,7 +10,7 @@ $(document).ready(function(){
 		interval: 5000,
 		cycle: true,
 		pause: "false"
-	})
+	});
 
 	$('[data-toggle="tooltip"]').hover(function(){
 		$(this).tooltip('toggle');

@@ -113,6 +113,7 @@
         init();
 
         function init() {
+          viewContentLoaded.carouselScript();
           //isStudentLogin();
 
         }

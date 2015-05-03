@@ -5,13 +5,13 @@ angular.module('ngAPI')
     return {
       restrict : "E",
       controller : function ($scope) {
-        var rootUrl = '#/database';
+        var rootUrl = '/database';
         $scope.crumbs = [{url : rootUrl, text : "Database"}];
         var runningUrl = rootUrl;
         var counter = 0;
         for(var param in $stateParams) {
-          if(counter == 0) {
-            runningUrl = '#/database'
+          if(counter === 0) {
+            runningUrl = '/database'
             counter += 1;
           }
           runningUrl += '/' + $stateParams[param];

@@ -34,7 +34,7 @@
         var routes = [];
         //var $routeProvider = routehelperConfig.config.$routeProvider;
         var $stateProvider = routehelperConfig.config.$stateProvider;
-        var $urlRouterProvider = routehelperConfig.config.$urlRouterProvider
+        var $urlRouterProvider = routehelperConfig.config.$urlRouterProvider;
 
         var service = {
             configureRoutes: configureRoutes,
@@ -51,7 +51,7 @@
                 route.config.resolve =
                     angular.extend( route.config.resolve || {}, routehelperConfig.config.resolveAlways );
                 //$routeProvider.when( route.url, route.config );
-                $stateProvider.state( route.state, route.config )
+                $stateProvider.state( route.state, route.config );
             });
             $urlRouterProvider.otherwise("/");
             //$routeProvider.otherwise({redirectTo: '/'});
@@ -98,8 +98,8 @@
         function fromToState() {
           $rootScope.$on('$stateChangeStart',
             function( event, toState, toParams, fromState, fromParams ) {
-              
-            })
+
+            });
         }
 
         function updateDocTitle() {
