@@ -1,6 +1,7 @@
   "use strict";
 
   var mongo = require('../../../../configuration/mongodb');
+  var ObjectId  = require('mongodb').ObjectID;
   var util  = require('util');
 
   exports.dbs = function ( req, res ) {
@@ -32,15 +33,30 @@
   }
 
   exports.doc = function ( req, res ) {
+    var update = {};
+    for (var i in req.body.documentId) {
+      // console.log(i === '_id');
+      console.log(i === '__v');
+      if (i !== '_id') {
+        if (i !== '__v') {
+          update[i] = req.body.documentId[i];
+        }
+      }
+    }
     var dbName 		= req.params.db;
     var collName 	= req.params.collection;
     var id 				= req.params.id;
     var doc 			= req.body.documentId;
 
+    console.log(update);
     mongo.db( req.params.db )
       .collection( req.params.collection )
-      .save( req.body.documentId )
-      .then(function( document ) {
-        res.json({sucess: 'success'})
+      .findAndModify({
+        query: {'_id': ObjectId.isValid(req.body.documentId._id.toString())? new ObjectId(req.body.documentId._id.toString()): req.body.documentId._id.toString()},
+        update: update,
+        new: true
       })
-  }
+      .then(function( document ) {
+        res.json({sucess: 'success'});
+      });
+  };
